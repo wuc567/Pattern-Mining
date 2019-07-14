@@ -1,4 +1,4 @@
-## NOSEP: Non-Overlapping Sequence Pattern Mining with Gap Constraints
+ <p align="center">NOSEP: Non-Overlapping Sequence Pattern Mining with Gap Constraints</p>
 
 Youxi Wu, Yao Tong, Xingquan Zhu, Xindong Wu. NOSEP: Nonoverlapping Sequence Pattern Mining with Gap Constraints. IEEE Transactions on Cybernetics.  DOI (identifier) 10.1109/TCYB.2017.2750691
 
@@ -6,7 +6,7 @@ Youxi Wu, Yao Tong, Xingquan Zhu, Xindong Wu. NOSEP: Nonoverlapping Sequence Pat
 
 Sequence pattern mining aims to discover frequent subsequences as patterns in a single sequence or a sequence database. By combining gap constraints (or flexible wildcards), users can specify special characteristics of the patterns and discover meaningful subsequences suitable for their own application domains, such as finding gene transcription sites from DNA sequences or discovering patterns for time series data classification.  However, due to the inherent complexity of sequence patterns, including the exponential candidate space with respect to pattern letters and gap constraints, to date, existing sequence pattern mining methods are either incomplete or do not support the Apriori property since the support or support ratio of a pattern may be greater than that of its sub-patterns. Most importantly, patterns discovered by these methods are either too restrictive or too general and cannot represent underlying meaningful knowledge in the sequences. In this paper, we focus on a non-overlapping sequence pattern mining task with gap constraints, where a non-overlapping sequence pattern allows sequence letters to be flexible, yet maximally, utilized for pattern discovery. A new non-overlapping sequence pattern mining algorithm (NOSEP), which is an Apriori-based and complete mining algorithm, is proposed by using Nettree, a specially designed data structure, to calculate the exact occurrence of a pattern in the sequence. Experimental results and comparisons with biology DNA sequences, time series data,  and  Gazelle Datasets demonstrate the efficiency of the proposed algorithm and the uniqueness of non-overlapping sequence patterns compared to other methods.
 
-Datasets:[Dataset1](https://github.com/wuc567/Pattern-Mining/blob/master/NOSEP/DataSet.zip)  (DNA and Protein sequences)
+Datasets:[Dataset1](https://github.com/wuc567/Pattern-Mining/blob/master/NOSEP/DataSet.rar)  (DNA and Protein sequences)
 
  
 
