@@ -1,4 +1,4 @@
-## NOSEP: Non-Overlapping Sequence Pattern Mining with Gap Constraints</p>
+## NOSEP: Non-Overlapping Sequence Pattern Mining with Gap Constraints
 ***
 
 Youxi Wu, Yao Tong, Xingquan Zhu, Xindong Wu. NOSEP: Nonoverlapping Sequence Pattern Mining with Gap Constraints. IEEE Transactions on Cybernetics.  DOI (identifier) 10.1109/TCYB.2017.2750691
