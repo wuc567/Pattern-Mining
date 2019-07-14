@@ -9,7 +9,8 @@ Sequence pattern mining aims to discover frequent subsequences as patterns in a 
 
 ---
 
-Datasets:[Dataset1](https://github.com/wuc567/Pattern-Mining/blob/master/NOSEP/DataSet.rar)  (DNA and Protein sequences)
+#### Datasets:
+[Dataset1](https://github.com/wuc567/Pattern-Mining/blob/master/NOSEP/DataSet.rar)  (DNA and Protein sequences)
 
  
 
@@ -20,7 +21,7 @@ Gazelle Datasets (From [SPMF](http://www.philippe-fournier-viger.com/spmf/index.
 [BMSWebView2 (Gazelle) ( KDD CUP 2000)](https://github.com/wuc567/Pattern-Mining/blob/master/NOSEP/BMS2.zip)
 
 
-Algorithms:
+#### Algorithms:
 
 [NOSEP](https://github.com/wuc567/Pattern-Mining/blob/master/NOSEP/NOSEP.zip)   for character version(small alphabet size)
 
@@ -52,7 +53,7 @@ Algorithms:
 
 [GSgrow-i](https://github.com/wuc567/Pattern-Mining/blob/master/NOSEP/GSgrow-i.zip)  for integer version(large alphabet size)
 
-is proposed by Ding et al\[1\] .
+is proposed by Ding et al \[1\].
 
  
 
