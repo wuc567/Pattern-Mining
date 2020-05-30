@@ -1,0 +1,323 @@
+package mapb;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
+/**
+ *QPattern class
+ */
+class QPattern {
+private String pattern;
+private Map<Integer,Integer>suffIndex;
+public Map<Integer, Integer> getSuffIndex() {
+	return suffIndex;
+}
+public void setSuffIndex(Map<Integer,Integer> suffIndex) {
+	this.suffIndex = suffIndex;
+}
+public String getPattern() {
+	return pattern;
+}
+public void setPattern(String pattern) {
+	this.pattern = pattern;
+}
+}
+
+/**
+ *MAPB class(main class)
+ *
+ */
+public class MAPB {
+	private LinkedList<QPattern> frePats; //a link queue; 
+	private Map<Integer,Long>ofsIndex=new HashMap<Integer,Long>(); 
+	private static int Min,Max;
+	private static int proMaxLen=31;
+	 private static char[]charSet={'a','c','t','g'};
+	 public MAPB(){ 
+		 frePats=new LinkedList<QPattern>();
+	 }
+	 public void put(QPattern pat){//add a pattern to the queue;
+		 frePats.addLast(pat);
+	 }
+	 public QPattern get(){//remove and return a pattern from the queue;
+		  return frePats.removeFirst();
+	 }
+	public boolean empty(){//judge whether a pattern is emptyï¼?
+		  return frePats.isEmpty();
+	} 
+	public void getNewLevels(Map<Integer,Integer>[]newLevels,long []sups){
+		for(int i=0;i<charSet.length;i++){
+	    	newLevels[i]=new HashMap<Integer,Integer>();
+	    	sups[i]=0;
+	    }
+	}
+	/*
+	 * get length-1 frequent patterns;
+	 */
+	public int getLen_1Pats(String str,long []sups,double threshold,StringBuffer buff,int n){
+		 int strLen=str.length(); 
+		 Map<Integer,Integer>[]newLevels=new Map[charSet.length];
+		 getNewLevels(newLevels,sups);
+		 QPattern pt=null;
+		 for(int i=0;i<strLen;i++){  
+			 for(int j=0;j<charSet.length;j++){
+				if(str.charAt(i)==charSet[j]){
+					sups[j]++; 
+					newLevels[j].put(i,1);
+				 }
+			  }
+		  }
+		 threshold=(strLen-(n-1)*((Max+Min)/2.0+1))/strLen*threshold;
+         for(int i=0;i<charSet.length;i++){  
+		    if(sups[i]*1.0/strLen>threshold){
+			    buff.append(charSet[i]);
+			    pt=new QPattern();
+			    pt.setPattern(buff.toString());
+			    pt.setSuffIndex(newLevels[i]);
+			    put(pt);
+			    buff.delete(0,1);
+		  }else{
+			  newLevels[i].clear();
+			  newLevels[i]=null; 
+		  }		 
+	 }
+     newLevels=null;
+     return frePats.size();
+	}
+	/*
+	 * compute the offset number using incomplete Nettree;
+	 */
+	public double getOffSup(String str){
+		double offSup=0L;
+		int index=0,flex=Max-Min+1;
+		long oldOcur=0;
+		int strLen=str.length();
+		Map<Integer,Long>newOfsIndex=new HashMap<Integer,Long>();
+		Collection<Integer> keys=ofsIndex.keySet();
+		for(Iterator<Integer> key=keys.iterator();key.hasNext();){				
+			index=key.next().intValue();
+			for(int t=1,j=index+Min+1;j<strLen&&t<=flex;j++,t++){
+						oldOcur=ofsIndex.get(index).longValue();
+						offSup+=oldOcur;
+						if(!newOfsIndex.containsKey(j)){//if not contain new node;
+							newOfsIndex.put(j, oldOcur); 
+						}else{                       //if contain new node;
+						    long newOcur=newOfsIndex.get(j)+oldOcur;
+						    newOfsIndex.put(j,newOcur);
+						}								
+			}	
+		}
+		ofsIndex.clear();
+		ofsIndex=null;
+		ofsIndex=newOfsIndex;
+	    return offSup;
+}
+
+/*
+  * construct incomplete Nettrees of super-patterns of a sub-pattern and compute their numbers of supports;
+ */	
+public void IN_Support(QPattern oldPat,int strLen,String str,Map<Integer,Integer>[]newLevel,long[] newOcurs){
+		int index=0,flex=Max-Min+1;
+		int oldOcur=0;
+		Collection<Integer> keys=oldPat.getSuffIndex().keySet();
+		for(Iterator<Integer> key=keys.iterator();key.hasNext();){				
+			index=key.next().intValue();
+			for(int t=1,j=index+Min+1;j<strLen&&t<=flex;j++,t++){
+				for(int c1=0;c1<charSet.length;c1++){
+					if(str.charAt(j)==charSet[c1]){
+						oldOcur=oldPat.getSuffIndex().get(index).intValue();
+						newOcurs[c1]+=oldOcur;
+						if(!newLevel[c1].containsKey(j)){//if not contain new node;
+							newLevel[c1].put(j, oldOcur); 
+						}else{                       //if contain new node;
+						    int ocur=newLevel[c1].get(j);
+						    newLevel[c1].put(j,(ocur+oldOcur));
+						}
+						break;
+					}
+				}						
+			}	
+		}	 
+}
+
+/*
+ * get parameters from console;
+ */
+private static String readDataFromConsole() {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String str = null;
+    try {
+        str = br.readLine();
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return str;
+}
+
+/*
+ * read the mined sequence from a file;
+ */
+public  String readData(String fileName){
+	String s=null;
+	StringBuffer buff=new StringBuffer();
+	BufferedReader br=null;
+	try{
+    br=new BufferedReader(new InputStreamReader(new FileInputStream(fileName))); 
+	s=br.readLine();
+	String strs[];
+	 while(s!=null){
+	    	s=s.trim();
+	    	strs=s.split("\\s+");
+	    	for(int i=0;i<strs.length;i++){
+	    		buff.append(strs[i]);
+	    		strs[i]=null;
+	    	}
+	    	s=br.readLine();
+    }
+	s=buff.toString(); 
+	strs=null;
+	buff.delete(0, s.length());
+	br.close();
+	br=null;
+	}catch(FileNotFoundException e1){
+		e1.printStackTrace();
+		System.out.println("/n The file is not found!");
+	}catch(IOException e2){
+	    e2.printStackTrace();
+	    System.out.println("read or write makes an error!");
+	}catch(Exception e3){
+	    e3.printStackTrace();
+	}
+	return s; 
+}
+
+/*
+ * mine frequent patterns of various lengths from the sequence;
+ */
+public void mineFrePat(String str,int n,double threshold,double[]offSup,float[]pro){
+	StringBuffer buff=new StringBuffer();
+	int strLen=str.length();
+	int patLen=1;	
+	int frePatsNum=0;
+	long []sups=new long[charSet.length];
+	QPattern pt=null;
+	frePatsNum=getLen_1Pats(str,sups,threshold,buff,n);
+	int queueLen=frePats.size();
+	int genPatNum=0,Num=frePatsNum;
+	Map<Integer,Integer>[]newLevels=new Map[charSet.length];
+	double candiSup=0.0;
+	double freSup=0.0;
+	while(!empty()){
+	    System.out.println("the number of frequent patterns of length-"+patLen+" is "+Num);
+	    Num=0;
+	    genPatNum=0;
+		patLen++;
+		candiSup=offSup[patLen]*pro[patLen]*threshold;
+		freSup=offSup[patLen]*threshold;
+		for(int k=1;k<=frePatsNum;k++){
+		   pt=get();
+		   buff.append(pt.getPattern());
+		   getNewLevels(newLevels,sups);
+		   IN_Support(pt,strLen,str,newLevels,sups);
+		   for(int t=0;t<charSet.length;t++){
+			   // double r=sups[t]/offSup;			    
+			    if(sups[t]>=candiSup){	
+			    	if(sups[t]>=freSup){
+			    		Num++;
+			    	 }
+			         buff.append(charSet[t]);			       
+			         QPattern newPat=new QPattern();
+			         newPat.setPattern(buff.toString());
+			         newPat.setSuffIndex(newLevels[t]);
+			         put(newPat);
+				     genPatNum++;
+				     buff.delete(patLen-1, patLen);
+				     int queueCaptity=frePats.size();
+				     if(queueCaptity>queueLen){
+				    	 queueLen=queueCaptity;
+				     }
+			    }else{
+			    	newLevels[t].clear();
+			    	newLevels[t]=null; 
+			}   		  
+		 }   
+		    pt.setPattern(null);
+		    pt.getSuffIndex().clear();
+		    pt.setSuffIndex(null);
+		    pt=null;
+		    buff.delete(0, patLen-1);		    
+	}
+		frePatsNum=genPatNum;
+  }	
+     newLevels=null;
+     System.out.println("the maximum capacity of the queue is "+queueLen);
+}
+
+/*
+ * main function;
+ */
+public static void main(String args[]){
+	MAPB mapb=new MAPB();
+	System.out.println("the name of algorithm is MSPB");;
+	double threshold=0.00003;	
+	int n=13;	
+	System.out.println("please input the file path of bio-sequence(*.txt)");
+	String filePath = readDataFromConsole();
+	System.out.println("the file path is  "+filePath);	
+	String str=mapb.readData(filePath);
+	if(str==null||str.equals("")){
+		System.out.println("data is a null string");
+	}
+	int strLen=str.length();
+	System.out.println("the length of the sequence is "+str.length());
+	try{		
+	    System.out.println(" please input the minimum gap:");	   
+		Min=Integer.parseInt(readDataFromConsole());
+	    System.out.println(" the min gap="+Min);
+	    System.out.println(" please input the maximum gap:");
+		Max=Integer.parseInt(readDataFromConsole());
+	    System.out.println(" the max gap="+Max);
+	    System.out.println(" please input the threshold:");	
+	    threshold=Double.parseDouble(readDataFromConsole());
+	    System.out.println(" the threshold is: "+threshold);
+	    System.out.println(" please input the possible maximum length of frequent patterns:");
+	    n=Integer.parseInt(readDataFromConsole());
+	    System.out.println("the maximum length of frequent patterns is: "+n);
+	}catch(Exception e){
+		    System.out.println("the data type is wrong,please input again!");
+		    System.exit(0);
+	}
+	long startTime=System.currentTimeMillis(); 
+	int l1=(strLen+Max)/(Max+1);
+	if(n>l1) n=l1; 
+	if (proMaxLen<n*2){
+		proMaxLen=n*2+1;
+	}
+	double[] offSup=new double[proMaxLen];
+    float[] pro=new float[proMaxLen];
+    for(int i=2;i<=n;i++){
+		pro[i]=(float)((strLen-(n-1)*((Max+Min)/2.0+1))/(strLen-(i-1)*((Max+Min)/2.0+1)));;
+	}
+	for(int i=n+1;i<proMaxLen;i++){
+		pro[i]=1.0f;
+	}
+	for(int j=0;j<strLen;j++){
+		mapb.ofsIndex.put(j, 1L);
+	}
+	for(int j=2;j<proMaxLen;j++){
+		offSup[j]=mapb.getOffSup(str);
+	}
+	mapb.ofsIndex.clear();
+	mapb.ofsIndex=null;	
+	mapb.mineFrePat(str,n,threshold,offSup,pro);	
+	long endTime=System.currentTimeMillis();
+	System.out.println("The running time is: "+(endTime-startTime));
+ }		 
+}//class

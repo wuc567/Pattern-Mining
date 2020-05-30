@@ -1,0 +1,324 @@
+package mpp;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.Map;
+
+/**
+ * PIL.java (get PIL of each pattern);
+ */
+class PIL {
+private Map<Integer,Integer>patPIL;
+public Map<Integer, Integer> getPatPIL() {
+	return patPIL;
+}
+public void setPatPIL(Map<Integer, Integer> patPIL) {
+	this.patPIL = patPIL;
+}
+public  void getNewPatPIL(PIL preMap,PIL sufMap,Map<Integer,Integer> patPIL,int min,int max){
+	 int count=0;
+	 int sufOcurNum=0;
+	 int preIndexz=0;
+	 int sufIndexz=0;
+	 Collection<Integer> preIndex=preMap.getPatPIL().keySet();
+	 Collection<Integer> sufIndex=sufMap.getPatPIL().keySet();
+	 for(Iterator<Integer> preT=preIndex.iterator();preT.hasNext();){
+		 count=0;
+		 preIndexz=((Integer)preT.next()).intValue();
+		for(Iterator<Integer> sufT=sufIndex.iterator();sufT.hasNext();){
+			 sufIndexz=((Integer)sufT.next()).intValue();
+		     sufOcurNum=sufMap.getPatPIL().get(sufIndexz).intValue();
+		    if(sufIndexz-preIndexz-1>=min&&sufIndexz-preIndexz-1<=max){
+		    	count=count+sufOcurNum;
+		     }
+		}
+		if(count!=0){
+			patPIL.put(preIndexz, count);
+		}
+	 }
+ }
+}
+/**
+ * MPP.java(main class)
+ */
+public class MPP {
+private Map<String,PIL>newPatM=new HashMap<String,PIL>();//save new candidate patterns and their PILs;
+
+private Map<String,PIL>oldPatM=new HashMap<String,PIL>();
+private Map<Integer,Long>ofsIndex=new HashMap<Integer,Long>();
+private static int proMaxLen=31;
+private static int Min,Max;
+//private int  genPatNum;//the number of candidate patterns;
+private int  freqNum;//the number of frequent patterns;
+
+public double getOffSup(String str){// compute the offset number(offSup)using incomplete Nettree;
+	double offSup=0.0;
+	int index=0,flex=Max-Min+1;
+	long oldOcur=0;
+	int strLen=str.length();
+	Map<Integer,Long>newOfsIndex=new HashMap<Integer,Long>();
+	Collection<Integer> keys=ofsIndex.keySet();
+	for(Iterator<Integer> key=keys.iterator();key.hasNext();){				
+		index=key.next().intValue();
+		for(int t=1,j=index+Min+1;j<strLen&&t<=flex;j++,t++){
+					oldOcur=ofsIndex.get(index).longValue();
+					offSup+=oldOcur;
+					if(!newOfsIndex.containsKey(j)){//if not contain new node;
+						newOfsIndex.put(j, oldOcur); 
+					}else{                       //if contain new node;
+					    long newOcur=newOfsIndex.get(j)+oldOcur;
+					    newOfsIndex.put(j,newOcur);
+					}								
+		}//second loop	
+	}//first loop
+	ofsIndex.clear();
+	ofsIndex=null;
+	ofsIndex=newOfsIndex;
+    return offSup;
+}
+public void generateC3(String str){//get length-3 pattern;
+   int flex=Max-Min+1;
+   char []str3=new char[3];
+   String pat="";
+   PIL newPatPIL=null;
+   Map<Integer, Integer> mapPIL=null;
+   int occurNum=0;
+   for(int i=0;i<str.length();i++){
+   str.getChars(i, i+1, str3, 0);
+   for(int j=i+Min+1,tj=1;tj<=flex&&j<str.length();j=j+1,tj++){
+	   str.getChars(j, j+1, str3, 1);	
+       for(int k=j+Min+1,tk=1;tk<=flex&&k<str.length();k=k+1,tk++){
+	      str.getChars(k, k+1, str3, 2);
+	      pat=new String(str3);
+	      if(pat.length()!=3){
+		      continue;
+	      }else{
+	          if(!oldPatM.containsKey(pat)){
+		          newPatPIL=new PIL();
+		          Map<Integer,Integer>patPIL=new HashMap<Integer,Integer>();
+		          patPIL.put(i, 1);
+		          newPatPIL.setPatPIL(patPIL);
+		          oldPatM.put(pat, newPatPIL);
+	          }else{
+	        	  mapPIL=oldPatM.get(pat).getPatPIL();
+	        	  if(mapPIL.containsKey(i)){
+	        		  occurNum=(mapPIL.get(i)).intValue(); 
+	        		  occurNum++;
+	        		  mapPIL.put(i, occurNum);
+	        	  }else{
+	        		  mapPIL.put(i, 1);
+	        	  }
+	          }
+	      }
+       }
+   } 
+}
+}
+/*
+ * get new longer candidate pattern;
+ */
+Map<String,PIL> generaterLPat(Map<String,PIL>patsMap,double freSup,double candiSup,int patLen){
+	Set<String> patSet=patsMap.keySet();
+	StringBuffer buf=new StringBuffer();
+	String  newPat, prePat,subPrePat,sufPat,subSufPat;
+	Iterator<String> t1,t2;
+	double sup=0.0;
+	PIL newPatPIL=null;
+	for( t1=patSet.iterator();t1.hasNext();){
+		prePat=(String)t1.next();
+		subPrePat=prePat.substring(1, prePat.length());
+		PIL prePatPIL=patsMap.get(prePat);
+		for( t2=patSet.iterator();t2.hasNext();){
+        	sufPat=(String)t2.next();
+        	subSufPat=sufPat.substring(0, prePat.length()-1);
+        	PIL sufPatPIL=patsMap.get(sufPat);
+        	if(subPrePat.equals(subSufPat)){
+        		buf.append(prePat.substring(0, 1));
+        		buf.append(sufPat);
+        		newPat=buf.toString();
+        		newPatPIL=new PIL();
+        		Map<Integer,Integer>patPIL=new HashMap<Integer,Integer>();
+        		newPatPIL.getNewPatPIL(prePatPIL, sufPatPIL,patPIL,Min,Max);
+        		if(patPIL.size()!=0){
+        			sup=getPatTNum(patPIL);
+        			//genPatNum++;
+        			if(sup>=freSup){
+        				freqNum++;
+        			}
+        			if(sup>=candiSup){
+        		 		newPatPIL.setPatPIL(patPIL);
+        		 		oldPatM.put(newPat, newPatPIL); 
+        		  	}else{
+        		    
+        		  		 patPIL.clear();
+        		  		 patPIL=null;
+        		  	}
+        		}
+        	}else{
+        		continue;
+        	}
+        	buf.delete(0, buf.length());
+		}
+	}
+	return oldPatM;	
+}
+
+double getPatTNum(Map<Integer,Integer>patPIL){//get the number of a pattern's supports;
+	double count=0;
+	Collection<Integer> vals=patPIL.values(); 
+	for(Iterator<Integer> t=vals.iterator();t.hasNext();){
+	    count+=((Integer)t.next()).intValue();
+	   }
+	return count;	 
+}
+private static String readDataFromConsole() {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String str = null;
+    try {
+        str = br.readLine();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }   
+    return str;
+}
+public String readData(String fileName){ //get the sequence in *.txt file
+	String s=null;
+	StringBuffer buff=new StringBuffer();
+	BufferedReader br=null;
+	try{
+    br=new BufferedReader(new InputStreamReader(new FileInputStream(fileName))); 
+	s=br.readLine();
+	String strs[];
+	 while(s!=null){
+	    	s=s.trim();
+	    	strs=s.split("\\s+");
+	    	for(int i=0;i<strs.length;i++){
+	    		buff.append(strs[i]);
+	    		strs[i]=null;
+	    	}
+	    	s=br.readLine();
+    }
+	s=buff.toString(); 
+	strs=null;
+	buff.delete(0, s.length());
+	br.close();
+	br=null;
+	}catch(FileNotFoundException e1){
+		e1.printStackTrace();
+		System.out.println("/n The file is not found!");
+	}catch(IOException e2){
+	    e2.printStackTrace();
+	    System.out.println("read or write makes an error!");
+	}catch(Exception e3){
+	    e3.printStackTrace();
+	}
+	return s; 
+}
+public void mineFrePats(String str,int n,float threshold,float[]x,double[]offSup){// mine frequent patterns of various lengths;
+	generateC3(str);
+	Collection<String>c3=oldPatM.keySet();
+	String pt=null;
+	double sup=0.0;
+	for(Iterator<String> t=c3.iterator();t.hasNext();){
+		pt=(String)t.next();
+		sup=getPatTNum(oldPatM.get(pt).getPatPIL());
+		if(sup>=threshold*offSup[3]){
+			freqNum++;
+		}
+		if(sup>=threshold*offSup[3]*x[3]){
+			newPatM.put(pt,oldPatM.get(pt));
+			//genPatNum++;
+		}else{
+		
+			oldPatM.get(pt).getPatPIL().clear();
+			oldPatM.get(pt).setPatPIL(null);
+		}
+	}
+	oldPatM.clear(); 
+   System.out.println("the number of frequent patterns of length-3 is "+freqNum);
+   freqNum=0;
+   int patLen=4;
+   Map<String,PIL>tempPatMap=null;
+   double freqSup=0.0,candiSup=0.0;
+   while(newPatM.size()>1){	     
+   freqSup=threshold*offSup[patLen];
+   candiSup=threshold*offSup[patLen]*x[patLen];
+   tempPatMap =generaterLPat(newPatM,freqSup,candiSup,patLen);	
+   System.out.println("the number of frequent patterns of length-"+patLen+" is "+freqNum+"\n");
+   newPatM.clear();
+   oldPatM=newPatM;
+   newPatM=tempPatMap;
+   //genPatNum=0;
+   freqNum=0;
+   patLen=patLen+1;
+   }
+	
+}
+/**
+ * main function
+ * @param args
+ */
+public static void main(String args[]) {
+	MPP mpp=new MPP();
+	System.out.println("the name of algorithm is MPP");
+	float threshold=0.00003f;	
+	int n=13;	
+	System.out.println("please input the file path of bio-sequence(*.txt)");
+	String filePath = readDataFromConsole();
+	System.out.println("the file path is  "+filePath);	
+	String str=mpp.readData(filePath);
+	if(str==null||str.equals("")){
+		System.out.println("data is a null string");
+	}
+	int strLen=str.length();
+	System.out.println("the length of the sequence is "+str.length());
+	try{		
+	    System.out.println(" please input the minimum gap:");	   
+		Min=Integer.parseInt(readDataFromConsole());
+	    System.out.println(" the min gap="+Min);
+	    System.out.println(" please input the maximum gap:");
+		Max=Integer.parseInt(readDataFromConsole());
+	    System.out.println(" the max gap="+Max);
+	    System.out.println("please input the threshold:");	
+	    threshold=Float.parseFloat(readDataFromConsole());
+	    System.out.println(" the threshold is: "+threshold);
+	    System.out.println(" please input the possible maximum length of frequent patterns:");
+	    n=Integer.parseInt(readDataFromConsole());
+	    System.out.println(" the maximum length of frequent patterns is: "+n);
+	}catch(Exception e){
+		    System.out.println("the data type is wrong,please input again!");
+		    System.exit(0);
+	}
+	long startTime=System.currentTimeMillis();	
+	int l1=(strLen+Max)/(Max+1);
+	if(n>l1) n=l1; 
+	if (proMaxLen<2*n){
+		proMaxLen=2*n+1;
+	}		
+	float []x=new float[proMaxLen];
+	double []offSup=new double[proMaxLen];
+	for(int i=3;i<=n;i++){
+		x[i]=(float)((strLen-(n-1)*((Max+Min)/2.0+1))/(strLen-(i-1)*((Max+Min)/2.0+1)));;
+	}
+	for(int i=n+1;i<proMaxLen;i++){
+		x[i]=1.0f;
+	}
+	for(int j=0;j<strLen;j++){
+		mpp.ofsIndex.put(j, 1L);
+	}
+	for(int j=2;j<proMaxLen;j++){
+		offSup[j]=mpp.getOffSup(str);
+	}
+	mpp.ofsIndex.clear();
+	mpp.ofsIndex=null;
+	mpp.mineFrePats(str,n,threshold,x,offSup);
+    long endTime=System.currentTimeMillis();  
+	System.out.println("the running time is"+ (endTime-startTime));
+}
+}

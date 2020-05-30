@@ -1,0 +1,258 @@
+package mgcs;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+public class MGCS { 
+private char chars[]={'a','g','t','c'};
+private Map<Integer,Long>ofsIndex=new HashMap<Integer,Long>();
+private static int proMaxLen=31;
+private static int Min,Max;
+public double getSupNum(int[]pat){//calculate the number of a pattern's supports;
+  double count=0.0;
+  for(int i=0;i<pat.length;i++){
+	count=count+pat[i];  
+  }
+  return count;
+}
+/*
+ * compute the offset number using incomplete Nettree;
+ */
+public double getOffSup(String str){ 
+	double offSup=0.0;
+	int index=0,flex=Max-Min+1;
+	long oldOcur=0;
+	int strLen=str.length();
+	Map<Integer,Long>newOfsIndex=new HashMap<Integer,Long>();
+	Collection<Integer> keys=ofsIndex.keySet();
+	for(Iterator<Integer> key=keys.iterator();key.hasNext();){				
+		index=key.next().intValue();
+		for(int t=1,j=index+Min+1;j<strLen&&t<=flex;j++,t++){
+					oldOcur=ofsIndex.get(index).longValue();
+					offSup+=oldOcur;
+					if(!newOfsIndex.containsKey(j)){//if not contain new node;
+						newOfsIndex.put(j, oldOcur); 
+					}else{ //if contain new node;
+					    long newOcur=newOfsIndex.get(j)+oldOcur;
+					    newOfsIndex.put(j,newOcur);
+					}								
+		}	
+	}
+	ofsIndex.clear();
+	ofsIndex=null;
+	ofsIndex=newOfsIndex;
+    return offSup;
+}
+/*
+ * get length-1 frequent patterns;
+ */
+public void getLen_1Pats(String str, List<String>freqPats,double threshold,StringBuffer bf,int n){
+	int strLen=str.length();
+	long freqPat_1[]=new long[chars.length];
+	for(int i=0;i<chars.length;i++){
+       freqPat_1[i]=0;             
+    }
+    for(int i=0;i<strLen;i++){
+       for(int j=0;j<chars.length;j++){ 
+    	 if(str.charAt(i)==chars[j]){
+    		 freqPat_1[j]++; 
+    	 }  
+       }
+    }
+    threshold=(strLen-(n-1)*((Max+Min)/2.0+1))/strLen*threshold;
+    for(int j=0;j<chars.length;j++){
+      if(freqPat_1[j]>=strLen*threshold){
+          bf.append(chars[j]);
+          freqPats.add(bf.toString());
+          bf.delete(0, 1);
+        }
+    }
+	
+}
+/*
+ * get new longer frequent and candidate patterns;
+ */
+public int genLPats(String str,List<String>freqPats,List<String>genPats,int [][]patOcur,int[][]freNewPat, int patLen,double candiSup,StringBuffer bf,double threshold,double freSup){	
+	double supNum=0.0;
+	int num=0;
+	int strLen=str.length();
+	for(int j=0;j<strLen;j++){
+ 	    for(int m=0;m<chars.length;m++){
+     		freNewPat[m][j]=0;
+         }
+  	    for(int k=0;k<bf.length();k++){
+  		  patOcur[k][j]=0;
+  		  if(str.charAt(j)==bf.charAt(k)){
+  			  if(k==0){
+  				 patOcur[k][j]=1; 
+  			  }else{
+  	     	     for(int t=(j-Max-1>=0?(j-Max-1):0);t<=j-Min-1&&t>=0;t++){
+       	    	 patOcur[k][j]+=patOcur[k-1][t];
+       	    	 }//for   
+  			  }
+  		  }
+  	   }//for 
+  	   for(int k=0;k<chars.length;k++){
+  		  if(str.charAt(j)==chars[k]){
+  			 for(int t=(j-Max-1>=0?(j-Max-1):0);t<=j-Min-1;t++){
+  				freNewPat[k][j]+=patOcur[patLen-2][t];
+      	    	}//for  
+  			 break;
+  		  } //if 
+  	   }//for
+      }//for 	
+ 	  for(int j=0;j<chars.length;j++){   		
+ 		 supNum=getSupNum(freNewPat[j]);
+ 		 if(supNum>=candiSup){ 			 			
+ 			  if(supNum>=freSup){
+ 				  num++;
+ 			  }
+ 	          bf.append(chars[j]);   	         
+ 	          genPats.add(bf.toString());    	           
+ 	          bf.delete(patLen-1, patLen);
+ 	        }//if
+       }//for
+ 	  return num;
+}
+/*
+ * get parameters from console;
+ */
+private static String readDataFromConsole() {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String str = null;
+    try {
+        str = br.readLine();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return str;
+}
+/*
+ * read the mined sequence from a file;
+ */
+public  String readData(String fileName){
+	String s=null;
+	StringBuffer buff=new StringBuffer();
+	BufferedReader br=null;
+	try{
+    br=new BufferedReader(new InputStreamReader(new FileInputStream(fileName))); 
+	s=br.readLine();
+	String strs[];
+	 while(s!=null){
+	    	s=s.trim();
+	    	strs=s.split("\\s+");
+	    	for(int i=0;i<strs.length;i++){
+	    		buff.append(strs[i]);
+	    		strs[i]=null;
+	    	}
+	    	s=br.readLine();
+    }
+	s=buff.toString(); 
+	strs=null;
+	buff.delete(0, s.length());
+	br.close();
+	br=null;
+	}catch(FileNotFoundException e1){
+		e1.printStackTrace();
+		System.out.println("/n The file is not found!");
+	}catch(IOException e2){
+	    e2.printStackTrace();
+	    System.out.println("read or write makes an error!");
+	}catch(Exception e3){
+	    e3.printStackTrace();
+	}
+	return s; 
+}
+/*
+ * mine frequent patterns of various lengths from the sequence;
+ */
+public void mineFrePats(String str,int n,double threshold,double []offSup,float []pro){
+	  int patLen=1;      
+      StringBuffer bf=new StringBuffer();
+      int strLen=str.length();
+      List<String>freqPats=new ArrayList<String>();
+      getLen_1Pats(str,freqPats,threshold,bf,n);
+      int freNewPats[][]=new int[chars.length][strLen];
+      int [][]patOcur=new int[proMaxLen][strLen];;
+      List<String>genFreqPats=new ArrayList<String>();
+      int num=freqPats.size();
+      while(freqPats.size()!=0){
+    	System.out.println("the number of frequent patterns of length-"+patLen+" is "+num);
+        patLen++;
+        double candiSup=offSup[patLen]*pro[patLen]*threshold;//the minimum number of supports of candidate patterns;
+        double freSup=offSup[patLen]*threshold;//the minimum number of supports of frequent patterns;
+        num=0;
+        for(int i=0;i<freqPats.size();i++){    	 
+    	  bf.append(freqPats.get(i));
+    	  num=num+genLPats(str,freqPats,genFreqPats,patOcur,freNewPats,patLen,candiSup,bf,threshold,freSup);
+    	  bf.delete(0, patLen-1);
+        }//for        
+        freqPats.clear();
+        freqPats=null;
+        freqPats=genFreqPats;
+        genFreqPats=new ArrayList<String>();
+      }//while   
+}
+/*
+ * main function;
+ */
+public static void main(String args[]){
+	MGCS mgcs=new MGCS();
+	System.out.println("the name of algorithm is MGCS");
+	double threshold=0.00003;	
+	int n=13;	
+	System.out.println("please input the file path of bio-sequence(*.txt)");
+	String filePath = readDataFromConsole();
+	System.out.println("the file path is  "+filePath);	
+	String str=mgcs.readData(filePath);
+	if(str==null||str.equals("")){
+		System.out.println("data is a null string");
+	}
+	int strLen=str.length();
+	System.out.println("the length of the sequence is "+str.length());
+	try{		
+	    System.out.println(" please input the minimum gap:");	   
+		Min=Integer.parseInt(readDataFromConsole());
+	    System.out.println(" the min gap="+Min);
+	    System.out.println(" please input the maximum gap:");
+		Max=Integer.parseInt(readDataFromConsole());
+	    System.out.println(" the max gap="+Max);
+	    System.out.println("please input the threshold:");	
+	    threshold=Double.parseDouble(readDataFromConsole());
+	    System.out.println(" the threshold is: "+threshold);
+	    System.out.println(" please input the possible maximum length of frequent patterns:");
+	    n=Integer.parseInt(readDataFromConsole());
+	    System.out.println(" the maximum length of frequent patterns is: "+n);
+	}catch(Exception e){
+		    System.out.println("the data type is wrong,please input again!");
+		    System.exit(0);
+	}
+	long startTime=System.currentTimeMillis(); 
+	int l1=(strLen+Max)/(Max+1);
+	if(n>l1) n=l1; 
+	if (proMaxLen<n*2){
+		proMaxLen=n*2+1;
+	}
+	double[] offSup=new double[proMaxLen];
+    float[] pro=new float[proMaxLen];
+    for(int i=2;i<=n;i++){
+		pro[i]=(float)((strLen-(n-1)*((Max+Min)/2.0+1))/(strLen-(i-1)*((Max+Min)/2.0+1)));;
+	}
+	for(int i=n+1;i<proMaxLen;i++){
+		pro[i]=1.0f;
+	}
+	for(int j=0;j<strLen;j++){
+		mgcs.ofsIndex.put(j, 1L);
+	}
+	for(int j=2;j<proMaxLen;j++){
+		offSup[j]=mgcs.getOffSup(str);
+	}
+	mgcs.ofsIndex.clear();
+	mgcs.ofsIndex=null;
+	mgcs.mineFrePats(str,n,threshold,offSup,pro);	
+	long endTime=System.currentTimeMillis();  	
+	System.out.println("the running time is"+(endTime-startTime));
+}//main	
+}//class
