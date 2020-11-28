@@ -1,7 +1,7 @@
 ## OWSP-Miner: Self-adaptive one-off weak-gap strong pattern mining
 ***
 
-Youxi Wu, Xiaohui Wang, Yan Li, Lei Guo, Zhao Li, Xindong Wu. OWSP-Miner: Self-adaptive one-off weak-gap strong pattern mining.
+Youxi Wu, Xiaohui Wang, Yan Li, Lei Guo, Zhao Li, Ji Zhang, Xindong Wu. OWSP-Miner: Self-adaptive one-off weak-gap strong pattern mining.
 
 #### Abstract:
 
