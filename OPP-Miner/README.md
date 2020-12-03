@@ -12,6 +12,7 @@ A time series is a collection of measurements in chronological order. Discoverin
 #### Datasets:
 [Dataset](https://github.com/wuc567/Pattern-Mining/blob/master/OPP-Miner/DataSet.rar)  (All sequences)
 
+
 #### Algorithms:
 
 [OPP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OPP-Miner/OPP-Miner_code.rar)
