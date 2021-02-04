@@ -1,7 +1,7 @@
-## SNP-Miner: Self-adaptive sequential pattern mining
+## SNP-Miner: Self-Adaptive Nonoverlapping Sequential Pattern Mining 
 ***
 
-Youxi Wu, Yuehua Wang, et al. SNP-Miner: Self-adaptive sequential pattern mining
+Yuehua Wang, Youxi Wu, et al. SNP-Miner: Self-adaptive sequential pattern mining
 
 #### Abstract:
 
@@ -16,6 +16,6 @@ As a kind of repetitive SPM with gap constraints, nonoverlapping sequential patt
 
 #### Algorithms:
 
-[OPP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/SNP-Miner/SNP-Miner_code.zip)
+[SNP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/SNP-Miner/SNP-Miner_code.zip)
  
 
