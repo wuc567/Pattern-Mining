@@ -1,7 +1,7 @@
 ## NTP-Miner: Nonoverlapping three-way sequential pattern mining
 ***
 
-Youxi Wu, Lanfang  Luo, Yan Li, Lei Guo, Philippe Fournier-Viger, Xingquan Zhu and Xindong Wu. NTP-Miner: Nonoverlapping three-way sequential pattern mining
+Youxi Wu, Lanfang  Luo, Yan Li, Lei Guo, Philippe Fournier-Viger, Xingquan Zhu, Xindong Wu. NTP-Miner: Nonoverlapping three-way sequential pattern mining
 
 #### Abstract:
 
