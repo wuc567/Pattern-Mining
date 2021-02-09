@@ -1,11 +1,11 @@
 ## SNP-Miner: Self-Adaptive Nonoverlapping Sequential Pattern Mining 
 ***
 
-Yuehua Wang, Youxi Wu, et al. SNP-Miner: Self-adaptive sequential pattern mining
+Yuehua Wang, Youxi Wu*, Yan Li, Fang Yao, Philippe Fournier-Viger, Xindong Wu. SNP-Miner: Self-Adaptive Nonoverlapping Sequential Pattern Mining
 
 #### Abstract:
 
-As a kind of repetitive SPM with gap constraints, nonoverlapping sequential pattern mining (SPM) not only can avoid mining too many meaningless patterns but also flexibly satisfies the users’ needs. However, it is difficult for the existing algorithms to give a suitable gap without prior knowledge. More importantly, the existing algorithms are inefficient since they have to constantly determine whether the gap meets the requirements or not. To tackle these issues, this paper adopts self-adaptive mining strategy which generates gap according to the sequence and proposes a complete algorithm, named SNP-Miner. SNP-Miner is equipped with two key phases: candidate generation and support calculation. To effectively reduce the candidate patterns, SNP-Miner employs the pattern growth strategy. This paper also proposes incomplete Nettree structure stored in an array to efficiently calculate the support in one-way scanning, which avoids redundant calculation and reduces the time complexity. Experimental results show that SNP-Miner is not only more efficient, but can also discovers more valuable patterns without gap constraints.
+As a type of repetitive SPM with gap constraints, nonoverlapping sequential pattern mining (SPM) can not only avoid mining too many meaningless patterns, but can also be used in a flexible way to meet the user’s needs. However, it is difficult for existing algorithms to identify a suitable gap without prior knowledge. More importantly, existing algorithms are inefficient, since they constantly need to determine whether or not the gap constraint meets the requirements. To tackle these issues, this paper presents a complete algorithm called SNP-Miner that has two key phases: generation of candidate patterns, and calculation of the supports (occurrence frequency) of these candidate patterns. To effectively reduce the number of candidate patterns, SNP-Miner employs a pattern growth strategy. We also propose the use of an incomplete Nettree structure that is stored in an array to efficiently calculate the support via one-way scanning, which avoids redundant calculations and reduces the time complexity. Experimental results show that SNP-Miner is not only more efficient than alternative approaches but can also discover more valuable patterns without gap constraints. Algorithms and data can be downloaded from https://github.com/wuc567/Pattern-Mining/tree/master/SNP-Miner.
 
 
 
