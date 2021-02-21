@@ -1,7 +1,7 @@
 ## HANP-Miner: High Average Utility Nonoverlapping Sequential Pattern Mining
 ***
 
-Youxi Wu, Meng Geng. HANP-Miner: High Average Utility Nonoverlapping Sequential Pattern Mining.
+Youxi Wu, Meng Geng, Yan Li, Lei Guo, Zhao Li, Philippe Fournier-Viger, Xingquan Zhu, Xindong Wu. HANP-Miner: High Average Utility Nonoverlapping Sequential Pattern Mining.
 
 #### Abstract:
 
