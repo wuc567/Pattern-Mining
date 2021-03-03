@@ -15,6 +15,6 @@ For sequence classification, an important issue is to find discriminative featur
 
 #### Algorithms:
 
-[OPP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/SCP-Miner/SCP-Miner_code.zip)
+[SCP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/SCP-Miner/SCP-Miner_code.zip)
  
 
