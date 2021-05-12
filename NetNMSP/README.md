@@ -10,5 +10,5 @@ Abstract: Sequential pattern mining with gap constraints is an extension of repe
 
 #### Algorithms:
 
-[NetNMSP and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/NetNMSP/NetNMSP_code.rar)
+[NetNMSP and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/NetNMSP/NetNMSP_codes.rar)
  
