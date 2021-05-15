@@ -29,5 +29,12 @@ the two viruses are similar in the short patterns and  different in the long pat
 
 two viruses. 
 
-Source codes:
-Datasets:
+
+---
+
+#### Datasets:
+[Dataset](https://github.com/wuc567/Pattern-Mining/blob/master/NetNMSP/DataSet.rar)  (All sequences)
+
+#### Algorithms:
+
+[NetNMSP and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/NetNMSP/NetNMSP_code.rar)
