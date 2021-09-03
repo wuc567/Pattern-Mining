@@ -9,8 +9,8 @@ Abstract: Nonoverlapping sequential pattern mining, as a kind of repetitive sequ
 ---
 
 #### Datasets:
-[Dataset](https://github.com/wuc567/Pattern-Mining/blob/master/NetNMSP/DataSet.rar)  (All sequences)
+[Dataset](https://github.com/wuc567/Pattern-Mining/blob/master/NetNMSP/DataSet.zip)  (All sequences)
 
 #### Algorithms:
 
-[NetNMSP and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/NetNMSP/NetNMSP_codes.rar)
+[NetNMSP and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/NetNMSP/NetNMSP_codes.zip)
