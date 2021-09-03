@@ -1,5 +1,4 @@
 NetNMSP: Nonoverlapping maximal sequential pattern mining
-
 Yan Li, Shuai Zhang, Lei Guo, Jing Liu, Youxi Wu*, Xindong Wu
 
 
