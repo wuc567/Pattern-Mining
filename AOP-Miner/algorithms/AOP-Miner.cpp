@@ -505,11 +505,11 @@ map<vector<float>, vector<vector<float>>>  cand_gene(vector<vector<float>>& cand
 
 int read_file()
 {
-	ifstream infile;//è¾“å…¥æµ
+	ifstream infile;//ÊäÈëÁ÷
 	string str;
 	float a;
-	infile.open("ccc.txt");//æ‰“å¼€æ–‡ä»¶
-	while (getline(infile, str))//èŽ·å¾—ä¸€è¡Œ
+	infile.open("ccc.txt");//´ò¿ªÎÄ¼þ
+	while (getline(infile, str))//»ñµÃÒ»ÐÐ
 	{
 		char* p = strtok((char*)str.c_str(), " ");
 		while (p != NULL)
@@ -543,9 +543,9 @@ int main()
 	for (int k = 2; k > 0; k--)
 		t.push_back(k);
 	cand2.push_back(t);
-	cout << "è¯·è¾“å…¥delta,gammaä¸¤ä¸ªå‚æ•°çš„å€¼:" << endl;
+	cout << "ÇëÊäÈëdelta,gammaÁ½¸ö²ÎÊýµÄÖµ:" << endl;
 	cin >> delta >> gamma;
-	cout << "è¯·è¾“å…¥æ”¯æŒåº¦:" << endl;
+	cout << "ÇëÊäÈëÖ§³Ö¶È:" << endl;
 	cin >> sup;
 	read_file();
 	cout << s1.size() << endl;
