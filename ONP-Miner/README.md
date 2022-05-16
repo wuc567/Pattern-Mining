@@ -8,7 +8,7 @@ Negative sequential pattern mining (SPM) is an important SPM research topic. Unl
 ---
 
 #### Algorithms:
-[ONP-Miner and all competitive algorithm](http//github.com/wuc567/Pattern-Mining/tree/master/ONP-Miner/algorithms)
+[ONP-Miner and all competitive algorithm](https://github.com/wuc567/Pattern-Mining/tree/master/ONP-Miner/algorithms)
 
 #### Datasets:
-[Datasets](http//github.com/wuc567/Pattern-Mining/tree/master/ONP-Miner/datasets)
+[Datasets](https://github.com/wuc567/Pattern-Mining/tree/master/ONP-Miner/datasets)
