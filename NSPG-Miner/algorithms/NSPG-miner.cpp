@@ -36,14 +36,16 @@ struct Qpattern {
 
 struct Candy {
 	string pattern;
-	vector <MLin> preffixTree;
-	vector <MLin> suffixTree;
+	int level;
+	int preffix;
+	int suffix;
 	char element;
 };
 
 int NumbS, mins, maxs, stlen,supcount=0;
 double threshold;
 int **SDB;
+//char charSet[] = { 'x','y','z','\0' };
 //char charSet[] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','\0' };
 char charSet[] = { 'a','c','g','t','\0' };
 //char charSet[] = { 'A','C','G','T','\0' };
@@ -61,7 +63,7 @@ int read_file()
 	fstream file;	//定义了一个流file
 	char filename[256];
 	string buff;
-	file.open("DNA3.txt", ios::in);   //open sequence file
+	file.open("KZDNA3.txt", ios::in);   //open sequence file
 	int i = 0, strLen = 0;
 	while (getline(file, buff))	//从file读入字符串放入buff中
 	{
@@ -161,8 +163,8 @@ int calculate_P(Candy cand) {
 	int occnum=0;
 	for (int t = 0; t < NumbS; t++) {
 		int sum = 0, j1 = 0;
-		vector <node> IND1 = cand.preffixTree[t].suffIndex;
-		vector <node> IND2 = cand.suffixTree[t].suffIndex;
+		vector <node> IND1 = freArr[cand.level][cand.preffix].allIndex[t].suffIndex;
+		vector <node> IND2 = freArr[cand.level][cand.suffix].allIndex[t].suffIndex;
 		vector <node> IND3;
 		for (int i = 0; i < IND2.size(); i++)
 		{
@@ -208,8 +210,8 @@ int calculate_N(Candy cand) {//需要注意中间间隔负元素的情况两者不能相邻
 	int occnum = 0;
 	for (int t = 0; t < NumbS; t++) {
 		int sum = 0, j1 = 0;
-		vector <node> IND1 = cand.preffixTree[t].suffIndex;
-		vector <node> IND2 = cand.suffixTree[t].suffIndex;
+		vector <node> IND1 = freArr[cand.level][cand.preffix].allIndex[t].suffIndex;
+		vector <node> IND2 = freArr[cand.level][cand.suffix].allIndex[t].suffIndex;
 		vector <node> IND3;
 		for (int i = 0; i < IND2.size(); i++)
 		{
@@ -270,8 +272,9 @@ void deal_len2(double *offsup) {
 			string pat = freArr[0][i].pattern;
 			pat += freArr[0][j].pattern;
 			cand.pattern = pat;
-			cand.preffixTree = freArr[0][i].allIndex;
-			cand.suffixTree = freArr[0][j].allIndex;
+			cand.level = 0;
+			cand.preffix = i;
+			cand.suffix = j;
 			cand.element = NULL;
 			int occnum =  calculate_P(cand);
 			if (occnum >= threshold*offsup[2])
@@ -397,8 +400,9 @@ void gen_candidate(int level)//两大不确定，1：顺序。2：1元素时的遍历顺序
 				string cand = freArr[level - 1][i].pattern;
 				cand = cand + freArr[level - 1][start].pattern.substr(len2);
 				tempcand.pattern = cand;
-				tempcand.preffixTree = freArr[level - 1][i].allIndex;
-				tempcand.suffixTree = freArr[level - 1][start].allIndex;
+				tempcand.level = level - 1;
+				tempcand.preffix = i;
+				tempcand.suffix = start;
 				tempcand.element = freArr[level - 1][start].element;
 				candidate.push_back(tempcand);
 				start = start + 1;

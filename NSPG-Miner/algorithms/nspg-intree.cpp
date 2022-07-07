@@ -40,7 +40,8 @@ struct Qpattern {
 
 struct Candy {
 	string pattern;
-	vector <MLin> preffixTree;
+	int level;
+	int prefix;
 	char e1;
 	char e2;
 };
@@ -90,7 +91,7 @@ int read_file()
 	fstream file;	//定义了一个流file
 	char filename[256];
 	string buff;
-	file.open("Virus1.txt", ios::in);   //open sequence file
+	file.open("KZDNA4.txt", ios::in);   //open sequence file
 	int i = 0, strLen = 0;
 	while (getline(file, buff))	//从file读入字符串放入buff中
 	{
@@ -162,7 +163,7 @@ int matching(Candy cand) {//模式匹配方法太慢
 	char pre = cand.e1;
 	char c = cand.e2;
 	for (int t = 0; t < NumbS; t++) {
-		vector <node> IND1 = cand.preffixTree[t].suffIndex;
+		vector <node> IND1 = freArr[cand.level][cand.prefix].allIndex[t].suffIndex;
 		vector <node> IND2;
 		for (int i = 0; i < IND1.size(); i++)
 		{
@@ -215,7 +216,8 @@ void deal_len2(double *offsup) {
 			string pat = freArr[0][i].pattern;
 			pat += freArr[0][j].pattern;
 			cand.pattern = pat;
-			cand.preffixTree = freArr[0][i].allIndex;
+			cand.level = 0;
+			cand.prefix = i;
 			cand.e1 = NULL;
 			cand.e2 = freArr[0][j].element2;
 			int occnum = matching(cand);
@@ -343,7 +345,8 @@ void gen_candidate(int level)//两大不确定，1：顺序。2：1元素时的遍历顺序
 				string cand = freArr[level - 1][i].pattern;
 				cand = cand + freArr[level - 1][start].pattern.substr(len2);
 				tempcand.pattern = cand;
-				tempcand.preffixTree = freArr[level - 1][i].allIndex;
+				tempcand.level = level - 1;
+				tempcand.prefix = i;
 				tempcand.e1 = freArr[level - 1][start].element1;
 				tempcand.e2= freArr[level - 1][start].element2;
 				candidate.push_back(tempcand);
