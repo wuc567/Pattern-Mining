@@ -9,8 +9,9 @@ One-off sequential pattern mining (SPM) (or SPM under the one-off condition) is 
 ---
 
 #### Algorithms:
-[C++:](https://github.com/wuc567/Pattern-Mining/blob/master/HAOP-Miner/C++)
-[Python:](https://github.com/wuc567/Pattern-Mining/blob/master/HAOP-Miner/Python)
+[C++](https://github.com/wuc567/Pattern-Mining/blob/master/HAOP-Miner/C++)
+
+[Python](https://github.com/wuc567/Pattern-Mining/blob/master/HAOP-Miner/Python)
  
 #### Datasets:
 [Dataset](https://github.com/wuc567/Pattern-Mining/blob/master/HAOP-Miner/Dataset)

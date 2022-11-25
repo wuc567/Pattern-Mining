@@ -10,11 +10,12 @@ Youxi Wu, Xiaohui Wang, Yan Li, Lei Guo, Zhao Li, Ji Zhang, Xindong Wu. OWSP-Min
 ---
 
 #### Algorithms:
-[C++:](https://github.com/wuc567/Pattern-Mining/blob/master/OWSP-Miner/C++)
-[Python:](https://github.com/wuc567/Pattern-Mining/blob/master/OWSP-Miner/Python)
+[C++](https://github.com/wuc567/Pattern-Mining/blob/master/OWSP-Miner/C++)
+
+[Python](https://github.com/wuc567/Pattern-Mining/blob/master/OWSP-Miner/Python)
  
 #### Datasets:
 [Dataset](https://github.com/wuc567/Pattern-Mining/blob/master/OWSP-Miner/Dataset)
 
 #### Paper:
-[HAOP-Miner](https://github.com/wuc567/Pattern-Mining/blob/master/OWSP-Miner/2022tmis.pdf)
+[OWSP-Miner](https://github.com/wuc567/Pattern-Mining/blob/master/OWSP-Miner/2022tmis.pdf)

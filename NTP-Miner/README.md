@@ -10,11 +10,12 @@ Nonoverlapping sequential pattern mining is an important type of sequential patt
 ---
 
 #### Algorithms:
-[C++:](https://github.com/wuc567/Pattern-Mining/blob/master/NTP-Miner/C++)
-[Python:](https://github.com/wuc567/Pattern-Mining/blob/master/NTP-Miner/Python)
+[C++](https://github.com/wuc567/Pattern-Mining/blob/master/NTP-Miner/C++)
+
+[Python](https://github.com/wuc567/Pattern-Mining/blob/master/NTP-Miner/Python)
  
 #### Datasets:
 [Dataset](https://github.com/wuc567/Pattern-Mining/blob/master/NTP-Miner/Dataset)
 
 #### Paper:
-[HAOP-Miner](https://github.com/wuc567/Pattern-Mining/blob/master/NTP-Miner/2022tkdd.pdf)
+[NTP-Miner](https://github.com/wuc567/Pattern-Mining/blob/master/NTP-Miner/2022tkdd.pdf)
