@@ -16,11 +16,13 @@ Youxi Wu, Meng Geng, Yan Li, Lei Guo, Zhao Li, Philippe Fournier-Viger, Xingquan
 #### Datasets:
 [Datasets](https://github.com/wuc567/Pattern-Mining/tree/master/HANP-Miner/Datasets)  
 
-C++
+
+C++:
 
 
-PYTHON
+PYTHON:
 
-PAPER
+
+PAPER:
 
 
