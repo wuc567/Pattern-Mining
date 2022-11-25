@@ -1,0 +1,7 @@
+a, c, g, t
+ac, ag, at, ca, cg, ct, ga, gc, gt, ta, tc, tg, tt
+acg, act, agc, agt, atc, atg, att, cag, cat, cga, cgt, cta, ctg, ctt, gac, gat, gca, gct, gta, gtc, gtt, tac, tag, tat, tca, tcg, tct, tga, tgc, tgt, tta, ttc, ttg
+aagt, aatg, acgt, actg, actt, agat, agct, agta, agtc, agtt, atag, atcg, atga, atgc, atgt, attg, cagt, catg, catt, cgat, cgta, cgtt, ctag, ctat, ctga, ctgt, ctta, cttg, gaat, gact, gata, gatc, gatt, gcat, gcta, gctt, gtaa, gtac, gtat, gtca, gtct, gtta, gttc, taag, tacg, taga, tagc, tagt, tatg, tcag, tcga, tcgt, tctg, tgaa, tgac, tgat, tgca, tgct, tgta, tgtc, ttag, ttcg, ttga, ttgc
+aacgt, aactg, aagct, aagtc, aagtt, aatcg, aatgc, aatgt, aattg, acagt, acatg, acgat, acgta, acgtt, actag, actga, actgt, acttg, agact, agatc, agatt, agcat, agcta, agctt, agtac, agtat, agtca, agtta, atagc, atagt, atatg, atcag, atcga, atgac, atgat, atgca, atgta, attag, attga, caagt, caatg, cagat, cagta, cagtt, catag, catga, catgt, cattg, cgaat, cgata, cgatt, cgtaa, cgtat, cgtta, ctaag, ctaga, ctagt, ctatg, ctgaa, ctgat, ctgta, cttag, cttga, gaact, gaatc, gaatt, gacat, gacta, gactt, gatac, gatat, gatca, gatta, gcaat, gcata, gcatt, gctaa, gctat, gctta, gtaac, gtaca, gtcaa, taacg, taagc, tacag, tacga, tagac, tagca, tcaag, tcaga, tcgaa, tgaac, tgaca, tgcaa
+
+

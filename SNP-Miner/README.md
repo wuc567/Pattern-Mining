@@ -11,12 +11,12 @@ As a type of repetitive SPM with gap constraints, nonoverlapping sequential patt
 
 ---
 
-#### Datasets:
-[Dataset](https://github.com/wuc567/Pattern-Mining/blob/master/SNP-Miner/DataSet.rar)  (All sequences)
-
-
 #### Algorithms:
-
-[SNP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/SNP-Miner/SNP-Miner_code.rar)
+[C++:](https://github.com/wuc567/Pattern-Mining/blob/master/SNP-Miner/C++)
+[Python:](https://github.com/wuc567/Pattern-Mining/blob/master/SNP-Miner/Python)
  
+#### Datasets:
+[Dataset](https://github.com/wuc567/Pattern-Mining/blob/master/SNP-Miner/Dataset)
 
+#### Paper:
+[HAOP-Miner](https://github.com/wuc567/Pattern-Mining/blob/master/SNP-Miner/Self-adaptiveNonoverlappingSeq.pdf)
