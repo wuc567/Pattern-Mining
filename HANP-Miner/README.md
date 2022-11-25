@@ -10,15 +10,13 @@ Youxi Wu, Meng Geng, Yan Li, Lei Guo, Zhao Li, Philippe Fournier-Viger, Xingquan
 
 #### Algorithms:
 
-[C++：](https://github.com/wuc567/Pattern-Mining/tree/master/HANP-Miner/C++)
-[Python：](https://github.com/wuc567/Pattern-Mining/tree/master/HANP-Miner/Python)
+[C++](https://github.com/wuc567/Pattern-Mining/tree/master/HANP-Miner/C++)
+
+[Python](https://github.com/wuc567/Pattern-Mining/tree/master/HANP-Miner/Python)
 
 #### Datasets:
-<<<<<<< HEAD
 [Datasets](https://github.com/wuc567/Pattern-Mining/tree/master/HANP-Miner/DataSet)  
 
 #### Paper:
 [HANP-Miner](https://github.com/wuc567/Pattern-Mining/tree/master/HANP-Miner/hanp-miner.pdf)
-=======
-[Datasets](https://github.com/wuc567/Pattern-Mining/tree/master/HANP-Miner/Datasets)  
 
