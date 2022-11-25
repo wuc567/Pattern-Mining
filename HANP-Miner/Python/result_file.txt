@@ -1,0 +1,11 @@
+-------- Results of  HANP_Miner  for  DNA1  --------
+g	a	t	c	
+aa	ac	ag	at	ca	cc	cg	ct	ga	gc	gg	gt	ta	tc	tg	tt	
+aaa	aag	aga	att	ccc	cct	ctc	ctt	gaa	gag	gtt	tct	tta	ttc	ttg	ttt	
+aaaa	tttt	
+
+------------ Program Running Statistics ------------
+The number of frequent patterns: 38
+The time-consuming: 2.3840041160583496 s. 
+The number of calculation: 462
+Memory usage of the current process: 191.2656 MB
