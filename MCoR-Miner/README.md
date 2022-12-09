@@ -1,4 +1,7 @@
 ## MCoR-Miner: Maximal co-occurrence nonoverlapping sequential rule mining
+
+Yan Li, Chang Zhang, Jie Li, Wei Song, Zhenlian Qi, Youxi Wu, and Xindong Wu 
+
 ***
 
 #### Abstract:
