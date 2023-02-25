@@ -1,7 +1,7 @@
 ## NSPG-Miner: Negative sequential pattern mining with gap constraints
 ***
  
-Youxi Wu, Zhulin Wang, Yan Li, Jing Liu, Lei Guo, Philippe Fournier-Viger, Xindong Wu.
+Yan Li, Zhulin Wang, Jing Liu, Lei Guo, Philippe Fournier-Viger, Youxi Wu, Xindong Wu.
 
 #### Abstract:
 
