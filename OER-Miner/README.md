@@ -14,6 +14,6 @@ Episode mining is an active subfield of data mining in which the aim is to retri
 
 #### Algorithms:
 
-[MCoR-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OER-Miner/Algorithms)
+[OER-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OER-Miner/Algorithms)
  
 

@@ -14,6 +14,6 @@ A time series is a common form of data that contains a wealth of valuable inform
 
 #### Algorithms:
 
-[MCoR-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OPM-Miner/Algorithms)
+[OPM-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OPM-Miner/Algorithms)
  
 

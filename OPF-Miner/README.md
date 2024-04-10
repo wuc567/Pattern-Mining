@@ -14,6 +14,6 @@ Order-preserving pattern (OPP) mining is a type of sequential pattern mining met
 
 #### Algorithms:
 
-[MCoR-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OPF-Miner/Algorithms)
+[OPF-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OPF-Miner/Algorithms)
  
 

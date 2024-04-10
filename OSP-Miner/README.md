@@ -14,6 +14,6 @@ One-off sequential pattern mining (SPM) (or SPM under the one-off condition) can
 
 #### Algorithms:
 
-[MCoR-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OSP-Miner/Algorithms)
+[OSP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OSP-Miner/Algorithms)
  
 

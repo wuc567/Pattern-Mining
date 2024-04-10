@@ -14,6 +14,6 @@ In sequential pattern mining (SPM), when a database is incremented, sequential p
 
 #### Algorithms:
 
-[MCoR-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OIP-Miner/Algorithms)
+[OIP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OIP-Miner/Algorithms)
  
 
