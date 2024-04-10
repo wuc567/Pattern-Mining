@@ -1,0 +1,91 @@
+a b c d e f h j k m q r - a b c d e f g h i j -
+a b c d e f g j k - a d e f g i -
+a c d e f g j - a b c d e f g j k n - a d e f g i j - a c d e f g h i m -
+a b c d e f g h i j l n - a b c d e f g - a b c d e f g i j n - a b c d e f g h i j l m n -
+a b d e f g h j m - a c d e f g i - a b c d e f g h i j l m n o p - a c d e f g h i l n - a b c d e f g i j n -
+a c d e f g i -
+a b c d e f g h i j n - a b c d e f g i j - a d e f g h i o - a b c d e f g h j k l m n o p q - a c e f h j -
+b c d e f g - a b c d e f g h i j m n o q - b c d e f - a c d e f - a b c d e f g h i j k l m n q - a d e f g - a b c d e g - a b c d e f g h i j k l m n - a b c d e f g h i j m o -
+a c d e f g h j - a b c d e f g h i j m n - b c d e f m - a b c d e f g h i j l m n o p - a b c d e f g h i j l n - a c d e f i n - a b c d e f i - a d e f g i q -
+a c d e f i - a b c d e f g h i j k n - a c d e f h i - a c d e f g n q -
+a b c d e f g h i j - a b c d e f g h i j l n q -
+a c d e f g i j - a c d e f j - a b c d e f j n -
+a b c d e f g h i j - a b c d e f g h i p - a b c d e f g j - a b c d e f h j m - a b c d e f g i n o - a b c d e f g h - a b c d e f g i j - a b c d e f h i j - a c d e f h -
+a b c d e f g h i j - a b c d e f g i j -
+a b c d e f g i j p - a b c d e f g h i - a b c d e f g h i l m n q - a d e f h l - a c d e f - a c d e f - a b c d e f g i j k q -
+a b c d e f g i j - a b c d e f g h i j k l m n p r - c d e f g h j - c d e f i j n - a b c d e f g h i j l o - a b c d e f g h j l n p q -
+a b c d e f g i j n q - a b c d e f g h i - a b c d e f g j -
+a b c d e f g i j - a b c d e f g h i j k l m n p q - a b c d e f j - a b c d e f g h i l m -
+a c d e f g j - a b c d e f g h i - a b c d e f g h i j n p - a b c d e f i j - a b c d e f g h i m - a b c d e f g h i - a c d e f g h i q - a b c d e f g h i o - a c d e f g i o - a d e f g i -
+a b c d e f g h i j l m n - a c d e f h i j -
+a c d e f i q - a b c d e f g h i n o - a c d e f g h j - a c d e f g h i - a b d e g i j - a b c d e f m - a c d e g j - a d e g - a c d e f g h i j l m - a b c d e f g h i n o q -
+a c d e f - a c d e f h m - a c d e f g h i m -
+a b c d e f g h i j k n - a d e f i - a b c d e f g i j n - a c d e f h - a c d e f g h i j n - a b c d e f g n - a b c d e f h i j n p q - a b c d e f g h i l n - a d e f g i - a c d e f h j -
+a b c d e f g i j l o q - a c d e f g - a c d e f - a c d e f g i - a b c d e f g h i l o q - a b c d e f g h j k m n r -
+a b c d e f g h i l m q - a c d e f g h i j - a c d e f g i l -
+a b c d e f g h i j k l m n p - a b c d e f h j m - c d e f g - a b c d e f g h i j k l m n p r -
+a b c d e f g h i j k l m n o q - a b c d e f g h i j l n o - a c d e f g i - a c d e f g i j k l n - a c d e f h i - a b c d e f i j - a c d e f m n - a b c d e f g h i k l n o - a b c d e f g h i k -
+a b c d e f g h j n o p q - a b c d e f g - a b c d e f g i j n - c d e f g i - a b c d e f - a c d e f g j - a c d e f - a b c d e f g h i j l m n -
+a b c d e f g - a b c d e f g i j - a c d e f g i - a b c d e f i l m - a b c d e f g h i j l m n - a b c d e f g h i j m n p - a b c d e f g h i j l m n o q - a b c d e f h i - a b c d e f h j p - a d e f g h l m -
+a b c d e f g h i j l n - a b c d e f g i j - a b c d e f h l n - a c d e f g h i l m - a b c d e f g h i n - a c d e f g h i - a b c d e f g j -
+a c d e f g h j - a b c d e f i -
+a c d e f g i - a c d e f i j - a c d e f o - a c d e f g i j n - a b c d e f g h i j - a c d e f g i - a b c d e f g h i j o q -
+a b c d e f g h i j l n p - a b c d e f g i j - a b c d e f g h i k m n - a b c d e f h i - a b c d e f h k n - a b c d e f g h i j l n p q - a b c d e f g p -
+a b c d e f j n - a b c d e f g j n -
+a d e f n - a b c d e f g h - a b c d e f g h i j k n - a b c d e f j - a b c d e f g - c d e f h i - a b c d e f g i j - a b c d e f g h i j k m n o q - a b c d e f g i j k -
+a b c d e f g h i n - a d e f g - a b c d e f g h i j l n o p q - a b c d e f g -
+a c d e f g - a c d e f g i j k n o q - a c d e f h l - a b c d e f g h i j l n o p q - a b c d e f h n -
+a c d e f g j - a c d e f h i m - a b d e f g -
+a b c d e f g h i l o - a b c d e f g h i k n - a b c d e f g n p - a c d e f g h i j l - a b c d e f g h j n - a c d e f g h i j k q - a c d e f h i j - a c d e f - a b c d e f g - a b c d e f g h i j l n -
+a b c d e f j - a b c d e f g h i l n p q - a b c d e f g h i j n o q - a b c d e f g h i j - a c d e f h j - a b c d e f g i j - a b c d e f i - a b c d e f g h i j n - a c d e f g -
+a b d e f g j - a d f n -
+a b c d e f g h i j p - a c d e f g i - a d e f - a b c d e f h - b c d e f j - a c d e f n -
+a c d e f h m - a b d e f j - a b c d e f i n p - a b c d e f g h i j n - a b c d e f i j n - a b c d e f g h i j m n - a c d e f g h i l n o p q - a c d e f h i - a b c d e f g h i j n - a c d e f -
+a b c d e f g h i j -
+a b d e f h - a b c d e f h i k n q - a c d e f g - a b c d e f g j - a b c d e f g n - a c d e f g h l - a b c d e f g h j l - a c d e f h - a b c d e f g h i - a b c d e f j -
+a b c d e f i l -
+a b c d e f g i j - a b c d e f i m -
+a b c d e f g h i j l m - a b c d e f g h i j l - a b c d e f g h i n p - a c d e f j - a b c d e f g h i j l n -
+a b c d e f g h i j k l n r - a d e f g i - a b c d e f g h i - a d e f g i - a c d e f g h i j l n - a c d f h j -
+a c d e f j - a c d e f g h j l - a c d e f i m - a b c d e f g h i j l n o - a c d e i j -
+a b c d e f h i j n - a b c d e f g h i - a b c d e f g h i j - a c d e f g i j - a c d e f g h i - a b c d e f h i j k l m n p q - a d e f j -
+a b c d e f g h i j l n p q r - a b c d e f g h i j n - a c d e f g h i j n p - a c d e f h i -
+a b c d e f p - a b c d e f g h i j n - a b c d e f g h j n - a b c d e f g h i j k l m n o p q - a b c d e f g h i j n q - a b c d e f g h i j l m o - a b c d e f g h i j m - c d e f g n - a b c d e f g h i l - a b c d e f g h i j l p -
+a b c d e f g h i j n - a b c d e f g h i j k l m n o p q - a b c d e f g h i j l m n - b c d e f g n -
+a b c d e f g i l - a c d e f g i j l - c d e f h j n - a b c d e f g h i j k l n o p q - c d e f j p - a c d e f g i -
+a b c d e f g h i n o - c d e f h j l - a b c d e f g h i j - a c d e f j -
+a c d e f h - a b c d e f g h j l m p -
+a b c d e f g h i j k l n - a c d e f - a c d e f g - a b c d e f g h i j k n q - a b c d e f g i j n - a b c d e f g h i j l m n p q - a c d e f g h j - a b c d e f g h i j k - a b c d e f g i j - a b c d e f h -
+a b c d e f g - a b c d e f g h i k l m n o p q - a b c d e f g h i j l n -
+a b c d e f g h i k - a b c d e f g h i l p q - a b c d e f g h i -
+a b c d e f h i - a b c d e f g h i j l m n o p q - a b c d e f g h i j l n q - a c d e f h i - a b c d e f h i - a c d e f g h i j - a b c d e f g j -
+a c d e f g h i n - a b c d e f j - a b d e f i - a b c d e f g i n - a b c d e f h i n -
+a b c d e f g h i - a b c d e f g h i j k l m q - a c d e f g i j o - a b c d e f -
+a c d e f i - a b c d e f g h i k n q r -
+a c d e f g h i j q - a c d e f g h i l o - a b c d e f i j n - a b c d e f g h j n - a c d e f i j m - a b c d e f g h i j k l m o -
+a b c d e f g h i j k o q - a d e f g i n -
+a c d e f g h i j n o - a c d e f g j -
+a b c d e f g i j m - a c d e f h - a b c d e f g h i l n - a c d e f g j - a b d e f h i -
+a b c d e f g h i j k m n p - a c d e f g j n -
+a b c d e f g h j - a b c d e f g h i l o - a b d e f i n - a b c d e f g h i o q - a b c d e f g i n q - a b c d e f g h i j m - a c d e f i - a c d e f g h i j n q - a b c d e f g h i j k n o p q - a c d e f g h k n -
+a c d e f h - a c d e f i j - a b c d e f g h i j n p q - a b c d e f g i - a c d e f g n -
+a b c d e f g h i j k l m n p q - a c d e f h i n -
+a c d e f h i j k l m p - a b c d e f g h - a c d e f g j - a b c d e f g n - a b c d e f g h i j k l m n q - a d e f g i - a b c d e f g h i j k l o - a c d e f g -
+a b c d e f g h i k m q - a c d e f h - a c d e f g j k - a b c d e f g h i j k n - a b c d e f g h i j k l o q - a c d e f g h n - a b c d e f g l - a b c d e f g h i j n -
+a b c d e f g h i j k l m n p - a b c d e f g h i j k l m n p q - a b c d e f g - b c d e f h - a b c d e f j - a b c d e f g h i j l m - a b c d e f g h i j k l n o q - a b c d e f g h i j - a c d e f g h i n o - a c d e f -
+a b c d e f g h i j k m n p q r - a b c d e f i j -
+a c d e f h i j l q - a c d e h j l - a b c d e f j m - a b c d e f g h i j - a b c d e f g h i j k l m n p - a b c d e f g h i j n o -
+a b c d e f g h i j k l m n o p q - a b c d e f g h i j - a b c d e f g i j - a b c d e f g h i j l q - a b c d e f g i j - a b c d e f g h i j k l m n o p q -
+a c d e f g i j - a b c d e f i j n - a b c d e f g h i j k - a d e f g j - a b c d e f g h i j n p q - a c d e f g h i j n - a b c d e f g h i j k l m n q - a b c d e f g i j l n -
+a c d e f g h j - a d e f g h i m - a c d e f i - a d e f g i - a b c d e f g h i j k n - a c d e f g h i l - a c d e f g h i j l -
+a b c d e f g i - a c d e f h - a b c d e f h q - a d i - a c d e f i - a b d e f g - a b d e f l - a b c d e f g i j -
+a b c d e f g i j k - a b c d e f j - a c d e f g i - a b c d e f i l - a c d e f g i - a c d e f -
+a c d e f g i j m - a b c d e f g h i j l p - a b c d e f g h i m q - a b c d e f g h i j k l m n o p q -
+a b c d e f g i j - a b c d e f g j - a b c d e f g h i j l m n q - a b c d e f g h i j - a b c d e f i j - a b c d e f g - a b c d e f h i - a c d e f g - a b c d e f m n - a b c d e f h i k n q -
+a b c d e f i j - a b c d e f g h i j n q - a c d e f g i j - a b c d e f g h n - a c d e f i j n - a c d e f j -
+a b c d e f g i n - a b c d e f h - a c d e f g h i j l -
+a e f i - a d e f j - a c d e f g i j n - a d e f i j l - a c d e f g i j k m n o - a b c d e f g h i j n - a b c d e f h i - a c d e f g h q - a c d e f g i j -
+a b c d e f g h i l m n o - a c d e f g h j - a c d e f g i j - a c d e f h i j - a b c d e f g h i m n p - a d e f g i j - a b c d e f g h l n - a b c d e f j - a c d e f g h i j m - a b c d e f g h i j l n o q -
+a b c d e f g h i j m - a c d e f h - c e f i m p - a b c d e f g h i j l n o p - a c d e f j - a b c d e f g h i j l m n - a b c d e f h n - a b c d e f g m -
+a b c d e f g h i j l q - a c d e f g k n q - a d e f g i - a b c d e f h i q - a b c d e f g h i j l m p q - a b c d e f g h i j k l n - a b c d e f g h j n o - a c d e f h j - a c d e f g i - a b c d e f g h j n o q -
+a b c d e f g h i m p - a c d e f g i - a b c d e f g h i j -
