@@ -1,6 +1,6 @@
 ## OIP-Miner: One-off Incremental Sequential Pattern Mining with Forgetting Factor
 
-Youxi Wu, Shuang Tian, Yan Li, Jing Liu, and Xindong Wu 
+Youxi Wu, Shuang Tian, Yan Li, Jing Liu, Jinyan Li, Wenjian Wang, and Xindong Wu 
 
 ***
 
