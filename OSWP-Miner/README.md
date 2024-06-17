@@ -9,7 +9,7 @@ In sequential pattern mining (SPM), when the data take the form of a continuous 
 ---
 
 #### Datasets:
-[Dataset](https://github.com/wuc567/Pattern-Mining/blob/master/OSWP-Miner/DataSets)
+[Dataset](https://github.com/wuc567/Pattern-Mining/tree/master/OSWP-Miner/Datasets)
 
 #### Algorithms:
 
