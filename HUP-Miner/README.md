@@ -9,11 +9,11 @@ As a crucial aspect of data mining, high average utility sequential pattern mini
 
 ---
 
-#### Datasets:
-[Dataset](https://github.com/wuc567/Pattern-Mining/blob/master/HUP-Miner/Databases)
+#### Databases:
+[Databases](https://github.com/wuc567/Pattern-Mining/blob/master/HUP-Miner/Databases)
 
 #### Algorithms:
 
-[HUP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/HUP-Miner/Algorithm)
+[HUP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/HUP-Miner/Algorithms)
  
 
