@@ -1,0 +1,151 @@
+A I G K F L H S A K K F G K A F V G E I M N S 
+ F A K A L A K L A K K L L 
+ F A K A L K A L L K A L K A L 
+ F A K F L A K F L K K A L 
+ F A K I I A K I A K I A K K I L 
+ F A K K F A K K F K K F A K K F A K F A F A F 
+ F A K K L A K K L A K A A L 
+ F A K K L A K K L A K A L 
+ F A K K L A K K L A K L A L 
+ F A K K L A K K L A K L L 
+ F A K K L A K K L K K L A K K L A K 
+ F A K K L A K K L K K L A K K L A K K W K L 
+ F A K K L A K K L K K L A K K L A K L A K K L 
+ F A K K L A K K L K K L A K K L A K L A L A L K A L A L K A L 
+ F A K K L A K K L K K L A K K L I G A V L K V 
+ F A K K L A K K L K K L A K L A L A K 
+ F A K K L A K K L K K L A K L A L A L 
+ F A K K L A K K L L 
+ F A K K L A K L A K K A L A L 
+ F A K K L A K L A K K L 
+ F A K K L A K L A K K L A K L A L 
+ F A K K L A K L A K K L A K L A L A L 
+ F A K K L A K L A K K L L A L 
+ F A K K L A K L A L K L A K L 
+ F A K K L K K L A K L A K K L 
+ F A K K L L A K A L K L 
+ F A K L A K K A L A K L L 
+ F A K L F 
+ F A K L F A K L A K K F A L 
+ F A K L L A K A L K K A L 
+ F A K L L A K A L K K F A L 
+ F A K L L A K A L K K F L 
+ F A K L L A K A L K K L 
+ F A K L L A K A L K K L L 
+ F A K L L A K A L K L K L 
+ F A K L L A K F L K K A L 
+ F A K L L A K L A K A K L 
+ F A K L L A K L A K K A A 
+ F A K L L A K L A K K A L 
+ F A K L L A K L A K K F A L 
+ F A K L L A K L A K K G L 
+ F A K L L A K L A K K I L 
+ F A K L L A K L A K K L 
+ F A K L L A K L A K K L L 
+ F A K L L A K L A K K S L 
+ F A K L L A K L A K K V L 
+ F A K L L A K L A K L K L 
+ F A K L L F K A L K K A L 
+ F A K L L K L A A K K L L 
+ F A K L W A K L A F G K G I G K V G K K L L 
+ F A K L W A K L A K K L 
+ F A L A A K A L K K L A K K L K K L A K K A L 
+ F A L A K L A K K A K A K L K K A L K A L 
+ F A L A L K A L K K 
+ F A L A L K A L K K A L 
+ F A L A L K A L K K A L K K L K K A L K K A L 
+ F A L A L K A L K K L 
+ F A L A L K A L K K L A K K L K K L A K K A L 
+ F A L A L K A L K K L K K A L K K A L 
+ F A L A L K A L K K L L K K L K K L A K K A L 
+ F A L A L K K A L K A L K K A L 
+ F A L A L K L A K K A L 
+ F A L K A L K K L K K A L K K A L 
+ F A L L K A L K K A L 
+ F A L L K A L L K K A L 
+ F A V G L R A I K R A L K K L R R G V R K V A K D L 
+ F K L A F K L A K K A F L 
+ F K R L A K I K V L R L A K I K R 
+ F K V K F K V K V K 
+ F L G A L F H A L S K L L 
+ F L G A L F K A L S H L L 
+ F L G A L F K A L S K L L 
+ F L G M I P G L I G G L I S A F K 
+ F L G M I P K L I K K L I K A F K 
+ F L G W L F K W A K K 
+ F L G W L F K W A W K 
+ F L K L L A G L L K N F A 
+ F L K L L K K L A A K F L P T I I C K I S Y K C 
+ F L K L L K K L A A K L F 
+ F L K W L F K W A K K 
+ F L S L I P K L V K K I I K A F K 
+ F L S L I P S L V G G S I S A F K 
+ F L W W L F K W A W K 
+ G I G A V L K V L T T G L P A L I S W I K R K R Q Q 
+ G I G K F L H A A K K F A K A F V A E I M N S 
+ G I G K F L H S A K K F A K A F V A E I M N S 
+ G I G K F L H S A K K F G K A F V G E I M N S 
+ G I G K F L K K A K K F A K A F V K I I N N 
+ G I G K F L K K A K K F G K A F V K I L K K 
+ G L F A V I K K V A A V I K K L 
+ G L F A V I K K V A A V I R R L 
+ G L F A V I K K V A K V I K K L 
+ G L F A V I K K V A S V I G G L 
+ G L F A V I K K V A S V I K G L 
+ G L F A V I K K V A S V I K K L 
+ G L F D I A K K V I G V I G S L 
+ G L F D I I K K I A E S F 
+ G L F D I V K K I A G H I A G S I 
+ G L F D I V K K I A G H I A S S I 
+ G L F D I V K K I A G H I V S S I 
+ G L F D I V K K V V G A F G S L 
+ G L F D V I A K V A S V I K K L 
+ G L F D V I K A V A S V I G G L 
+ G L F D V I K K V A A V I G G L 
+ G L F D V I K K V A S V I G G L 
+ G L F D V I K K V A S V I K G L 
+ G L F D V I K K V A S V I K K L 
+ G L F K V I K K V A K V I K K L 
+ G L F K V I K K V A S V I G G L 
+ I L P W K W P W W P W R R 
+ K K K F P W W W P F K K K 
+ K K K F P W W W P F K K K C K K K F P W W W P F K K K C 
+ K K K F P W W W P F K K K K K K F P W W W P F K K K K 
+ K K V V F K V K F K 
+ K L A K K L A K L A K L A K A L 
+ K L A L K L A L K A L K A A K L A 
+ K T K L F K K F A K K L A K K L K K L A K K L 
+ K W K K F L K I G I G K F L H L A K K F 
+ K W K L A K K A L A L L 
+ K W K L F A K I G I G K F L H L A K K F 
+ K W K L F K K A L K K L K K A L K K A L 
+ K W K L F K K I G A V L K V L 
+ K W K L F K K I G I G A F L H L A K K F 
+ K W K L F K K I G I G A F L H S A K K F 
+ K W K L F K K I G I G A V L K V L K K G 
+ K W K L F K K I G I G A V L K V L T T G 
+ K W K L F K K I G I G K F K L A K K F 
+ K W K L F K K I G I G K F L H L A K K F 
+ K W K L F K K I G I G K F L H S A K K F 
+ K W K L F K K I G I G K F L H S A T T F 
+ K W K L F K K I K F L H S A K K F 
+ K W K L F K K I P K F L H S A K K F 
+ K W K L F K K K T K L F K K F A K K L A K K L 
+ K W K S F A K T F K S A K K T V L H T A L K A I S S 
+ K W K S F L K T F K S A K K T V A H T A A K A I S S 
+ K W K S F L K T F K S A K K T V A H T A L K A I S S 
+ K W K S F L K T F K S A K K T V L H T A L K A I S S 
+ K W K S F L K T F K S A K K T V L H T L L K A I S S 
+ K W K S F L K T F K S L K K T V L H T A L K A I S S 
+ K W K S F L K T F K S L K K T V L H T L L K A I S S 
+ K W K S F L K T F K S L K K T V L H T L L K L I S S 
+ K Y K K A L K K L A K L L 
+ L G G I V S A V K K I V D F L G 
+ L P K W K V F K K I E K V G R N I R N G I V K A G P A I A V L G E A K A L G 
+ M P K W K V F K K I E K V G R N I R N G I V K A G P A I A V L G E A K A L G 
+ R A G L Q F P V G R L L R R L L R R L L R 
+ V A K K L A K L A K K L A K L A L 
+ V A K L L A K L A K K L L 
+ V A K L L A K L A K K V L 
+ V A L A L K A L K K A L K K L K K A L K K A L 
+ W A L A L 

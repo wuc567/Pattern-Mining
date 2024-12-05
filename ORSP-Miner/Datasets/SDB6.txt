@@ -1,0 +1,14 @@
+Sleeping	Toileting	Showering	Breakfast	Grooming	Spare_Time/TV	Toileting	Leaving	Spare_Time/TV	Toileting	Lunch	Grooming	Spare_Time/TV	Snack	Spare_Time/TV											
+Sleeping	Toileting	Grooming	Showering	Breakfast	Grooming	Spare_Time/TV	Snack	Spare_Time/TV	Toileting	Lunch	Grooming	Spare_Time/TV	Toileting	Spare_Time/TV	Toileting	Spare_Time/TV	Leaving	Spare_Time/TV							
+Sleeping	Toileting	Showering	Breakfast	Grooming	Spare_Time/TV	Snack	Spare_Time/TV	Toileting	Spare_Time/TV	Lunch	Spare_Time/TV	Toileting	Snack	Spare_Time/TV	Toileting	Spare_Time/TV	Toileting	Spare_Time/TV	Toileting	Leaving	Grooming				
+Spare_Time/TV	Sleeping	Grooming	Showering	Breakfast	Spare_Time/TV	Lunch	Spare_Time/TV	Toileting	Spare_Time/TV	Grooming	Leaving	Spare_Time/TV	Toileting	Spare_Time/TV	Grooming	Spare_Time/TV									
+Grooming	Spare_Time/TV	Grooming	Sleeping	Toileting	Grooming	Showering	Breakfast	Spare_Time/TV	Lunch	Spare_Time/TV	Grooming	Spare_Time/TV	Toileting	Spare_Time/TV	Snack	Spare_Time/TV	Toileting	Spare_Time/TV							
+Sleeping	Toileting	Grooming	Showering	Breakfast	Spare_Time/TV	Grooming	Spare_Time/TV	Grooming	Leaving	Spare_Time/TV	Toileting	Spare_Time/TV													
+Sleeping	Toileting	Grooming	Showering	Breakfast	Spare_Time/TV	Toileting	Leaving	Spare_Time/TV	Snack	Spare_Time/TV	Grooming	Spare_Time/TV	Toileting	Snack	Spare_Time/TV	Toileting	Spare_Time/TV								
+Grooming	Sleeping	Toileting	Grooming	Showering	Breakfast	Spare_Time/TV	Grooming	Leaving	Lunch	Grooming	Toileting	Spare_Time/TV	Toileting	Spare_Time/TV	Leaving	Spare_Time/TV	Snack	Spare_Time/TV	Grooming	Toileting	Spare_Time/TV	Toileting	Grooming	Spare_Time/TV	
+Toileting	Sleeping	Toileting	Grooming	Showering	Breakfast	Spare_Time/TV	Lunch	Grooming	Spare_Time/TV	Toileting	Spare_Time/TV	Grooming	Spare_Time/TV	Snack	Grooming	Spare_Time/TV									
+Grooming	Spare_Time/TV	Toileting	Sleeping	Toileting	Grooming	Showering	Breakfast	Spare_Time/TV	Lunch	Spare_Time/TV	Grooming	Toileting	Spare_Time/TV	Grooming	Leaving	Grooming	Toileting	Spare_Time/TV	Snack	Snack	Toileting	Spare_Time/TV	Spare_Time/TV	Toileting	Spare_Time/TV
+Sleeping	Grooming	Toileting	Grooming	Showering	Breakfast	Spare_Time/TV	Grooming	Leaving	Spare_Time/TV	Grooming	Spare_Time/TV	Grooming	Spare_Time/TV												
+Grooming	Sleeping	Toileting	Grooming	Showering	Breakfast	Spare_Time/TV	Grooming	Leaving	Spare_Time/TV	Toileting	Spare_Time/TV	Grooming	Spare_Time/TV	Leaving	Spare_Time/TV	Grooming	Spare_Time/TV								
+Grooming	Spare_Time/TV	Sleeping	Toileting	Grooming	Showering	Breakfast	Spare_Time/TV	Grooming	Leaving	Spare_Time/TV	Grooming	Leaving													
+Spare_Time/TV	Grooming	Sleeping	Toileting	Grooming	Showering	Breakfast	Spare_Time/TV	Lunch	Toileting	Grooming	Spare_Time/TV														
