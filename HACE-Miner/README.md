@@ -1,4 +1,4 @@
-##  HUCE-Miner: Mining high average utility co-occurrence intermittent overlapping episodes
+##  HACE-Miner: Mining high average utility co-occurrence intermittent overlapping episodes
 
 Yan Li, Zhenyu Rong, Zhiying Zhang, Wei Zhao, Philippe Fournier-Viger, and Youxi Wu
 
