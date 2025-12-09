@@ -593,5 +593,10 @@ for length, route in routes.items():
 print(u'Memory usage of the current process: %.3f MB' % (psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024))
 
 
+<<<<<<< HEAD
 #pr.disable()
 #pr.print_stats(sort='time')
+=======
+pr.disable()
+pr.print_stats(sort='time')
+>>>>>>> cfa4dbc9dcdbad0c2bb3ef52bb1ab7da0f069ed9

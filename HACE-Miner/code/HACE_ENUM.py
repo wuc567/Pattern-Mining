@@ -592,5 +592,45 @@ print('HACE-Enum数量', len(HACoE))
 print(u'Memory usage of the current process: %.3f MB' % (psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024))
 
 
+<<<<<<< HEAD
 #pr.disable()
 #pr.print_stats(sort='time')
+=======
+# cand = [('T', '72'), ('T', '73'), ('O', '75'), ('X', '76')]  # 将元组转换为列表
+# HU1_utility = calculate_hu1_utility(new_allsigma, minpua, char_utility, timestamp_utility, new_frequence)
+# sup_cand = support_Filtered_SDB(cand, mingap, maxgap)
+# for i in range(len(cand)):
+#     print(HU1_utility[cand[i]])
+#
+# cand1 = [('O', '75'),('X', '76')]
+# sup_cand1 = support_Filtered_SDB(cand1, mingap, maxgap)
+# print('sup_cand1:', sup_cand1)
+# for i in range(len(cand1)):
+#     print(HU1_utility[cand1[i]])
+# hupval = 0
+# for s in range(len(cand1)):
+#     hupval += HU1_utility[cand1[s]]
+# hupval_ = sup_cand1 * hupval / len(cand1)
+# print('hupval:', hupval_)
+
+# cur_pattern = [('T', '72'),('T', '73'),('O', '75')]
+# cur_len = len(cur_pattern)
+# print(cur_len)
+# t = cur_pattern[cur_len - 1]
+# print(t)
+
+# cand2 = [('T', '72'), ('T', '73'), ('O', '75'), ('X', '76'), ('I', '77'),('P', '78'),('X', '82')]  # 将元组转换为列表
+# for i in range(len(cand2)):
+#     print(HU1_utility[cand2[i]])
+#
+# cand1 = [('I', '77'),('P', '78')]
+# sup_cand1 = support_Filtered_SDB(cand1, mingap, maxgap)
+# print('sup_cand1:', sup_cand1)
+# for i in range(len(cand1)):
+#     print(HU1_utility[cand1[i]])
+# hupval = 0
+# for s in range(len(cand1)):
+#     hupval += HU1_utility[cand1[s]]
+# hupval_ = sup_cand1 * hupval / len(cand1)
+# print('hupval:', hupval_)
+>>>>>>> cfa4dbc9dcdbad0c2bb3ef52bb1ab7da0f069ed9

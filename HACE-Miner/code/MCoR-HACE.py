@@ -1,3 +1,4 @@
+#采用无重叠方式计算支持度
 import sys
 sys.setrecursionlimit(1000000)
 import time
@@ -14,33 +15,36 @@ filter = []  # 设置过滤，如果为0，对应的ID的sequence被过滤掉；
 # num_lines = 2000  #用来选取数据库中序列的数量
 mingap = 0
 maxgap = 2
-DT=5
-delta = 10
-minpua = 20
 first = ('T', '58')  # 用于共生的一长度情节
 
-#filename="SDB1.txt"
-minpua = 120*1
-filename="sdb6-1.txt"
+#minpua = 500*0.7
+#filename="t-415.txt"
+#
+#minpua = 500*0.7
 #filename="t-509.txt"
+
+#minpua = 500*0.7
 #filename="t-550.txt"
 #minpua = 40
+#minpua = 500*0.7
 #filename="t-683.txt"
-#minpua = 30
+#minpua = 650
 #filename="t-759.txt"
 #minpua = 50
-#filename="t-904.txt"
-#minpua = 50
+minpua = 650
+filename="t-904.txt"
+#minpua = 650
 #filename="t-1010.txt"
-#minpua = 20
+#minpua = 1300
 #filename="T-1492.txt"
-
 
 
 #filename="t-759-train.txt"
 #filename="t-904-test.txt"
 #filename="t-1010-train.txt"
 #filename="t-1492-train.txt"
+
+
 allsigma = []  # 所有字符
 frequence = {}  # 用于收集字符频率
 new_allsigma = []  #共生字符
@@ -221,7 +225,9 @@ def scan_SDB(first, allsigma,frequence, sDB, new_allsigma, new_frequence):
 
 '''
 4.27:正确使用DBI来进行支持度的计算，逻辑是正确的，能返回支持度的值.注意：cand的长度必须大于等于2
+采用无重叠方式计算支持度
 '''
+
 def support_sequence(cand, filtered_sdbstore, mingap, maxgap):
     sup = 0
     # next = []
@@ -261,17 +267,24 @@ def support_sequence(cand, filtered_sdbstore, mingap, maxgap):
         for i in range(len(pv[0])):
             root1 = pv[0][i]
             roots1.append(root1)
+        #nonoverlapping，前一个出现pre_occ_pos初始都为0，一旦获得一个出现，pre_occ_pos更新
+        pre_occ_pos=[0]*len(cand)
         for len_ in range(len(pv[0])):
             root = roots1[len_]
             # print('root1:',root )
             level = 1
             occurrence = {0: root}
-            next = [0] * len(cand)
-            next[level-1] = len_ + 1
-
-            result = depthfirst_support(root, level, cand, mingap, maxgap, next, pv, occurrence)
+            
+            #next = [0] * len(cand)
+            #next[level-1] = len_ + 1
+            #overlapping
+            #result = depthfirst_support(root, level, cand, mingap, maxgap, next, pv, occurrence, pre_occ_pos)
+            occ_pos=pre_occ_pos
+            result = depthfirst_support(root, level, cand, mingap, maxgap, pv, occurrence, occ_pos)
+            
             if result == len(cand):
                 sup += 1
+                pre_occ_pos=occ_pos
                 # print(f"  Complete pattern found starting at root {root}. Total support count now {sup}")
             if result == -3:
                 break
@@ -281,32 +294,46 @@ def support_sequence(cand, filtered_sdbstore, mingap, maxgap):
     # print(f"Total patterns found after processing all sequences: {sup}")
     return sup
 
+#overlapping
+#def depthfirst_support(node, level, cand, mingap,     maxgap, next, patternv, occurrence, pre_occ_pos):
+
 def depthfirst_support(node, level, cand, mingap,
-                       maxgap, next, patternv, occurrence):
+                       maxgap, patternv, occurrence, occ_pos):
     while True:
         childlevel = level
         while True:
             # childstore = patternv[childlevel]
-            childpos = next[childlevel]
+            #overlapping
+            #childpos = next[childlevel]
+            
+            #nonoverlapping
+            childpos = occ_pos[childlevel]+1            
             if childpos == len(patternv[childlevel]):
                 return -3
-            next[childlevel] += 1
+            #next[childlevel] += 1
+            occ_pos[childlevel] += 1
             child = patternv[childlevel][childpos]
             val = child - node - 1
             if val >= mingap:
                 break
         if (mingap <= val) and (val <= maxgap):
             occurrence[level] = child
+            #nonoverlapping
+            occ_pos[level]=childpos
+            
             node = child
             # occurrence = {level: child}
             level += 1
             # print(f"  Complete pattern found level:{level} at root {child}.")
         else:
-            next[childlevel] -= 1
+            #overlaping
+            #next[childlevel] -= 1
+            occ_pos[childlevel] -= 1
             if level - 2 < 0:
                 return -1
-            cparentpos = next[level - 2] -1
-            # cparentstore = patternv[level - 2]
+            # overlapping
+            #cparentpos = next[level - 2] -1
+            cparentpos = occ_pos[childlevel-2] -1
             pv_re = patternv[level - 2]
             cparent = pv_re[cparentpos]
             node = cparent
@@ -319,6 +346,7 @@ def depthfirst_support(node, level, cand, mingap,
         return level
     elif level <= 0:
         return -1
+
 
 # cand = [('T', '72'), ('O', '73')]  # 将元组转换为列表
 # # seq_store = sdbstore  #没有用到哦，其实还是用到了
@@ -363,7 +391,7 @@ def discover_frequent_sigma(new_allsigma, HAU1, minpua, HU1, char_utility, times
 
             if hupval >= minpua:
                 HAU1.append(ch_ts_pair)
-                HU1.append(ch_ts_pair)                
+                HU1.append(ch_ts_pair)
             else:
                 uphupval = freq * Umax  # 根据新的 Umax 更新这个计算方式
                 if uphupval >= minpua:
@@ -374,8 +402,6 @@ def discover_frequent_sigma(new_allsigma, HAU1, minpua, HU1, char_utility, times
 def calculate_hu1_utility(new_allsigma, minpua, char_utility, timestamp_utility, new_frequence):
     HU1_utility = {}
     max_timestamp_utility = max(timestamp_utility.values())
-    max_char_utility = max(char_utility.values())
-
     for ch_ts_pair in new_allsigma:
         ch, ts = ch_ts_pair
         # 检查字符和时间戳是否都有对应的效用值和频率记录
@@ -384,16 +410,14 @@ def calculate_hu1_utility(new_allsigma, minpua, char_utility, timestamp_utility,
             timestamp_util_value = timestamp_utility[ts]
             freq = new_frequence[ch_ts_pair]
             hupval = char_util_value * timestamp_util_value * freq  # 效用值计算方式
-            hupval_fre = char_util_value * timestamp_util_value  # 效用值计算方式
-            Umax = max_char_utility * max_timestamp_utility
-            
-            HU1_utility[ch_ts_pair] = hupval_fre
-            #if hupval >= minpua:
-            #    HU1_utility[ch_ts_pair] = hupval_fre
-            #else:
-            #    uphupval = freq * Umax  # 根据新的 Umax 更新这个计算方式
-            #    if uphupval >= minpua:
-            #        HU1_utility[ch_ts_pair] = hupval_fre
+            Umax = char_util_value * max_timestamp_utility
+
+            if hupval >= minpua:
+                HU1_utility[ch_ts_pair] = hupval
+            else:
+                uphupval = freq * Umax  # 根据新的 Umax 更新这个计算方式
+                if uphupval >= minpua:
+                    HU1_utility[ch_ts_pair] = hupval
     return HU1_utility
 
 
@@ -439,7 +463,6 @@ HU2 = []
 #                         uphupval = sup * minpua  # 计算最大可能效用，避免遗漏有用的模式
 #                         if uphupval >= minpua:
 #                             HU2.append(cand)
-
 def discover_frequent_2pattern(HU1, minpua, HU2, HAU2, mingap, maxgap, prefix):
     Umax_try = 20   #一长度情节自身最大的内部效用值，如（ch, timestamp）的最大效用值:ch-max * timestamp-max
     len_fp = len([prefix])
@@ -461,7 +484,7 @@ def discover_frequent_2pattern(HU1, minpua, HU2, HAU2, mingap, maxgap, prefix):
                 ti_relative = ti_time - Co_time
                 tj_relative = tj_time - Co_time
                 # 检查时间戳逻辑
-                if ti_time < tj_time and 1 <= time_2_diff <= DT and 0 <= ti_relative <= delta and 0 <= tj_relative <= delta:
+                if ti_time < tj_time and 1 <= time_2_diff <= 5 and 0 <= ti_relative <= 10 and 0 <= tj_relative <= 10:
                     cand = [ti, tj]  # 创建候选二元组
                     # o = support_SDB_prefix([ti], filtered_sdbstore, filter1, mingap,
                     #                    maxgap)  # 必须得调用support_SDB_prefix函数，不然没有filter会超出索引
@@ -535,8 +558,7 @@ def enumtree_BETsigma(prefix, freq_sigma,
 
                 if hupval_ >= minpua:
                     HACoE.append(cand)
-                    #if len (cand)==2:
-                    #    print('HACop:', cand, sup, hupval_, len (cand), hupval)
+                    #print('MCoR:', cand,sup)
                     tmp = episode_struct()
                     tmp.name = cand
                     tmp.utility = hupval_
@@ -558,13 +580,8 @@ def enumtree_BETsigma(prefix, freq_sigma,
 pr = cProfile.Profile()
 pr.enable()
 
-print ('minpua=',minpua)
-print (filename)
-
 s = time.time()
-
 txt_data = read_txt_file(filename)
-#txt_data = read_txt_file("D:\\tianchi\EPISODE_MINING\HACoE_Miner\Merged_A_B_x7.txt")
 activity_chart, timestamp_list = data_preprocess(txt_data)
 processed_sdb = (activity_chart, timestamp_list)
 char_utility, char_percentages, timestamp_utility, timestamp_percentages, timestamp_utility_count = utility_calculate(
@@ -572,27 +589,25 @@ char_utility, char_percentages, timestamp_utility, timestamp_percentages, timest
 sdbstore, filter1, filtered_sdbstore, new_allsigma, new_frequence = scan_SDB(first, allsigma, frequence,
                                                                              processed_sdb, new_allsigma, new_frequence)
 discover_frequent_sigma(new_allsigma, HAU1, minpua, HU1, char_utility, timestamp_utility, new_frequence)
-discover_frequent_2pattern(new_allsigma, minpua, HU2, HAU2, mingap, maxgap, first)
+discover_frequent_2pattern(HU1, minpua, HU2, HAU2, mingap, maxgap, first)
 enumtree_BETsigma(first, HU1, HU2, mingap, maxgap, minpua)
 
+print ('minpua=', minpua)
+print (filename)
 print('运行时间', time.time() - s)
-#print('HU1的长度：', len(HU1))
+print('HU1的长度：', len(HU1))
 # print('HU1:', HU1)
 # print('HU2:', HU2)
-#print('HU2的长度：', len(HU2))
-print('HACE-unbhb数量', len(HACoE))
-#print('处理序列个数', len(filtered_sdbstore))
-#print(HACoE)
-#for length, route in routes.items():
-#    tmp = sorted(route.items(), key=lambda x:x[1], reverse=True)
-#    print('长度为{}的情节:'.format(length), dict(tmp))
-print(u'Memory usage of the current process: %.3f MB' % (psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024))
+print('HU2的长度：', len(HU2))
+print('无重叠的数量', len(HACoE))
+print('处理序列个数', len(filtered_sdbstore))
+print(HACoE)
+for length, route in routes.items():
+    tmp = sorted(route.items(), key=lambda x:x[1], reverse=True)
+    print('长度为{}的情节:'.format(length), dict(tmp))
+print(u'Memory usage of the current process: %.4f MB' % (psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024))
 
 
-<<<<<<< HEAD:HACE-Miner/code/HACE-unbhb.py
-#pr.disable()
 #pr.print_stats(sort='time')
-=======
-pr.disable()
-pr.print_stats(sort='time')
->>>>>>> cfa4dbc9dcdbad0c2bb3ef52bb1ab7da0f069ed9:HACE-Miner/code/HACE_UNBHB.py
+#pr.disable()
+

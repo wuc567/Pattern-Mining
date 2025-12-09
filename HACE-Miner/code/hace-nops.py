@@ -657,5 +657,10 @@ print('HACE-NoPS数量', len(HACoE))
 #    print('长度为{}的情节:'.format(length), dict(tmp))
 print(u'Memory usage of the current process: %.4f MB' % (psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024))
 
+<<<<<<< HEAD:HACE-Miner/code/hace-nops.py
 #pr.disable()
 #pr.print_stats(sort='time')
+=======
+pr.disable()
+pr.print_stats(sort='time')
+>>>>>>> cfa4dbc9dcdbad0c2bb3ef52bb1ab7da0f069ed9:HACE-Miner/code/HACE_NoPS.py
