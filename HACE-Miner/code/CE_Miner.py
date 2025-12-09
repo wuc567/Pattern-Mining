@@ -12,8 +12,50 @@ sDB = []
 filter = []  # 设置过滤，如果为0，对应的ID的sequence被过滤掉；为1进行计算
 mingap = 0
 maxgap = 2
-minsup = 1
-first = ('T', '72')  # 用于共生的一长度情节
+
+first = ('T', '58')  # 用于共生的一长度情节
+
+minsup = 30#*0.2
+filename="SDB8-train.txt"
+
+#minsup = 20
+#filename="t-759-train.txt"
+#minsup = 30
+#filename="t-904-train.txt"
+#minsup = 35
+#filename="t-1010-train.txt"
+#minsup = 40
+#filename="t-1492-train.txt"
+
+#minsup = 20*0.2
+#filename="t-759-test.txt"
+#minsup = 30*0.2
+#filename="t-904-test.txt"
+#minsup = 35*0.2
+#filename="t-1010-test.txt"
+#minsup = 40*0.2
+#filename="t-1492-test.txt"
+
+#minsup = 10
+#filename="SDB1-train.txt"
+#minsup = 10
+#filename="SDB2-train.txt"
+#minsup = 12
+#filename="SDB3-train.txt"
+#minsup = 20
+#filename="SDB4-train.txt"
+
+#minsup = 10*0.2
+#filename="SDB1-test.txt"
+#minsup = 10*0.2
+#filename="SDB2-test.txt"
+#minsup = 12*0.2
+#filename="SDB3-test.txt"
+#minsup = 20*0.2
+#filename="SDB4-test.txt"
+
+
+
 allsigma = []  # 所有字符
 frequence = {}  # 用于收集字符频率
 new_allsigma = []  #共生字符
@@ -340,7 +382,7 @@ def enumtree_BETsigma(prefix, freq_sigma,
 
                 if sup >= minsup:
                     CoE.append(cand)
-                    #print('HACop:', HACoP)
+                    print('ce:', cand, sup)
                     tmp = episode_struct()
                     tmp.name = cand
                     tmp.sup = sup
@@ -359,7 +401,10 @@ def enumtree_BETsigma(prefix, freq_sigma,
     print('候选模式数量', candcount)
 
 s = time.time()
-txt_data = read_txt_file("D:\\tianchi\EPISODE_MINING\HACoE_Miner\T_1010.txt")
+#txt_data = read_txt_file("D:\\tianchi\EPISODE_MINING\HACoE_Miner\T_1010.txt")
+txt_data = read_txt_file(filename)
+
+
 activity_chart, timestamp_list = data_preprocess(txt_data)
 processed_sdb = (activity_chart, timestamp_list)
 sdbstore, filter1, filtered_sdbstore, new_allsigma, new_frequence = scan_SDB(first, allsigma, frequence,
@@ -367,12 +412,14 @@ sdbstore, filter1, filtered_sdbstore, new_allsigma, new_frequence = scan_SDB(fir
 discover_frequent_sigma(new_allsigma, minsup, freq_sigma, new_frequence)
 discover_frequent_2pattern(freq_sigma, minsup, freq_2pt, mingap, maxgap, [first])
 enumtree_BETsigma(first, freq_sigma, freq_2pt, mingap, maxgap, minsup)
+print (filename)
 print('运行时间', time.time() - s)
 print('一长度episode数量：', len(freq_sigma))
 # print('HU1:', HU1)
 # print('HU2:', HU2)
 print('二长度episode数量：', len(freq_2pt))
-print('HACoP数量', len(CoE))
+print('CoE数量', len(CoE))
+print (minsup)
 print(CoE)
 for length, route in routes.items():
     tmp = sorted(route.items(), key=lambda x:x[1], reverse=True)

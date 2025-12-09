@@ -1,3 +1,4 @@
+#采用无重叠方式计算支持度
 import sys
 sys.setrecursionlimit(1000000)
 import time
@@ -11,10 +12,28 @@ sDB = []
 # sdbstore = []
 # filter1 = []  # 设置过滤，长度为1的filter；如果为0，对应ID的sequence被过滤掉；为1进行计算,
 filter = []  # 设置过滤，如果为0，对应的ID的sequence被过滤掉；为1进行计算
+# num_lines = 2000  #用来选取数据库中序列的数量
 mingap = 0
-maxgap = 5
-minpua = 20
+maxgap = 2
 first = ('T', '58')  # 用于共生的一长度情节
+
+r=0.45
+minpua = 9.6#*0.2
+filename="SDB3-test.txt"
+
+#filename="t-509.txt"
+#filename="t-550.txt"
+#minpua = 40
+#filename="t-683.txt"
+#minpua = 30
+#filename="t-759.txt"
+#minpua = 50
+#filename="t-904.txt"
+#minpua = 50
+#filename="t-1010.txt"
+#minpua = 20
+#filename="T-1492.txt"
+
 allsigma = []  # 所有字符
 frequence = {}  # 用于收集字符频率
 new_allsigma = []  #共生字符
@@ -68,7 +87,7 @@ def read_txt_file(file_path):
     return lines
 
 '''
-生成情节效用值字典，便于之后频繁一长度情节的计算
+生成情节效用值字典，便于之后频繁一长度情节的计算，5.11：要注意不同数据集中时间戳的分布会影响其百分比
 '''
 def utility_calculate(activity_chart, timestamp_list):
     # 统计字符和时间戳出现的次数
@@ -107,7 +126,7 @@ def utility_calculate(activity_chart, timestamp_list):
 
     # 效用值给时间戳
     for timestamp, percentage in timestamp_percentages.items():
-        if percentage >= 1.5 and percentage < 2.0:
+        if percentage >= 1.5:
             timestamp_utility[timestamp] = 3
             timestamp_utility_count[3] += 1
         elif percentage >= 1.0 and percentage < 1.5:
@@ -195,68 +214,14 @@ def scan_SDB(first, allsigma,frequence, sDB, new_allsigma, new_frequence):
 
 '''
 4.27:正确使用DBI来进行支持度的计算，逻辑是正确的，能返回支持度的值.注意：cand的长度必须大于等于2
-对比算法nofilter：使用过滤前的sdbstore
+采用无重叠方式计算支持度
 '''
 
-def show_sdb(sdbstore):
-    for store in sdbstore:
-        print(f"ID: {store.id}, Store Details:")
-        for pos in store.store:
-            print(f"  Character: {pos.ch}, Positions: {pos.position}, Timestamps: {pos.timestamp}")
-
-def support_sequence(cand, sdbstore, mingap, maxgap):
+def support_sequence(cand, filtered_sdbstore, mingap, maxgap):
     sup = 0
     # next = []
     # 遍历过滤后sdbstore中的每个sigma_sdb_struct实例
-
-    # for store in sdbstore:
-    #
-    #     Char_list = []
-    #     Times_list = []
-    #
-    #     for pos in store.store:
-    #         #print(f"  Character: {pos.ch}, Positions: {pos.position}, Timestamps: {pos.timestamp}")
-    #
-    #         Char_list.append(pos.ch)
-    #         Times_list.append(pos.timestamp)
-    #
-    #     for cand_t in cand:
-    #         try:
-    #             T_i = Char_list.index(cand_t[0])
-    #         except:
-    #             return 0
-    #         T_list = Times_list[T_i]
-    #
-    #         try:
-    #             TT_i = T_list.index(cand_t[-1])
-    #         except:
-    #             return 0
-
-    for seq_idx, seq_store in enumerate(sdbstore):
-
-        # Char_list = []
-        # Times_list = []
-        #
-        # for pos in seq_store.store:
-        #     # print(f"  Character: {pos.ch}, Positions: {pos.position}, Timestamps: {pos.timestamp}")
-        #
-        #     Char_list.append(pos.ch)
-        #     Times_list.append(pos.timestamp)
-        #
-        # for cand_t in cand:
-        #     try:
-        #         T_i = Char_list.index(cand_t[0])
-        #     except:
-        #         return 0
-        #     T_list = Times_list[T_i]
-        #
-        #     try:
-        #         TT_i = T_list.index(cand_t[-1])
-        #     except:
-        #         return 0
-
-
-
+    for seq_idx, seq_store in enumerate(filtered_sdbstore):
         pv = [[] for _ in cand]  # 初始化候选匹配位置列表
         all_match = True
         # print(f"\nProcessing sequence {seq_idx + 1} in sdbstore")
@@ -291,17 +256,24 @@ def support_sequence(cand, sdbstore, mingap, maxgap):
         for i in range(len(pv[0])):
             root1 = pv[0][i]
             roots1.append(root1)
+        #nonoverlapping，前一个出现pre_occ_pos初始都为0，一旦获得一个出现，pre_occ_pos更新
+        pre_occ_pos=[0]*len(cand)
         for len_ in range(len(pv[0])):
             root = roots1[len_]
             # print('root1:',root )
             level = 1
             occurrence = {0: root}
-            next = [0] * len(cand)
-            next[level-1] = len_ + 1
-
-            result = depthfirst_support(root, level, cand, mingap, maxgap, next, pv, occurrence)
+            
+            #next = [0] * len(cand)
+            #next[level-1] = len_ + 1
+            #overlapping
+            #result = depthfirst_support(root, level, cand, mingap, maxgap, next, pv, occurrence, pre_occ_pos)
+            occ_pos=pre_occ_pos
+            result = depthfirst_support(root, level, cand, mingap, maxgap, pv, occurrence, occ_pos)
+            
             if result == len(cand):
                 sup += 1
+                pre_occ_pos=occ_pos
                 # print(f"  Complete pattern found starting at root {root}. Total support count now {sup}")
             if result == -3:
                 break
@@ -311,32 +283,46 @@ def support_sequence(cand, sdbstore, mingap, maxgap):
     # print(f"Total patterns found after processing all sequences: {sup}")
     return sup
 
+#overlapping
+#def depthfirst_support(node, level, cand, mingap,     maxgap, next, patternv, occurrence, pre_occ_pos):
+
 def depthfirst_support(node, level, cand, mingap,
-                       maxgap, next, patternv, occurrence):
+                       maxgap, patternv, occurrence, occ_pos):
     while True:
         childlevel = level
         while True:
             # childstore = patternv[childlevel]
-            childpos = next[childlevel]
+            #overlapping
+            #childpos = next[childlevel]
+            
+            #nonoverlapping
+            childpos = occ_pos[childlevel]+1            
             if childpos == len(patternv[childlevel]):
                 return -3
-            next[childlevel] += 1
+            #next[childlevel] += 1
+            occ_pos[childlevel] += 1
             child = patternv[childlevel][childpos]
             val = child - node - 1
             if val >= mingap:
                 break
         if (mingap <= val) and (val <= maxgap):
             occurrence[level] = child
+            #nonoverlapping
+            occ_pos[level]=childpos
+            
             node = child
             # occurrence = {level: child}
             level += 1
             # print(f"  Complete pattern found level:{level} at root {child}.")
         else:
-            next[childlevel] -= 1
+            #overlaping
+            #next[childlevel] -= 1
+            occ_pos[childlevel] -= 1
             if level - 2 < 0:
                 return -1
-            cparentpos = next[level - 2] -1
-            # cparentstore = patternv[level - 2]
+            # overlapping
+            #cparentpos = next[level - 2] -1
+            cparentpos = occ_pos[childlevel-2] -1
             pv_re = patternv[level - 2]
             cparent = pv_re[cparentpos]
             node = cparent
@@ -349,6 +335,7 @@ def depthfirst_support(node, level, cand, mingap,
         return level
     elif level <= 0:
         return -1
+
 
 # cand = [('T', '72'), ('O', '73')]  # 将元组转换为列表
 # # seq_store = sdbstore  #没有用到哦，其实还是用到了
@@ -404,6 +391,8 @@ def discover_frequent_sigma(new_allsigma, HAU1, minpua, HU1, char_utility, times
 def calculate_hu1_utility(new_allsigma, minpua, char_utility, timestamp_utility, new_frequence):
     HU1_utility = {}
     max_timestamp_utility = max(timestamp_utility.values())
+    max_char_utility = max(char_utility.values())
+
     for ch_ts_pair in new_allsigma:
         ch, ts = ch_ts_pair
         # 检查字符和时间戳是否都有对应的效用值和频率记录
@@ -412,80 +401,62 @@ def calculate_hu1_utility(new_allsigma, minpua, char_utility, timestamp_utility,
             timestamp_util_value = timestamp_utility[ts]
             freq = new_frequence[ch_ts_pair]
             hupval = char_util_value * timestamp_util_value * freq  # 效用值计算方式
-            Umax = char_util_value * max_timestamp_utility
+            hupval_fre = char_util_value * timestamp_util_value  # 效用值计算方式
+            Umax = max_char_utility * max_timestamp_utility
 
             if hupval >= minpua:
-                HU1_utility[ch_ts_pair] = hupval
+                HU1_utility[ch_ts_pair] = hupval_fre
             else:
                 uphupval = freq * Umax  # 根据新的 Umax 更新这个计算方式
                 if uphupval >= minpua:
-                    HU1_utility[ch_ts_pair] = hupval
+                    HU1_utility[ch_ts_pair] = hupval_fre
     return HU1_utility
-'''
-对比算法：nofilter，在support_Filtered_SDB函数中，不再是计算过滤后的数据库的数据，而是计算sdbstore整体的支持度
-'''
 
-def filte_all(seq_store,cand):
-    for i, (character, timestamp) in enumerate(cand):
-        timestamp = str(timestamp)
-        # print(f"  Checking candidate {character} at timestamp {timestamp}")
-
-        if character not in seq_store.sigma:
-            # print(f"  - Character {character} not found in sigma")
-            return 0
-
-        char_index = seq_store.sigma[character] - 1
-        matched_positions = [pos for pos, ts in zip(seq_store.store[char_index].position,
-                                                    seq_store.store[char_index].timestamp) if ts == timestamp]
-        # print(f"  - Found positions for {character} at timestamp {timestamp}: {matched_positions}")
-
-        if not matched_positions:
-            # print(f"  - No positions found for {character} at timestamp {timestamp}")
-            return 0
-
-    # Char_list = []
-    # Times_list = []
-    #
-    # for pos in seq_store.store:
-    #     # print(f"  Character: {pos.ch}, Positions: {pos.position}, Timestamps: {pos.timestamp}")
-    #
-    #     Char_list.append(pos.ch)
-    #     Times_list.append(pos.timestamp)
-    #
-    # for cand_t in cand:
-    #     try:
-    #         T_i = Char_list.index(cand_t[0])
-    #     except:
-    #         return 0
-    #     T_list = Times_list[T_i]
-    #
-    #     try:
-    #         TT_i = T_list.index(cand_t[-1])
-    #     except:
-    #         return 0
-    return 1
 
 def support_Filtered_SDB(cand, mingap, maxgap):
     sup = 0
-    for id in range(len(sdbstore)):
-
-        #print(cand)
-        #print(sdbstore)
-
-        seq_store = sdbstore[id]
-        filter_value = filte_all(seq_store,cand)
-        if filter_value == 0:
-            continue
-        elif filter_value == 1:
-
-            sup += support_sequence(cand, [sdbstore[id]], mingap, maxgap)
-
+    for id in range(len(filtered_sdbstore)):
+        sup += support_sequence(cand, [filtered_sdbstore[id]], mingap, maxgap)
     return sup
 
 HAU2 = []
 HU2 = []
+# def discover_frequent_2pattern(HU1, minpua, HU2, HAU2, mingap, maxgap, prefix):
+#     Umax_try = 15   #一长度情节自身最大的内部效用值，如（ch, timestamp）的最大效用值:ch-max * timestamp-max
+#     len_fp = len(prefix)
+#     HU1_utility = calculate_hu1_utility(new_allsigma, minpua, char_utility, timestamp_utility, new_frequence)
+#     if len_fp == 1:  # 只处理长度为1的前缀，用于生成长度为2的情节
+#         for i in range(len(HU1)):
+#             for j in range(len(HU1)):  # 避免自身组合和重复组合i + 1, len(HU1)
+#                 ti = HU1[i]
+#                 tj = HU1[j]
+#                 # 提取时间戳并转换为整数
+#                 ti_char, ti_time = ti
+#                 tj_char, tj_time = tj
+#                 ti_time = int(ti_time)
+#                 tj_time = int(tj_time)
+#                 # 检查时间戳逻辑
+#                 if ti_time < tj_time and 1 <= (tj_time - ti_time) <= 5:
+#                     cand = [ti, tj]  # 创建候选二元组
+#                     # o = support_SDB_prefix([ti], filtered_sdbstore, filter1, mingap,
+#                     #                    maxgap)  # 必须得调用support_SDB_prefix函数，不然没有filter会超出索引
+#                     sup = support_Filtered_SDB(cand, mingap, maxgap)  # 计算候选模式的支持度
+#                     # hupval = 0
+#                     # for s in range(len(cand)):
+#                     #     hupval += HU1_utility[cand[s]]
+#                     # hupval = sup * hupval / len(cand)
+#                     hupval = (HU1_utility[ti] + HU1_utility[tj]) * sup / len(cand)   # 效用值计算，使用字典中的值,两种方式都可以
+#                     # print("1", HU1_utility[ti])
+#                     # print("2", HU1_utility[tj])
+#                     if hupval >= minpua:
+#                         HAU2.append(cand)
+#                         HU2.append(cand)
+#                     else:
+#                         uphupval = sup * minpua  # 计算最大可能效用，避免遗漏有用的模式
+#                         if uphupval >= minpua:
+#                             HU2.append(cand)
 def discover_frequent_2pattern(HU1, minpua, HU2, HAU2, mingap, maxgap, prefix):
-    Umax_try = 15   #一长度情节自身最大的内部效用值，如（ch, timestamp）的最大效用值:ch-max * timestamp-max
+    Umax_try = 20   #一长度情节自身最大的内部效用值，如（ch, timestamp）的最大效用值:ch-max * timestamp-max
     len_fp = len([prefix])
     Co_char, Co_time = prefix
     Co_time = int(Co_time)
@@ -524,6 +495,7 @@ def discover_frequent_2pattern(HU1, minpua, HU2, HAU2, mingap, maxgap, prefix):
                         uphupval = sup * minpua  # 计算最大可能效用，避免遗漏有用的模式
                         if uphupval >= minpua:
                             HU2.append(cand)
+
 
 candidate = []
 maxsize = 0
@@ -578,7 +550,7 @@ def enumtree_BETsigma(prefix, freq_sigma,
 
                 if hupval_ >= minpua:
                     HACoE.append(cand)
-                    #print('HACop:', HACoP)
+                    #print('MCoR:', cand,sup)
                     tmp = episode_struct()
                     tmp.name = cand
                     tmp.utility = hupval_
@@ -586,7 +558,7 @@ def enumtree_BETsigma(prefix, freq_sigma,
                     if len(cand) not in routes:
                         routes[len(cand)] = {}
                     cand_str = "-".join(f"{char}:{ts}" for char, ts in cand)  # 转换每个元组为字符串
-                    routes[len(cand)][cand_str] = hupval
+                    routes[len(cand)][cand_str] = hupval_
         if len(candidate) == 0:
             break
         cur_pattern = candidate[-1]
@@ -596,11 +568,14 @@ def enumtree_BETsigma(prefix, freq_sigma,
         # print('Min candidate len:',np.array(length_canlen).min(),'candidate len:',len(candidate))   #只是为了观察挖掘的进程，无实际意义
     print('候选模式数量', candcount)
 
+
 pr = cProfile.Profile()
 pr.enable()
 
+print ('minpua=', minpua)
+print (filename)
 s = time.time()
-txt_data = read_txt_file("D:\\tianchi\EPISODE_MINING\HACoE_Miner\Merged_A_B_x7.txt")
+txt_data = read_txt_file(filename)
 activity_chart, timestamp_list = data_preprocess(txt_data)
 processed_sdb = (activity_chart, timestamp_list)
 char_utility, char_percentages, timestamp_utility, timestamp_percentages, timestamp_utility_count = utility_calculate(
@@ -610,17 +585,21 @@ sdbstore, filter1, filtered_sdbstore, new_allsigma, new_frequence = scan_SDB(fir
 discover_frequent_sigma(new_allsigma, HAU1, minpua, HU1, char_utility, timestamp_utility, new_frequence)
 discover_frequent_2pattern(HU1, minpua, HU2, HAU2, mingap, maxgap, first)
 enumtree_BETsigma(first, HU1, HU2, mingap, maxgap, minpua)
-print('HU1的长度：', len(HU1))
+
+
+print('运行时间', time.time() - s)
+#print('HU1的长度：', len(HU1))
 # print('HU1:', HU1)
 # print('HU2:', HU2)
-print('HU2的长度：', len(HU2))
-print('运行时间', time.time() - s)
-print('HACoE数量', len(HACoE))
-print(HACoE)
+#print('HU2的长度：', len(HU2))
+print('无重叠的数量', len(HACoE))
+#print('处理序列个数', len(filtered_sdbstore))
+#print(HACoE)
 for length, route in routes.items():
     tmp = sorted(route.items(), key=lambda x:x[1], reverse=True)
     print('长度为{}的情节:'.format(length), dict(tmp))
 print(u'Memory usage of the current process: %.4f MB' % (psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024))
 
-pr.disable()
-pr.print_stats(sort='time')
+
+#pr.print_stats(sort='time')
+#pr.disable()

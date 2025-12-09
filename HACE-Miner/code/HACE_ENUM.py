@@ -11,11 +11,30 @@ sDB = []
 # sdbstore = []
 # filter1 = []  # 设置过滤，长度为1的filter；如果为0，对应ID的sequence被过滤掉；为1进行计算,
 filter = []  # 设置过滤，如果为0，对应的ID的sequence被过滤掉；为1进行计算
-# num_lines = 300  #用来选取数据库中序列的数量
+# num_lines = 2000  #用来选取数据库中序列的数量
 mingap = 0
-maxgap = 5
+maxgap = 2
+DT=5
+delta = 10
 minpua = 20
 first = ('T', '58')  # 用于共生的一长度情节
+
+
+minpua = 120*1
+filename="sdb6-1.txt"
+#filename="t-509.txt"
+#filename="t-550.txt"
+#minpua = 40
+#filename="t-683.txt"
+#minpua = 30
+#filename="t-759.txt"
+#minpua = 50
+#filename="t-904.txt"
+#minpua = 50
+#filename="t-1010.txt"
+#minpua = 20
+#filename="T-1492.txt"
+
 allsigma = []  # 所有字符
 frequence = {}  # 用于收集字符频率
 new_allsigma = []  #共生字符
@@ -39,7 +58,7 @@ class episode_struct:
         self.episode = []  # 将存储形如 [('S', '145'), ('T', '109')] 的模式
         self.utility = -1
 
-
+'''读取原txt数据，把文本数据的每一行转存到事件结果集和时间戳集中'''
 def data_preprocess(txt_data):
     activity_chart = []  # 事件缩写结果集
     timestamp_list = []  # 时间戳集
@@ -68,6 +87,9 @@ def read_txt_file(file_path):
         lines = file.readlines()
     return lines
 
+'''
+生成情节效用值字典，便于之后频繁一长度情节的计算，5.11：要注意不同数据集中时间戳的分布会影响其百分比
+'''
 def utility_calculate(activity_chart, timestamp_list):
     # 统计字符和时间戳出现的次数
     char_counter = Counter()
@@ -105,7 +127,7 @@ def utility_calculate(activity_chart, timestamp_list):
 
     # 效用值给时间戳
     for timestamp, percentage in timestamp_percentages.items():
-        if percentage >= 1.5 and percentage < 2.0:
+        if percentage >= 1.5:
             timestamp_utility[timestamp] = 3
             timestamp_utility_count[3] += 1
         elif percentage >= 1.0 and percentage < 1.5:
@@ -191,6 +213,9 @@ def scan_SDB(first, allsigma,frequence, sDB, new_allsigma, new_frequence):
 
     return sdbstore, filter1, filtered_sdbstore, new_allsigma, new_frequence
 
+'''
+4.27:正确使用DBI来进行支持度的计算，逻辑是正确的，能返回支持度的值.注意：cand的长度必须大于等于2
+'''
 def support_sequence(cand, filtered_sdbstore, mingap, maxgap):
     sup = 0
     # next = []
@@ -288,11 +313,38 @@ def depthfirst_support(node, level, cand, mingap,
         return level
     elif level <= 0:
         return -1
+
+# cand = [('T', '72'), ('O', '73')]  # 将元组转换为列表
+# # seq_store = sdbstore  #没有用到哦，其实还是用到了
+# support_count = support_sequence(cand, filtered_sdbstore, mingap, maxgap)
+# print("Support count for the cand:", support_count)
+
 '''
-ENUM法：需要根据new_allsigma去枚举出所有可能的，需要算出所有new_allsigma的效用值
+可以计算出cand在整个数据集中的支持度
 '''
-def calculate_hu1_utility(new_allsigma, char_utility, timestamp_utility, new_frequence):
-    HU1_utility = {}
+def support_SDB_prefix(cand, sdbstore, filter1, mingap, maxgap):
+    global filter
+    sup = 0
+    len_ = len(cand)
+    if len_ >= 2:
+        filter = []  # 初始化filter列表
+        for id in range(len(sdbstore)):
+            result = support_sequence(cand, [sdbstore[id]], mingap, maxgap)
+            filter.append(result)
+            sup += result
+    else:
+        filter = filter1
+        for id in range(len(sdbstore)):
+            sup += filter[id]
+    return sup
+
+HU1_utility={}
+HAU1 = []
+HU1 = []
+def discover_frequent_sigma(new_allsigma, HAU1, minpua, HU1, char_utility, timestamp_utility, new_frequence):
+    # 计算时间戳效用值中的最大值
+    max_timestamp_utility = max(timestamp_utility.values())
+
     for ch_ts_pair in new_allsigma:
         ch, ts = ch_ts_pair
         # 检查字符和时间戳是否都有对应的效用值和频率记录
@@ -300,16 +352,133 @@ def calculate_hu1_utility(new_allsigma, char_utility, timestamp_utility, new_fre
             char_util_value = char_utility[ch]
             timestamp_util_value = timestamp_utility[ts]
             freq = new_frequence[ch_ts_pair]
-            hupval = char_util_value * timestamp_util_value * freq  # 效用值计算方式
-            HU1_utility[ch_ts_pair] = hupval
+            ##hupval = char_util_value * timestamp_util_value * freq  # 效用值计算方式
+            hupval = char_util_value * timestamp_util_value  # 效用值计算方式
+            Umax = char_util_value * max_timestamp_utility
 
+            HAU1.append(ch_ts_pair)     #enumeration   all items
+            HU1.append(ch_ts_pair)      #enumeration   all items
+            
+            #if hupval >= minpua:
+            #    HAU1.append(ch_ts_pair)
+            #    HU1.append(ch_ts_pair)
+            #else:
+            #    uphupval = freq * Umax  # 根据新的 Umax 更新这个计算方式
+            #    HU1.append(ch_ts_pair)
+            #    if uphupval >= minpua:
+            #        HU1.append(ch_ts_pair)
+        else:
+            print(f"Utility or frequency value missing for {ch_ts_pair}")
+
+def calculate_hu1_utility(new_allsigma, minpua, char_utility, timestamp_utility, new_frequence):
+    max_timestamp_utility = max(timestamp_utility.values())
+    for ch_ts_pair in new_allsigma:
+        ch, ts = ch_ts_pair
+        # 检查字符和时间戳是否都有对应的效用值和频率记录
+        if ch in char_utility and ts in timestamp_utility and ch_ts_pair in new_frequence:
+            char_util_value = char_utility[ch]
+            timestamp_util_value = timestamp_utility[ts]
+            freq = new_frequence[ch_ts_pair]
+            # hupval = char_util_value * timestamp_util_value * freq  # 效用值计算方式
+            hupval = char_util_value * timestamp_util_value  # 效用值计算方式
+            Umax = char_util_value * max_timestamp_utility
+            
+            HU1_utility[ch_ts_pair] = hupval   #enumruation
+
+            #if hupval >= minpua:
+            #    HU1_utility[ch_ts_pair] = hupval
+            #else:
+            #    uphupval = freq * Umax  # 根据新的 Umax 更新这个计算方式
+            #    if uphupval >= minpua:
+            #        HU1_utility[ch_ts_pair] = hupval
     return HU1_utility
+
+
 
 def support_Filtered_SDB(cand, mingap, maxgap):
     sup = 0
     for id in range(len(filtered_sdbstore)):
         sup += support_sequence(cand, [filtered_sdbstore[id]], mingap, maxgap)
     return sup
+
+HAU2 = []
+HU2 = []
+# def discover_frequent_2pattern(HU1, minpua, HU2, HAU2, mingap, maxgap, prefix):
+#     Umax_try = 15   #一长度情节自身最大的内部效用值，如（ch, timestamp）的最大效用值:ch-max * timestamp-max
+#     len_fp = len(prefix)
+#     HU1_utility = calculate_hu1_utility(new_allsigma, minpua, char_utility, timestamp_utility, new_frequence)
+#     if len_fp == 1:  # 只处理长度为1的前缀，用于生成长度为2的情节
+#         for i in range(len(HU1)):
+#             for j in range(len(HU1)):  # 避免自身组合和重复组合i + 1, len(HU1)
+#                 ti = HU1[i]
+#                 tj = HU1[j]
+#                 # 提取时间戳并转换为整数
+#                 ti_char, ti_time = ti
+#                 tj_char, tj_time = tj
+#                 ti_time = int(ti_time)
+#                 tj_time = int(tj_time)
+#                 # 检查时间戳逻辑
+#                 if ti_time < tj_time and 1 <= (tj_time - ti_time) <= 5:
+#                     cand = [ti, tj]  # 创建候选二元组
+#                     # o = support_SDB_prefix([ti], filtered_sdbstore, filter1, mingap,
+#                     #                    maxgap)  # 必须得调用support_SDB_prefix函数，不然没有filter会超出索引
+#                     sup = support_Filtered_SDB(cand, mingap, maxgap)  # 计算候选模式的支持度
+#                     # hupval = 0
+#                     # for s in range(len(cand)):
+#                     #     hupval += HU1_utility[cand[s]]
+#                     # hupval = sup * hupval / len(cand)
+#                     hupval = (HU1_utility[ti] + HU1_utility[tj]) * sup / len(cand)   # 效用值计算，使用字典中的值,两种方式都可以
+#                     # print("1", HU1_utility[ti])
+#                     # print("2", HU1_utility[tj])
+#                     if hupval >= minpua:
+#                         HAU2.append(cand)
+#                         HU2.append(cand)
+#                     else:
+#                         uphupval = sup * minpua  # 计算最大可能效用，避免遗漏有用的模式
+#                         if uphupval >= minpua:
+#                             HU2.append(cand)
+
+def discover_frequent_2pattern(HU1, minpua, HU2, HAU2, mingap, maxgap, prefix):
+    Umax_try = 20   #一长度情节自身最大的内部效用值，如（ch, timestamp）的最大效用值:ch-max * timestamp-max
+    len_fp = len([prefix])
+    Co_char, Co_time = prefix
+    Co_time = int(Co_time)
+    HU1_utility = calculate_hu1_utility(new_allsigma, minpua, char_utility, timestamp_utility, new_frequence)
+    if len_fp == 1:  # 只处理长度为1的前缀，用于生成长度为2的情节
+        for i in range(len(HU1)):
+            for j in range(len(HU1)):  # 避免自身组合和重复组合i + 1, len(HU1)
+                ti = HU1[i]
+                tj = HU1[j]
+                # 提取时间戳并转换为整数
+                ti_char, ti_time = ti
+                tj_char, tj_time = tj
+                ti_time = int(ti_time)
+                tj_time = int(tj_time)
+
+                time_2_diff = tj_time - ti_time
+                ti_relative = ti_time - Co_time
+                tj_relative = tj_time - Co_time
+                # 检查时间戳逻辑
+                if ti_time < tj_time and 1 <= time_2_diff <= DT and 0 <= ti_relative <= delta and 0 <= tj_relative <= delta:
+                    cand = [ti, tj]  # 创建候选二元组
+                    # o = support_SDB_prefix([ti], filtered_sdbstore, filter1, mingap,
+                    #                    maxgap)  # 必须得调用support_SDB_prefix函数，不然没有filter会超出索引
+                    sup = support_Filtered_SDB(cand, mingap, maxgap)  # 计算候选模式的支持度
+                    # hupval = 0
+                    # for s in range(len(cand)):
+                    #     hupval += HU1_utility[cand[s]]
+                    # hupval = sup * hupval / len(cand)
+                    hupval = (HU1_utility[ti] + HU1_utility[tj]) * sup / len(cand)   # 效用值计算，使用字典中的值,两种方式都可以
+                    # print("1", HU1_utility[ti])
+                    # print("2", HU1_utility[tj])
+                    if hupval >= minpua:
+                        HAU2.append(cand)
+                        HU2.append(cand)
+                    else:
+                        uphupval = sup * minpua  # 计算最大可能效用，避免遗漏有用的模式
+                        if uphupval >= minpua:
+                            HU2.append(cand)
+
 
 candidate = []
 maxsize = 0
@@ -319,16 +488,16 @@ BET = 0
 nonBET = 0
 length_canlen = []
 
-def enumtree_ENUMsigma(prefix, new_allsigma,
-                       mingap, maxgap, minpua):
+def enumtree_BETsigma(prefix, freq_sigma,
+                      HU2, mingap, maxgap, minpua):
     global BET, nonBET, maxsize
     cur_pattern = [prefix]
     prefixlen = len(prefix)
-    HU1_utility = calculate_hu1_utility(new_allsigma, char_utility, timestamp_utility, new_frequence)
+    HU1_utility = calculate_hu1_utility(new_allsigma, minpua, char_utility, timestamp_utility, new_frequence)
     candcount = 0
     while True:
-        for i in range(len(new_allsigma)):
-            item = new_allsigma[i]
+        for i in range(len(freq_sigma)):
+            item = freq_sigma[i]
             cur_pattern_char, cur_pattern_time = cur_pattern[-1]  #是cur_pattern的最后一个元素的二元组信息
             cur_pattern_char_first, cur_pattern_time_first = cur_pattern[0]  #是cur_pattern的第一个元素的二元组信息
             item_char, item_time = item
@@ -340,18 +509,37 @@ def enumtree_ENUMsigma(prefix, new_allsigma,
                 cand.extend(cur_pattern)
                 cand.append(item)
                 # print("cand:", cand)
+                cur_len = len(cur_pattern)
+                # if prefixlen < cur_len:
+                #     t = cur_pattern[cur_len - 1]
+                #     last2 = [t, item]
+                #     if last2 not in HU2:
+                #         BET += 1
+                #         continue
+                size = len(candidate)
+                if maxsize < size:
+                    maxsize = size
+                nonBET += 1
+                # o = support_SDB_prefix(cand, sdbstore, filter1, mingap,
+                #                        maxgap)  # 必须得调用support_SDB_prefix函数，不然没有filter会超出索引
                 sup = support_Filtered_SDB(cand, mingap, maxgap)  # 计算候选模式的支持度
                 # print("sup:", sup)
                 hupval = 0
-                for s in range(len(cand)):
-                    hupval += HU1_utility[cand[s]]
-                hupval_ = sup * hupval / len(cand)
-                # print("hupval:", hupval_)
                 candcount += 1
+                for s in range(len(cand)):
+                    # if cand == [('T', '58'), ('T', '62')]:
+                    #     print(cand[s], '------', HU1_utility[cand[s]])
+                    hupval += HU1_utility[cand[s]]
+
+                hupval_ = sup * hupval / len(cand)
+                # if cand == [('T', '58'), ('T', '62')]:
+                #     print(hupval, sup, len(cand), hupval_)
+                # print("hupval:", hupval_)
 
                 if hupval_ >= minpua:
                     HACoE.append(cand)
-                    #print('HACop:', HACoP)
+                    # if len (cand)==2:
+                    #    print('HACop:', cand, sup, hupval_, len (cand), hupval)
                     tmp = episode_struct()
                     tmp.name = cand
                     tmp.utility = hupval_
@@ -369,66 +557,40 @@ def enumtree_ENUMsigma(prefix, new_allsigma,
         # print('Min candidate len:',np.array(length_canlen).min(),'candidate len:',len(candidate))   #只是为了观察挖掘的进程，无实际意义
     print('候选模式数量', candcount)
 
+
 pr = cProfile.Profile()
 pr.enable()
 
 s = time.time()
-txt_data = read_txt_file("D:\\tianchi\EPISODE_MINING\HACoE_Miner\Merged_A_B_x7.txt")
+print ('minpua=',minpua)
+print (filename)
+
+txt_data = read_txt_file(filename)
+#txt_data = read_txt_file("D:\\tianchi\EPISODE_MINING\HACoE_Miner\Merged_A_B_x7.txt")
 activity_chart, timestamp_list = data_preprocess(txt_data)
 processed_sdb = (activity_chart, timestamp_list)
 char_utility, char_percentages, timestamp_utility, timestamp_percentages, timestamp_utility_count = utility_calculate(
     activity_chart, timestamp_list)
+
 sdbstore, filter1, filtered_sdbstore, new_allsigma, new_frequence = scan_SDB(first, allsigma, frequence,
                                                                              processed_sdb, new_allsigma, new_frequence)
-enumtree_ENUMsigma(first, new_allsigma, mingap, maxgap, minpua)
+discover_frequent_sigma(new_allsigma, HAU1, minpua, HU1, char_utility, timestamp_utility, new_frequence)
+discover_frequent_2pattern(HU1, minpua, HU2, HAU2, mingap, maxgap, first)
+enumtree_BETsigma(first, HU1, HU2, mingap, maxgap, minpua)
 
 print('运行时间', time.time() - s)
-print('HACoE数量', len(HACoE))
-#print(HACoE)
-for length, route in routes.items():
-    tmp = sorted(route.items(), key=lambda x:x[1], reverse=True)
-    print('长度为{}的情节:'.format(length), dict(tmp))
-print(u'Memory usage of the current process: %.4f MB' % (psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024))
+# print('HU1的长度：', len(HU1))
+# print('HU1:', HU1)
+# print('HU2:', HU2)
+# print('HU2的长度：', len(HU2))
+print('HACE-Enum数量', len(HACoE))
+#print('处理序列个数', len(filtered_sdbstore))
+# print(HACoE)
+# for length, route in routes.items():
+#     tmp = sorted(route.items(), key=lambda x:x[1], reverse=True)
+#     print('长度为{}的情节:'.format(length), dict(tmp))
+print(u'Memory usage of the current process: %.3f MB' % (psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024))
 
-pr.disable()
-pr.print_stats(sort='time')
-'''下面为调试代码所用'''
-# cand = [('T', '72'),('T', '73'),('O', '75'),('X', '76'),('I', '77'),('O', '78'),('S', '82')]  # 将元组转换为列表，这个cand在原数据35行
 
-# cand = [('T', '72'), ('T', '73'), ('O', '75'), ('X', '76')]  # 将元组转换为列表
-# HU1_utility = calculate_hu1_utility(new_allsigma, minpua, char_utility, timestamp_utility, new_frequence)
-# sup_cand = support_Filtered_SDB(cand, mingap, maxgap)
-# for i in range(len(cand)):
-#     print(HU1_utility[cand[i]])
-#
-# cand1 = [('O', '75'),('X', '76')]
-# sup_cand1 = support_Filtered_SDB(cand1, mingap, maxgap)
-# print('sup_cand1:', sup_cand1)
-# for i in range(len(cand1)):
-#     print(HU1_utility[cand1[i]])
-# hupval = 0
-# for s in range(len(cand1)):
-#     hupval += HU1_utility[cand1[s]]
-# hupval_ = sup_cand1 * hupval / len(cand1)
-# print('hupval:', hupval_)
-
-# cur_pattern = [('T', '72'),('T', '73'),('O', '75')]
-# cur_len = len(cur_pattern)
-# print(cur_len)
-# t = cur_pattern[cur_len - 1]
-# print(t)
-
-# cand2 = [('T', '72'), ('T', '73'), ('O', '75'), ('X', '76'), ('I', '77'),('P', '78'),('X', '82')]  # 将元组转换为列表
-# for i in range(len(cand2)):
-#     print(HU1_utility[cand2[i]])
-#
-# cand1 = [('I', '77'),('P', '78')]
-# sup_cand1 = support_Filtered_SDB(cand1, mingap, maxgap)
-# print('sup_cand1:', sup_cand1)
-# for i in range(len(cand1)):
-#     print(HU1_utility[cand1[i]])
-# hupval = 0
-# for s in range(len(cand1)):
-#     hupval += HU1_utility[cand1[s]]
-# hupval_ = sup_cand1 * hupval / len(cand1)
-# print('hupval:', hupval_)
+#pr.disable()
+#pr.print_stats(sort='time')
