@@ -1,0 +1,361 @@
+c - a - a - a -
+b d - a c -
+c d - a - a - a d -
+a - a - a c d - a - a -
+c d - a b c d e - a d -
+a - a b - a c d e - a c d - a c - a c e -
+c - a b c d e - a c d - a - a b c d f - a f - a c d - a - a -
+a - a c - a - a - a c - a c - a d - a - a c - a c d - a d - a b d - a - a c -
+c e - a - a c - a - a d - a d - a - a - a - a - a b e - a - a d e f - a -
+a - a b c - a b d e - a - a - a - a c d e - a c d e f -
+d - a - a c - a c d e f - a c d - a c - a c - a - a - a - a - a - a -
+a b c d f - a - a b c d - a c d - a b c d e - a d - a d -
+a - a c d - a c d - a c d - a c - a c - a c f - a b d - a - a b c -
+b c d e - a c - a c e - a - a -
+b c e - a b c d - a - a c - a - a d - a -
+e - a d - a - a - a d - a c d - a d - a - a c - a - a d - a - a b c e f -
+c d - a b c d e f - a d - a c f - a - a - a - a - a d f - a c - a - a -
+a b c d - a c - a b d - a c e f - a b c d - a e - a - a b c -
+a c - a b c d - a - a - a - a b c - a e - a - a d - a c d e - a c - a - a c d - a c -
+c d f - a d - a b c d - a b d - a - a c d f - a b d e - a -
+a c d - a d - a d f - a f - a - a - a - a b c d f - a - a d f - a - a b - a -
+b c d f - a b - a - a d - a c d - a - a c d -
+b c f - a b c d e - a d - a b c - a - a - a - a - a c - a b - a - a c e -
+d - a c d e - a d - a c f - a b e - a c d - a c d f - a - a c - a - a - a - a b - a -
+a - a d - a - a b c - a - a c d e - a c d - a c f - a b c d - a -
+a b c - a - a c - a - a c - a c f - a c d - a d - a b - a c e - a c d - a -
+b d - a f - a c d f - a - a d - a c d - a c - a d - a - a b c - a - a c d - a - a c - a c -
+c d - a c d - a b c e - a d - a - a c d f - a c d - a c d -
+a b c d - a b d f - a - a - a b c d e f - a c - a c d -
+a - a b - a d - a c - a b c - a - a c - a c d - a c d - a c d - a -
+d - a - a c d e - a - a b - a c - a c f - a c e - a c - a d e - a c - a c d f -
+b c d f - a c d - a b c - a b c d - a - a - a c d e f - a b c - a b d -
+c f - a c d f - a b c d e - a b c e f - a f - a c d f - a - a c d -
+a - a - a - a c d - a b c d e f - a d - a b c d f -
+d - a - a b c d e f - a c d - a - a b c e f - a c - a -
+b d - a b c - a - a c d e f - a c - a c d e - a b c d - a d - a d - a c d - a b c d -
+a c d - a b c e - a c - a c d e f - a b d - a - a d - a - a b c - a -
+d - a b d - a c - a b c - a c - a d - a c d - a b c - a - a d - a b f - a c f - a - a - a c -
+c f - a - a c - a b d f - a b c e f - a b c d - a - a c d e - a c -
+a - a c d - a c d e - a c d - a b c d e f - a d -
+c d e f - a b c d - a b c d - a - a b c - a - a d - a b c d - a b c d - a b c e -
+c d - a c - a - a c d e - a c d f - a b c f - a c f - a c d f - a c d - a c -
+c d e f - a b c d f - a - a - a b c d e f - a c -
+c d - a c - a - a c d - a c e - a b c f - a c d f - a f - a c d - a d -
+b c f - a b c f - a b c d - a c - a - a c - a c d f - a c d f -
+a c - a c d e - a - a - a b - a c d - a - a b c d - a - a c d - a - a - a b c d - a c d - a -
+c f - a - a - a c - a b c d f - a b c d - a b c d f - a c d - a c -
+f - a - a c - a b d - a c - a b c d - a c d f - a - a c f - a c d f - a - a f - a c f - a -
+c d - a c - a b c e - a c - a b c d - a b c d - a c d - a b c d e f -
+c d f - a b c d - a c e f - a c - a c - a c f -
+c d e - a c f - a d - a - a c - a - a - a b c - a b c d f - a - a c -
+b d f - a - a b c f - a - a c d - a b - a c f - a - a b c d - a b c - a b c -
+b c d - a b c d f - a - a c - a c d e f - a b c f - a b c -
+a c f - a - a b - a c d - a c - a c - a - a d - a b - a c - a c d e - a b - a b c - a c d - a c - a c d -
+b c e - a c d e - a c d - a c f - a - a - a c - a c d f - a c d f - a b c - a c -
+b c d e f - a - a c d e - a - a b c d f -
+c d e f - a - a b c d f - a - a - a c d f -
+b - a d e - a - a b c d e - a c d - a c - a c d - a b c d - a b - a b c d e -
+a - a b c f - a c d f - a b c e f - a d - a - a c d e f - a c d - a c d f - a b c d - a b c d f - a b c - a b c f - a - a c d - a - a c - a c - a -
+d - a c - a c - a - a c d - a - a - a b c - a b - a c d f - a c - a - a -
+f - a d f - a - a c - a c d - a c d - a d - a b c - a b c d f -
+b c d f - a - a - a c d f - a b c d - a c d f - a b f - a -
+c d f - a - a - a c d f - a b c d - a b c f - a b c d -
+c d - a f - a - a b d f - a c d f - a c - a b c d - a c d - a - a - a -
+c d f - a c e - a b c d - a c - a b c d e -
+b c e f - a d - a b c f - a b c f - a c d - a c d - a b c d e f - a b c d f - a d - a f - a c d f - a -
+c d - a b d - a - a c d - a b c f - a d - a - a - a c - a c - a d - a b c - a c d -
+b c d - a b c d f - a c d f - a - a - a b c d e f - a c - a b c -
+a c - a b c d f - a b c - a - a c d - a - a d - a b c d f -
+c - a b d e - a d f - a c d - a - a c - a - a - a b c d f - a c d f - a - a - a c d - a d -
+b c f - a c d - a c - a c d f - a c f - a c f - a - a c d - a c d - a c d -
+b c f - a c d - a c - a c d f - a c d - a b c d f - a b c d -
+b c d - a - a c d f - a c f - a b c d f - a - a b c e f - a b d f -
+a c d - a c f - a b c d e - a b c d e -
+c d f - a c - a c d - a - a c d - a c d f - a b c e - a c d f - a c d -
+c f - a - a - a c d f - a c d - a f - a b c d - a b c d e f -
+c d e f - a d - a c d f - a c d - a c - a c - a c d f - a b c d -
+b c d e - a b c - a - a b c - a c d -
+c d e - a b c d - a - a c d f - a b c d - a c - a c d f -
+b c - a c e - a c - a c d e - a b c d e f - a c - a -
+a c - a b c f - a - a c d - a - a c d - a b c d e f - a b -
+c f - a b c - a b c d e - a b c d e - a c d - a b c d e -
+a c d - a c d - a b c d e - a - a c d f - a b c d f - a - a c - a c d f -
+b c d e f - a c d - a c f - a b c d f - a b c - a d - a -
+b d - a b c d e - a b f - a c d f - a c - a b e -
+b c d - a c d - a c d f - a c d f - a c - a b c d e f - a - a -
+b c d e - a b d f - a b c d e f - a - a c d f - a - a b c d - a - a - a -
+b c - a - a c - a c d f - a - a c - a - a c e - a c d e - a - a b c f -
+f - a - a d - a c - a b c f - a c d - a b c d f - a c - a -
+c e - a d - a c - a c f - a c d f - a - a d - a b c d - a c -
+a - a b c d f - a d - a c - a c - a b c e - a c d f - a -
+c - a c - a b c d - a - a c d - a b c d f - a c d - a b c d f -
+c d - a d f - a c - a - a c d - a c - a - a b c d e - a c d - a c d - a -
+b c d - a c - a c - a c d - a b c d - a b c d - a c -
+a c - a b c d - a c e f - a b c d - a - a c d e - a b c f - a c - a - a -
+c - a b c d - a c d - a - a b c d f - a c f -
+b c d f - a b d e - a c d f - a b c - a c d f - a b c d - a c -
+b c d - a - a c - a c - a - a b c d e f - a b c d - a b c e - a - a c - a d -
+b c d e f - a - a - a - a c d - a - a b c e f - a - a c - a -
+b c - a - a c d - a b c d e f - a b d - a - a b - a b c d f - a e - a - a b c d e - a c -
+a - a b c f - a d - a c - a d e - a c d f - a - a - a b c d f - a d - a c d e -
+c - a c e f - a c d f - a - a b c d f - a b d - a d - a b c f - a c d -
+c d - a b c - a b c f - a c d e - a b c d e f - a c - a - a -
+c - a b c d f - a - a c d f - a b c - a c - a - a b c d -
+c e - a - a b c d f - a - a - a c - a d f - a - a c f - a b c f - a - a c d -
+c d - a c - a c - a c f - a c f - a - a - a c d - a b - a c - a c - a -
+c d - a f - a c d - a c - a c d - a b c e - a - a c e - a c d e f - a b c e f - a c d -
+a b c d - a - a c d f - a f - a c d f - a b c d f - a c - a c d f - a c -
+b c d - a - a b c - a c - a c - a - a b d - a b c e - a c - a b c d e f - a c - a c - a b c - a b f - a c d f - a -
+a c f - a - a c - a d - a - a c - a c f - a c d f - a c d - a c d - a - a c - a c - a c f - a b d e - a c d e -
+b - a c d - a c - a b - a c - a c d - a c e - a - a c - a c d - a c d f - a c - a - a c - a c - a c d - a - a c f - a c -
+a b c - a - a c d - a c e - a - a - a - a c d - a b d - a b c d f - a b c d e f - a c d e -
+c d f - a b c e - a c - a c - a c d - a - a c d - a c - a b c - a b c f - a c d - a -
+b c f - a b c d - a - a b - a d - a - a b c d - a - a c f - a c d f - a - a c - a b c d f - a d - a c - a c - a - a -
+c - a b c d - a - a - a b c d - a b c d f - a c - a - a - a b c d -
+c - a b c - a b c - a c - a c - a - a b c f - a c d - a b c d f - a c f - a c d e f - a -
+b c d - a c - a - a - a c - a c - a - a c d - a c - a b c - a b c d f - a c - a c - a -
+c - a c - a - a b c d - a c - a b c d - a b c - a b c d e -
+c d - a b c d e f - a - a c d - a b c d e f - a c d - a c d - a d - a c f - a b c d - a c d f - a b c d e f - a -
+
+
+
+c - a - a c f - a c - a b f - a c d - a d - a b c e - a b c - a d -
+b c d - a b c d - a c f - a c d - a c f - a c - a d - a d - a b c d - a b d -
+c d f - a b c d - a b c - a c d - a b c f - a - a c d - a b c d f - a c d f -
+c d - a c - a b c d e - a - a d - a c d - a - a -
+b c f - a c f - a c e - a c d f - a c - a d - a c - a c f -
+b c d - a c - a b c e - a f - a c d - a c d - a - a c d - a c d - a c - a c -
+d - a c d e - a b c d - a b c d - a b c - a - a c - a d - a c - a f - a c -
+b c d e f - a - a c d - a c -
+b c f - a d f - a c e - a - a b c d - a b c d - a f - a b c - a b c -
+a - a - a - a d - a c d - a b - a c - a b c d - a b c - a c - a d -
+c d e f - a c - a c d e f - a c d f - a - a d f - a c f -
+c d - a c d - a b c d - a c - a b - a b c d - a b - a c - a f -
+b c f - a e - a - a - a b c d - a - a b c d f -
+c d - a c f - a b c d f - a b c d e - a - a c d - a - a -
+c d - a c d - a c d e - a d - a c d - a c e - a b c d f - a f - a - a d -
+b c d e f - a c d e - a c d - a b c d e - a c d - a d - a c d - a c d e f - a b d f -
+a c d - a b c f - a d - a - a b c - a d - a c - a b c d f - a - a b c - a c d -
+d - a - a b c d f - a - a - a b c d e - a b c d f -
+a c d - a c d f - a c - a b c e - a c f - a f - a - a -
+c - a - a b c d e f - a - a c d - a c d - a c d e -
+a - a b e - a c - a c d - a c - a c d - a c - a d - a d - a - a c d -
+a - a c d - a b c - a c d - a c - a b d f - a - a d - a - a d - a - a c - a - a c e - a c -
+a f - a c - a c - a b c d - a c - a - a c d - a b c - a c d - a b d - a c d -
+c d - a c - a d - a b c d - a c d - a c - a c f - a b c d - a -
+b c - a d - a - a c f - a d e f - a - a e f - a - a b c - a c d - a - a - a c - a -
+a c d - a c e - a d - a b - a - a c e - a - a b c d - a c e - a - a b c e - a c -
+b - a c d - a - a c - a d f - a b c - a - a - a c d - a - a - a - a - a e - a - a d - a d - a -
+b - a - a d - a d f - a c - a c e - a c d e f - a c d f - a - a - a c -
+a c d f - a b c d - a b c d - a b d f - a c d e -
+c - a - a - a d - a b - a d - a b c d - a - a c - a c - a - a - a - a c d - a c e - a f - a - a -
+c d - a c d - a c - a - a c - a b c f - a c d f - a c - a c f - a c - a c - a - a d -
+c - a d - a c d f - a - a b - a c - a - a d - a b c - a f - a b c - a c - a -
+c d - a - a d - a c - a d - a c d - a b c d f - a - a d - a - a d - a c d - a c -
+b c d f - a d - a - a c d e - a c d - a - a b - a e f - a - a -
+d - a b c d - a b d - a - a c d f - a c - a - a - a - a b c e f -
+b c - a c - a d - a f - a d f - a - a - a c - a c d f - a - a - a - a c d - a - a - a d -
+c - a c d - a b d - a b c d e f - a c - a c d - a d - a c -
+c - a - a - a c d f - a - a b c - a - a c - a c f - a d - a c - a c - a - a d -
+c - a - a b c f - a c - a - a c d - a b c d - a b -
+b c d - a b c d - a c d - a - a - a b d e f - a d - a - a - a d - a - a c d e - a c -
+a d - a b c d - a - a c - a c e f - a c d - a b c d -
+c d - a b c d e - a b c d f - a b - a c f - a c d - a -
+d - a c d f - a - a b c d - a c f - a c d - a c - a c d - a b c d f - a -
+a c d - a - a d - a d e - a b - a b - a - a b - a - a - a c d - a b d - a c - a c d - a -
+c - a - a - a b c d - a - a - a b c d e f - a b c d e - a c d e f -
+c d - a b c e - a c d - a c d - a - a b c d - a - a - a b -
+a - a b c - a - a b c d f - a b c d e - a b c d -
+a - a - a b c d - a - a b - a f - a b - a b c d f - a -
+c d - a c f - a c - a - a c d e - a c e - a - a c - a c - a -
+d f - a b - a - a - a c - a e - a c d - a b c d e - a c d - a - a - a c e - a e -
+d - a c d - a - a c d f - a c - a - a - a b e - a e - a b c d e -
+c - a c d f - a b c - a c e - a c - a - a b c d e - a c - a c e -
+a d - a c f - a b c d e - a c - a c - a c d - a b - a b c - a b c d - a c d e f -
+b c - a d - a c - a b c d e - a - a c d - a b c d - a b c d - a - a c - a d - a b c d e - a c -
+a - a b c d e - a b c e f - a c d - a c - a b c f - a -
+c - a b c - a b c f - a c - a - a c d - a c d - a b - a - a - a d - a c -
+c d e - a - a - a c - a - a b c d - a c - a e - a c d e f - a b c d - a b c -
+b c d - a c - a c f - a c d f - a - a b - a - a b c d f - a c - a -
+c d - a - a b d - a c - a - a c - a b c d - a c - a b c d e -
+b c - a c d - a c - a - a b d e - a c d e - a - a b f - a - a d e - a c f - a c d - a c d - a d - a - a b - a d - a c - a b c e - a - a d - a - a c d - a c - a d -
+a c e f - a d e - a c e - a c - a - a c d - a - a b -
+a b - a - a c - a b - a c - a c - a b c - a - a - a - a c d - a - a c d f - a - a -
+d - a b c d - a b d - a c d f - a c f - a c f - a d - a - a - a c - a e - a c d - a - a -
+c - a - a e - a c - a c d e - a c - a c - a c d - a b c - a b d - a -
+a - a b c d f - a d - a c d f - a c - a b c d e - a d e - a e - a -
+c - a - a - a d - a b c e - a c d - a b e - a c d - a - a d - a b - a b d e -
+b e f - a c - a b c d - a c - a - a - a b c d - a b c d - a e - a d - a c d -
+c - a d - a c f - a d - a - a d - a b c d - a b c d - a - a d f - a d - a d - a - a b c d -
+b c d f - a - a c f - a d - a b c d - a - a b c d e - a d -
+b c e - a b c d e - a b c d e - a - a - a c - a c - a b c d f - a b -
+b c d e - a - a b c d f - a - a c d - a - a - a - a b c d - a c - a c d - a c d - a -
+c - a c - a d - a b c d e - a - a c d - a c d e - a b c d e - a c - a - a c - a c -
+c d - a - a - a b c d f - a b c d f - a c f - a - a c -
+a c f - a b c d f - a d - a b c - a c - a b c d - a - a c d e f -
+b d - a - a c - a - a c d - a - a c e f - a c d - a c - a d f - a c - a - a c d f -
+c d e - a c d e f - a c d f - a c e - a c d - a c - a c - a c - a c - a - a c d - a - a c -
+b e f - a - a c - a b c d - a - a c d e f - a b c d f - a - a b d - a - a c d - a d - a c d - a c -
+c - a c - a c e - a c d - a b c e - a c d - a c f - a c e - a c d e -
+b - a b c d e f - a b c d f - a - a c - a - a c f - a c - a - a c - a c -
+c - a - a b c d e - a c - a - a d - a b c - a - a - a b - a - a b c - a b d - a - a b c f -
+c d e - a c d f - a - a c d - a c d f - a c d - a c - a - a - a -
+a e - a c d - a - a c f - a - a - a d - a b c d - a d - a - a c d - a b c d - a - a -
+a c - a c - a b c d - a - a b c d f - a c - a c d - a c - a -
+d - a c - a c d e f - a b c d - a c d - a d - a c -
+c - a b c - a c f - a c d e - a c f - a c - a c d - a c f - a - a c - a c d - a d - a c d - a - a c - a d -
+c - a c - a c d f - a c - a c f - a d - a d - a b d - a c - a c d - a - a c d - a c -
+c - a b c d f - a - a b c - a c d - a b c - a f - a c d - a - a - a - a b c - a b c d -
+c d - a d e - a c - a c - a c d f - a b c d - a c d - a c - a c d -
+c d f - a c - a b d f - a c - a b c d e - a - a c - a - a c d - a c d - a d -
+a c - a - a b c d f - a - a d f - a - a c d - a b d - a c - a c - a - a c - a c - a - a - a c - a - a c d f - a b c e - a c - a - a b c f - a b c d - a - a c d f -
+a b - a c - a d - a d - a - a c d - a - a - a b c - a - a c - a c d f - a - a - a c d f -
+a c - a - a - a - a c d - a c - a c f - a - a c - a c d e f - a c - a c d - a c -
+b c d f - a c - a c - a b c - a b c d - a c d e - a b c d f - a b d - a -
+b d e f - a c - a b c d - a c d - a - a - a c d - a b c d - a d - a - a c - a c - a c - a -
+b c d - a c - a c d e f - a b c - a d - a c d f - a - a c d -
+c d - a b c d f - a - a - a - a b c d f - a - a - a c f - a c - a e -
+c f - a d - a c - a c - a - a c f - a - a - a - a - a c f - a c d - a c - a b -
+c d e f - a c - a - a e - a - a - a c d - a b c d e f - a - a c - a c - a b c - a f - a b c d f - a c -
+a e - a c - a c d - a b - a f - a - a b c d e - a - a b c d - a c - a - a b c d - a b c - a c -
+c - a c - a b c d - a b c d e - a d - a - a - a b c d e f - a c - a c f - a c d -
+b - a c - a c d f - a b c - a c d - a c - a f - a c - a b c d f - a c d - a -
+b c d f - a c d - a - a c - a d - a c d e f - a b c - a - a d - a -
+b c - a - a - a b c d f - a c d e - a c d - a b c - a b c d -
+c - a - a c d - a b - a - a c d f - a b c e - a d - a c - a c - a d - a c f - a c f - a c -
+b c d f - a b c - a b c f - a b c d f - a - a b c - a - a c d - a d -
+c - a b c - a c - a c - a b c e f - a c f - a - a c - a - a b - a b c d f - a - a b c f - a c d - a - a c d - a c -
+c d - a - a e - a - a c f - a c d f - a - a c - a - a b c f - a c f - a c d e f - a - a - a - a b c d - a c d -
+b c d f - a c d - a b c - a c f - a c d f - a c d - a c d -
+c d f - a c d - a b f - a - a - a - a f - a - a - a b c d - a c - a c d -
+a b c d - a c f - a c d - a - a c - a b c d e f - a c - a - a d - a - a e f - a c -
+c f - a b c d f - a c - a - a - a c d - a c e - a b c d - a - a d - a b c f -
+a - a - a b c - a c d - a - a c - a - a b c d f - a c d f - a d - a - a c - a c e f - a - a b c e -
+b c d f - a c d e - a c d e f - a d - a b c f - a c d f - a c -
+d - a d - a f - a c d f - a c d e f - a d f - a - a c d e - a - a c e - a c - a c - a c f - a b c - a - a -
+c - a c d e f - a c d e f - a c - a c d f - a b c - a c d - a b c - a b c d f -
+a c d f - a - a b c f - a - a c d - a c - a - a b c d f - a b c -
+c - a - a d - a d - a b c d e f - a b c d e f - a d -
+b c - a b c d f - a c d - a b c d f - a c - a - a c d - a c - a - a -
+a - a b c d e - a c d - a c d -
+c d - a - a c - a b c - a c - a b c - a - a c d - a b c e f -
+b c d f - a - a c e - a d f - a c f - a - a - a -
+b c f - a - a c f - a - a b c - a c e - a c d - a c d f -
+c f - a c - a c d f - a c - a c - a b c d f - a - a - a b c d - a - a -
+b c e - a c d - a b c d f - a d - a - a d - a b c - a - a c d e f - a c f - a -
+b c d e f - a c - a b c - a - a - a - a b - a - a - a c e - a - a - a c d e -
+b c d f - a c d - a b d e - a b c d e - a c - a b c d e - a f - a - a - a b e - a c -
+b c d e f - a b c d f - a b c d f - a b - a b c f - a -
+b c e f - a b c d f - a b c d f - a b c d f - a b e f -
+b c d e - a c - a - a c d f - a c - a b c d e f - a c - a - a c - a c - a - a c d -
+c - a c d - a c - a c d - a - a c - a b c e - a c - a c d - a b c - a - a b c d f - a c - a - a - a b c f -
+b c d f - a - a b - a - a f - a - a b c e - a c d f - a c - a c d -
+a b c d f - a c d f - a c d - a b c - a f - a - a b c d e f - a c e f -
+b c d - a c d f - a b c d f - a b c f - a - a b e - a c e - a c d - a c - a b c d f - a c - a - a c d e f -
+c f - a b c d - a c d f - a - a c - a c - a b c d - a b c f - a c e - a b c d -
+a - a c d - a - a b c d - a c f - a b c d - a c - a c - a c d -
+b c d e - a b c - a b c - a c e - a c - a c d - a b c d e - a c d e -
+b c - a c d e f - a b c e f - a b c - a b f - a c d - a - a - a d - a - a f - a c - a - a b c d - a - a - a c - a -
+c d - a f - a c d - a b c f - a b c - a c d - a c - a b d - a c d - a b d f - a b c -
+a b c - a c d - a f - a b c d - a e - a b c d - a - a c - a c d - a c - a c - a c d - a b d e - a - a b c d -
+c f - a c - a - a - a b c d - a - a c - a - a - a c d e - a - a - a b c d - a - a b c e -
+c d e - a c - a c e - a b c f - a c - a c - a f - a c - a c d e - a c f - a c d e f -
+c d - a c d - a b d - a c - a - a - a c d f - a - a f - a c d - a c d f - a b c f -
+f - a - a b c d - a b - a b c e - a - a c - a - a c d - a c d - a - a b c d - a b c d f -
+c f - a c d e f - a - a - a - a - a e - a c d - a d e - a - a b c d e -
+a c d - a b - a c - a c - a c d - a c - a c - a c - a c - a b c d -
+c d - a d f - a - a c d f - a c - a c - a - a - a c - a d - a c e - a b c d e - a - a b c d f - a c d -
+b c d e f - a c e - a c - a - a - a c - a c e f - a b d - a c - a - a - a - a c - a b - a - a - a -
+c - a - a c - a c - a b c - a - a c d - a b c d e - a b c d e -
+a d - a - a - a c - a c f - a - a c - a c d - a - a c f - a c d f - a - a c f - a b c f - a c f - a - a c - a c -
+d - a c - a c d - a b c - a - a c - a - a b c d e - a b c d - a c - a b c d - a c - a - a c - a c d e - a b c d - a - a b c d e f - a d - a - a d -
+a c f - a c d - a c e - a b c d e f - a c d f -
+c d - a - a b c d f - a c - a b c - a b c - a d - a b c d f - a - a c d -
+c d e - a f - a c - a d - a c - a - a c - a b c e - a c - a c - a c d e - a c d - a c d - a c d -
+c d f - a c d - a - a c d f - a - a c - a c - a c - a - a d - a - a b c d - a c d - a c -
+b - a c d - a c - a b c d f - a b e - a c - a b c d - a c - a c - a b c d - a c e f - a c d -
+b c d f - a c e f - a - a - a - a d - a - a c d - a b c - a c d - a b c - a - a b c - a c - a b c e - a d e f -
+f - a c d e f - a c - a c - a b c d f - a c - a c d f - a c -
+a - a d - a c e f - a c - a - a f - a c d - a - a c - a c d - a - a b c d e f - a c - a c f - a c d -
+c f - a - a f - a c - a e - a c - a c - a c - a c d f - a b c d e f - a c d f - a f - a c d - a - a - a c d - a -
+c - a c - a d - a c - a c f - a c d e - a b c d f - a c f - a c f - a - a c - a b c d e f - a c d f - a c d - a c d - a b c d e f - a b c e f - a b c d f - a c d e f - a b c f - a b c - a c d f - a c - a c e f - a b c d e - a - a d - a b c d f - a b c d e f - a - a - a b c d e f - a b c - a c d e - a b c d f - a b c d f - a c d - a c f - a b c d e f - a e - a c d f - a c - a c - a c f - a b c d - a b c d - a d - a b c d e f - a b c d f - a c d f - a - a b c d f - a f - a b c d f - a c f - a b - a - a b c d - a c d e - a c f - a c - a b - a b c d - a c f -
+c - a c - a c - a c f - a c d e f - a c - a c f - a c d - a c - a b c - a c -
+a c d f - a d - a c d - a b c d - a c - a - a b c d f - a c - a b c e f - a b c d f - a c -
+b c d f - a - a c - a - a c - a c f - a - a c f -
+a d - a d - a b c e f - a b - a c d - a - a c - a c - a c e f - a - a - a -
+a c d e - a - a d - a c - a - a b c d e f - a c - a c e - a c e - a c d -
+c d - a c - a b c d f - a c e - a - a c f - a c d - a c - a b c e - a b c d e f - a - a - a f -
+c d f - a b e - a b c - a c d f - a b - a c f - a c d - a c d f - a - a d -
+a b c d e - a c f - a b c f - a d f - a - a b c - a - a c - a b c - a c - a - a c f - a c f -
+d - a c - a b c f - a b - a b c d - a c f - a c - a c d f - a d - a c d f - a c - a c - a c -
+a c d f - a c d - a c d - a c d f - a - a - a c d - a - a c f - a c d e - a -
+c e - a c - a - a c d f - a c - a c - a c f - a c d f - a - a - a d -
+b c f - a b c f - a c - a b c d - a c - a b c d e f -
+b c d e - a c - a b c - a - a b c f - a - a d - a b c d - a b d - a b c d f - a -
+b c d e - a c f - a b - a c d f - a c d - a c d - a d e - a c e f - a b c d - a - a c - a d -
+c e - a b c d - a b c - a c e - a c - a b d - a - a - a e - a c d f - a - a - a - a b c e - a f - a c d e f -
+c d - a - a c d f - a c d e - a c - a c - a c d e f - a b c d -
+c d - a c f - a c d - a c d - a c d e - a c - a b c f -
+b c d e f - a - a -
+c - a c d e f - a c d f - a c - a c f - a - a d - a b c d f - a - a c d e f - a b c f -
+b c d - a b - a - a c f - a b c d f - a c f - a c d - a c d f - a - a c - a c d e -
+c e - a b c d f - a c d - a c f - a b - a c - a - a b c d f - a d e f - a c - a c -
+b - a c - a b e - a c - a c d - a b c d - a - a c d f - a d - a e - a c d - a e f - a c - a -
+c d f - a b c - a c d f - a c d - a b c d f -
+a - a f - a d - a c - a c - a c - a c d f - a b c d f - a b e f - a b c d - a c d f -
+b c e - a - a c f - a c - a b c d f - a d e - a c - a - a - a b c - a c - a c d - a b -
+b c d f - a b c d f - a c e f - a c d -
+b c - a c - a d - a b c d e - a c - a - a b d - a - a b c e f - a c e f - a c e - a c - a d - a -
+b - a c d - a c d e f - a c d f - a - a f - a - a e - a c f - a c - a - a c d f -
+c - a c d - a b c d e f - a e - a b d - a c d - a b c d f - a c - a - a f - a c - a - a -
+c d - a c d - a b c d e f - a b c - a c d - a b c d f - a b c d - a c - a c - a c - a c d -
+c d e f - a c d e - a b c d e - a b c d e - a - a c - a b c d e - a c - a - a b c - a b c f - a c - a c - a c d - a - a b c d - a - a - a c d - a b c d f - a c d - a c - a c e - a - a - a c d f - a b c d - a c d - a b c - a c d - a c - a b f - a b c d - a b c d f - a c - a c f - a d - a - a c d - a b c - a b c - a c d - a c -
+c d e - a c - a c d f - a - a c d f - a c d e f - a b c f -
+c - a - a c - a b c d e f - a - a - a c d e f - a f - a c - a c d - a - a c d e - a -
+c - a - a d - a - a c - a b c - a c d - a - a - a b c d - a b - a - a b c e f - a d - a c d - a b c d - a c d f -
+c f - a c d - a c e - a b c - a c d - a c d - a b - a c d f - a c - a b c - a - a b f - a - a c d f - a -
+d - a c f - a c - a b c d f - a b c d - a c f - a - a c - a b c - a d f - a - a b c - a b c d - a - a c -
+c d - a - a - a c d - a c f - a - a b c d f - a - a c - a b c f - a - a c - a - a b c d - a c - a c -
+c - a c - a - a c - a b c - a c d f - a b c d e - a b c d f - a - a - a - a b c d - a c d - a b c -
+a - a - a b c - a b c d f - a b f - a c - a d - a c - a b c - a c - a - a b c d -
+c d f - a - a c f - a - a d e f - a - a c - a c - a c f - a c f - a c d - a c d - a d - a e -
+c f - a c - a - a - a c d e - a b c - a - a - a c d - a - a - a c f - a c - a b c - a - a b d - a c e f - a -
+b c d e - a c f - a - a b c d e - a - a - a d - a - a c - a b c d - a - a c d f - a -
+c - a - a c - a c - a c - a c d f - a - a - a c - a c - a c d - a b c d e f - a - a c d -
+c d f - a c - a c - a c f - a b c d e - a c f - a c - a c f - a c - a - a b c d f - a - a -
+c d - a - a c - a c d - a c d - a - a b d f - a c - a b d - a b c -
+c d - a c d e - a - a f - a c d f - a d - a c d e - a c d -
+b c d f - a - a d - a c e - a c d - a c - a - a e - a c - a c d -
+b c d f - a c d e - a c d - a c d e - a b c - a c - a b - a b -
+b c d - a - a c - a - a c - a c e - a c - a - a - a c - a c d f - a b c f - a c -
+a - a d e - a c - a c d - a b c - a - a - a - a c d e - a - a b d f - a c d f - a c - a d - a b c - a c d f - a - a - a c - a c d - a c d - a -
+c d - a - a - a b c d - a b - a c - a - a c - a b c d f - a - a c -
+d - a - a c - a c - a c - a b c f - a c e - a b c - a c d - a - a c - a d - a - a - a - a c -
+c d e - a c - a b c - a b c - a b c d e - a c - a - a c - a e - a b c f - a b c d -
+a b c - a c d e f - a - a c - a b c d f - a c - a d - a - a b c f -
+b - a c - a c e - a - a c d - a c - a - a c d e - a c d - a d - a b c d - a c e -
+b c d e - a - a c - a b c d - a b c f - a c - a e - a b c d f - a b c d - a b c d -
+c d - a - a b c - a b c d e f - a c - a b c - a -
+a b c - a b c d - a - a - a - a d - a c d - a - a b c - a b c d - a c - a - a b c d - a -
+d - a - a c d f - a c d e f - a c e - a - a b - a - a - a c - a - a c d e - a d -
+a - a c f - a c - a b c d - a - a c d e - a - a d - a c d - a c -
+a - a b c f - a c - a c d - a - a c d - a c f - a c d f - a d - a c e - a c d e - a c d -
+c f - a c d f - a c e f - a - a c - a b c - a d - a b c d f -
+c d - a c - a c d - a b c d e f - a c - a c f - a b d - a b - a c d f -
+c d - a c d - a b c d e - a - a c - a c d - a c d - a - a c - a c f -
+a - a - a - a - a c d - a b c e f - a c - a - a d - a c - a d f - a - a - a - a c d - a c - a b c -
+c - a b c - a b c - a c - a c d f - a c - a c d - a b c d -
+c - a c d - a c d e - a c - a b c - a c - a - a c - a c f - a - a c f - a -
+c d - a b c d - a - a - a - a c d f - a b - a c e - a c - a d - a c - a - a c - a b c - a d - a b -
+c d - a - a f - a - a c d - a - a c d - a - a - a - a - a f - a b c d f - a c f - a d e -
+b c d f - a b c d f - a c d e f - a c d - a c d f - a c - a b c - a - a d - a c d -
+c d - a f - a - a - a b c - a - a c d f - a b c d - a c d f - a c d f - a c - a - a - a -
+c - a d - a c f - a e - a c f - a b c d f - a b c d - a c - a - a c - a b c - a d - a c e f - a -
+c - a b c d - a c - a - a b d - a c - a c d f - a b d f - a f - a - a d - a c d -
+b c - a c d - a c d - a b c - a f - a b d f - a - a d e f - a - a b - a c - a c d - a c e f -
+b e - a - a c - a c d e - a - a c d - a d - a - a b c d e f - a b c d - a c - a - a -
+a c e - a c d - a c d - a c d f - a b - a b c d e f - a c d - a c d - a b -
+c d e - a c - a - a c d - a c d - a c d - a - a b c d e - a - a c d - a b c d - a c d f - a - a c d e - a c -
+c d - a c - a d - a d f - a c - a - a c - a c e f - a c - a c - a - a - a c d e f - a - a f - a d f -
+c d - a - a - a c d f - a b - a c d - a c d f - a b c - a c d f - a c d f - a e - a c f -
