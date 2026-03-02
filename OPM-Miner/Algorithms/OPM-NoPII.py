@@ -26,7 +26,7 @@ character_Num = 3
 dataset = []
 # 频繁字典
 dic = {}
-
+dic1 = {}
 
 # 读入原始数据集
 def dataRead(f):
@@ -81,18 +81,18 @@ def support_count(binarylist):
 
 
 def Mine_SizeOne():
-    global  OFP_Sizeone,CanNum
+    global  OFP_Sizeone,CanNum, OFP_num
     OFP_Sizeone=[]
     CanNum = 0
     # print(dic)
     # 计算每个项的支持度,得到频繁Sizeone模式
+    #dic1=dict(dic)
     for key in list(dic.keys()):
         if support_count(dic[key])>= minsup:
             OFP_Sizeone.append(eval(key))  # Sizeone频繁模式列表
             # print("{0}:{1}".format(key, support_count(dic[key])))
-        else:
-            del dic[key]
-    # print(dic)
+        #else:  #NoPII 不进行对不频繁项进行删除            
+        #    del dic[key]
     while OFP_Sizeone!=[]:
         FP = []
         for item in OFP_Sizeone:
@@ -111,6 +111,8 @@ def Mine_SizeOne():
             OFP_Sizeone=copy.deepcopy(FP)
         else:
             break
+    #OFP_num += len(OFP_Sizeone)
+    #print (len(dic))
 
 
 #项集模式连接策略
@@ -153,7 +155,11 @@ def Support_I(binarylist1, binarylist2):
 def Mine_SizeMore():
     global  OFP_num, OFP,CanNum
     size = 1
-    OFP_num = len(dic)
+    OFP_num = 0
+    for key in list(dic.keys()):
+        if support_count(dic[key])>= minsup:
+            OFP_num +=1
+    
     # for i in dic.keys():
     #     print("{0} : {1}".format(i, support_count(dic[i])))
     # print(dic.keys())
@@ -168,9 +174,7 @@ def Mine_SizeMore():
                 CanPattern = Join_S(item, jtem)
                 if CanPattern :
                     CanNum += 1
-                    value=Support_S(CanPattern)
-                    if value >= minsup:
-                        #print (value, CanPattern)
+                    if Support_S(CanPattern) >= minsup:
                         FP.append(CanPattern)
                         # print("{0}:{1}".format(CanPattern, Support_S(CanPattern)))
 
@@ -178,7 +182,6 @@ def Mine_SizeMore():
             OFP = copy.deepcopy(FP)
             OFP_num +=len(FP)
             size+=1
-            #print("size {0}: num:{1} ".format(size, len(FP)))
             #print("size {0}: num:{1} patterns:{2}  ".format(size, len(FP), FP))
         else:
             break
@@ -250,7 +253,6 @@ def Support_S(CanPattern):
 
         if i >= len(CanPattern):  # 只有当最后一层匹配成功时，支持度才加1
             support += 1
-            
             # if support >= minsup:  #频繁提前终止
             #     return support
             i = 0
@@ -280,17 +282,17 @@ if __name__ == '__main__':
     #     minsup=sup[i]
     #     print(i+1)
     
-    #f = open('SDB1')
-    #minsup =4400
+    f = open('SDB1')
+    minsup =4300
     
     #f = open('SDB2')
     #minsup =43
     
-    f = open('SDB3') #minsup =810
-    minsup =830
+    #f = open('SDB3') #minsup =810
+    #minsup =810
     
-    #f = open('SDB4')    #minsup =3180
-    #minsup =3800
+    #f = open('SDB4')
+    #minsup =3180
     
     #f = open('SDB5')
     #minsup =155
@@ -302,7 +304,7 @@ if __name__ == '__main__':
     #minsup =48
     
     #f = open('SDB8')
-    #minsup =312
+    #minsup =320
     
     dataRead(f)
     dataPro()
@@ -311,7 +313,6 @@ if __name__ == '__main__':
     Mine_SizeMore()
     new_time = time.time()
 
-    print ("minsup=",minsup, f)
     print("共产生候选模式数量：{0}".format(CanNum))
     print("共产生频繁模式个数：{0}".format(OFP_num))
     print("运行时间为:%.2fs" % (float(new_time - old_time)))

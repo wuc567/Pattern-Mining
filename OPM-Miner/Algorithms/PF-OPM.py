@@ -158,7 +158,8 @@ def Mine_SizeOne():
     sequence = [sequence]
     OFP=[]
     OFP_Sizeone = []
-    CanNum = variable_Num * character_Num
+    # CanNum = variable_Num * character_Num
+    CanNum = 0
     item=[]
     for i in range(len(sequence)):
         for j in range(len(sequence[i])):
@@ -170,16 +171,18 @@ def Mine_SizeOne():
             OFP_Sizeone.append(i)
             OFP.append(i)
             # print(OFP)
+    #print(len(OFP_Sizeone))
     while OFP_Sizeone != []:
         FP = []
         for i in OFP_Sizeone:
             for j in OFP_Sizeone:
                 CanPattern = Join_I(i, j)
-                if CanPattern :
+                if CanPattern:
                     CanNum += 1
                     # print((PFSupport(CanPattern)))
                     if Support(CanPattern) >= minsup:
                         FP.append(CanPattern)
+        #print(CanNum)
         if FP != []:
             OFP_Sizeone = copy.deepcopy(FP)
             OFP.extend(FP)
@@ -243,22 +246,26 @@ def Mine_SizeMore():
     size = 1
     OFP_num = len(OFP)
     # print(OFP)
-    print("size {0}: num:{1}  ".format(size, OFP_num))
+    #print("size {0}: num:{1}  ".format(size, OFP_num))
     while OFP != []:
         FP = []
         for item in OFP:
             for jtem in OFP:
                 CanPattern = Join_S(item, jtem)
-                if CanPattern :
+                print (CanPattern)
+                if CanPattern:
                     CanNum += 1
-                    if PFSupport(CanPattern) >= minsup:
-                        # print(CanPattern)
+                    value = PFSupport(CanPattern)
+                    print (CanPattern, value)
+                    if value >= minsup:
+                        # print(CanPattern, value, 1)
                         FP.append(CanPattern)
+        #print(CanNum)
         if FP:
             OFP = copy.deepcopy(FP)
             OFP_num += len(FP)
             size += 1
-            print("size {0}: num:{1}  ".format(size, support_count(FP)))
+            #print("size {0}: num:{1}  ".format(size, support_count(FP)))
             # print(FP)
         else:
             break
@@ -279,7 +286,11 @@ def Join_S(pattern1, pattern2):
 如果p=(bc)(c),s中有（bc）,其中的c被先用了，则再次使用的时候这个s中的bc就不满足一次性条件了'''
 ''''''
 def isinitem(s,p):
-    i = 0
+    if set(p).issubset(set(s)):
+        return True
+    else:
+        return False
+    """i = 0
     j = 0
     while i < len(s) and j<len(p):
         if set(p[j]).issubset(set(s[i])):
@@ -288,7 +299,7 @@ def isinitem(s,p):
     if j == len(p):
         return True
     else:
-        return False
+        return False"""
 
 
 def PFSupport(p):
@@ -306,7 +317,6 @@ def PFSupport(p):
         for j in range(0, len(s)):
             if isinitem(s[j], p[i]):
                 pos[i].append(j)
-
     i = 0
     f = 0
     b = 0
@@ -321,8 +331,8 @@ def PFSupport(p):
                 j += 1
             if j == len(p):
                 sup += 1
-                if sup>=minsup:
-                    return sup
+                #if sup>=minsup:
+                #    return sup
                 f = 0
                 i = b
             i += 1
@@ -343,8 +353,33 @@ def used(i,p):
 
 
 if __name__ == '__main__':
-    f = open('F:/Pycharm/PyCharm 2023.1/time series/dataset/datauuu/SDB9')
-    minsup = 40
+    f = open('SDB1')
+    minsup =4300
+    
+    #f = open('SDB2')
+    #minsup =43
+    
+    #f = open('SDB3') #minsup =800
+    #minsup =810
+    
+    #f = open('SDB4')
+    #minsup =3180
+    
+    #f = open('SDB5')
+    #minsup =155
+    
+    #f = open('SDB6')
+    #minsup =64
+    
+    #f = open('SDB7')
+    #minsup =48
+    
+    #f = open('SDB8')
+    #minsup =320
+    
+    #f = open('datas2.txt')
+    #minsup =6
+
     dataRead(f)
     dataPro()
     old_time = time.time()
