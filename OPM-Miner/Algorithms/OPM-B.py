@@ -22,11 +22,10 @@ character_Num = 3
 dataset = []
 # 频繁字典
 P = {}
-minsup = 2
+
 
 # 读入原始数据集
-def dataRead():
-    f = open('F:/Pycharm/PyCharm 2023.1/time series/dataddd/3h8l')
+def dataRead(f):
     global variable_Num
     line = f.readline()  # 以行的形式进行读取文件
     while line:
@@ -288,7 +287,33 @@ def Support_S(CanPattern):
 
 
 if __name__ == '__main__':
-    dataRead()
+    #f = open('SDB1')
+    #minsup =4300
+    
+    #f = open('SDB2')
+    #minsup =43
+    
+    #f = open('SDB3') #minsup =800
+    #minsup =810
+    
+    #f = open('SDB4')
+    #minsup =3180
+    
+    #f = open('SDB5')
+    #minsup =155
+    
+    #f = open('SDB6')
+    #minsup =64
+    
+    #f = open('SDB7')
+    #minsup =48
+    
+    f = open('SDB8')
+    minsup =310
+        
+
+
+    dataRead(f)
     dataPro()
     show()
     old_time = time.time()
@@ -296,7 +321,7 @@ if __name__ == '__main__':
     new_time = time.time()
     print("共产生候选模式数量：{0}".format(CanNum))
     print("共产生频繁模式个数：{0}".format(len(FP)))
-    print(FP)
+    #print(FP)
     print("运行时间为:%.2fs" % (float(new_time - old_time)))
     info = psutil.virtual_memory()
     print('内存使用：%.2f MB' % (psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024))

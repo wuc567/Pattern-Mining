@@ -154,13 +154,14 @@ def dataPro():
 def support_count(binarylist):
     return len(binarylist)
 
-
+OFP=[]
 def Mine_SizeOne():
     global OFP_Sizeone, CanNum,sequence,OFP
     sequence = [sequence]
-    OFP=[]
+    
     OFP_Sizeone = []
-    CanNum = variable_Num * character_Num
+    # CanNum = variable_Num * character_Num
+    CanNum = 0
     item=[]
     for i in range(len(sequence)):
         for j in range(len(sequence[i])):
@@ -174,13 +175,17 @@ def Mine_SizeOne():
             # print(OFP)
     while OFP_Sizeone != []:
         FP = []
+        #print (len(OFP_Sizeone))
         for i in OFP_Sizeone:
             for j in OFP_Sizeone:
                 CanPattern = Join_I(i, j)
+                #print (CanPattern)
                 if CanPattern :
                     CanNum += 1
-                    if Support(CanPattern) >= minsup:
-                        FP.append(CanPattern)
+                    value=Support(CanPattern)
+                    #print (value, CanPattern)
+                    if value >= minsup:                        
+                        FP.append(CanPattern)        
         if FP != []:
             OFP_Sizeone = copy.deepcopy(FP)
             OFP.extend(FP)
@@ -244,21 +249,28 @@ def Mine_SizeMore():
     size = 1
     OFP_num = len(OFP)
     # print(OFP)
-    print("size {0}: num:{1}  ".format(size, OFP_num))
+    #print("size {0}: num:{1}  ".format(size, OFP_num))
+    FP=[0]
     while OFP != []:
         FP = []
+        #print (len (OFP), OFP)
         for item in OFP:
             for jtem in OFP:
                 CanPattern = Join_S(item, jtem)
+                #print (CanPattern)
                 if CanPattern :
                     CanNum += 1
-                    if PMBCSupport(CanPattern) >= minsup:
+                    value=PMBCSupport(CanPattern)
+                    #print (value, CanPattern)
+                    if value >= minsup:
+                        #print (CanPattern, value, 2)
                         FP.append(CanPattern)
         if FP:
             OFP = copy.deepcopy(FP)
+            #OFP.extend(FP)
             OFP_num += len(FP)
             size += 1
-            print("size {0}: num:{1}  ".format(size, support_count(FP)))
+            #print("size {0}: num:{1}".format(size, support_count(FP)))
             # print(FP)
         else:
             break
@@ -279,7 +291,11 @@ def Join_S(pattern1, pattern2):
 如果p=(bc)(c),s中有（bc）,其中的c被先用了，则再次使用的时候这个s中的bc就不满足一次性条件了'''
 ''''''
 def isinitem(s,p):
-    i = 0
+    if set(p).issubset(set(s)):
+        return True
+    else:
+        return False
+    """i = 0
     j = 0
     while i < len(s) and j<len(p):
         if set(p[j]).issubset(set(s[i])):
@@ -288,7 +304,7 @@ def isinitem(s,p):
     if j == len(p):
         return True
     else:
-        return False
+        return False"""
 
 
 def PMBCSupport(p):
@@ -307,18 +323,25 @@ def PMBCSupport(p):
             if isinitem(s[j], p[i]):
                 pos[i].append(j)
     i = 0
+    prev=0
+    flag=0
     while i < len(s):
         j = 0
         while j < len(p) and i < len(s):
             if i in pos[j] and unused(i, p[j]):
                 used(i, p[j])
+                if flag == 0:
+                    prev = i
+                    flag = 1
                 j += 1
             if j == len(p):
-                sup += 1
-                if sup >=minsup:
-                    return sup
-                i = 0
+                sup += 1                
+                #if sup >=minsup:
+                #    return sup
+                i = prev
+                flag=0
             i += 1
+            
     return sup
 
 
@@ -337,15 +360,40 @@ def used(i,p):
 
 
 if __name__ == '__main__':
-    f = open('F:/Pycharm/PyCharm 2023.1/time series/dataset/datauuu/SDB9')
-    minsup = 40
+    #f = open('SDB1')
+    #minsup =4500
+    
+    f = open('SDB2')
+    minsup =43
+    
+    #f = open('SDB3') #minsup =800
+    #minsup =830
+    
+    #f = open('SDB4')
+    #minsup =3180
+    
+    #f = open('SDB5')
+    #minsup =155
+    
+    #f = open('SDB6')
+    #minsup =64
+    
+    #f = open('SDB7')
+    #minsup =48
+    
+    #f = open('SDB8')
+    #minsup =320
+        
+    
+    
     dataRead(f)
     dataPro()
     old_time = time.time()
     Mine_SizeOne()
     Mine_SizeMore()
     new_time = time.time()
-
+    
+    #print("minsup=", minsup)
     print("共产生候选模式数量：{0}".format(CanNum))
     print("共产生频繁模式个数：{0}".format(OFP_num))
     print("运行时间为:%.2fs" % (float(new_time - old_time)))

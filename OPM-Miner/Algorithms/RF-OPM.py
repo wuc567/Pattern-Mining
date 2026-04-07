@@ -156,7 +156,8 @@ def Mine_SizeOne():
     sequence = [sequence]
     OFP=[]
     OFP_Sizeone = []
-    CanNum = variable_Num * character_Num
+    # CanNum = variable_Num * character_Num
+    CanNum = 0
     item=[]
     for i in range (len(sequence)):
         for j in range(len(sequence[i])):
@@ -168,18 +169,16 @@ def Mine_SizeOne():
             OFP_Sizeone.append(i)
             OFP.append(i)
             # print(OFP)
-    # print(OFP_Sizeone)
     while OFP_Sizeone != []:
         FP = []
         for i in OFP_Sizeone:
             for j in OFP_Sizeone:
                 CanPattern = Join_I(i, j)
-                if CanPattern :
+                if CanPattern:
                     CanNum += 1
                     if RFSupport(CanPattern) >= minsup:
+                        # print(RFSupport(CanPattern), CanPattern)
                         FP.append(CanPattern)
-
-
         if FP != []:
             OFP_Sizeone = copy.deepcopy(FP)
             OFP.extend(FP)
@@ -217,7 +216,7 @@ def Mine_SizeMore():
     size = 1
     OFP_num = len(OFP)
     # print(OFP)
-    print("size {0}: num:{1}  ".format(size, OFP_num))
+    #print("size {0}: num:{1}  ".format(size, OFP_num))
     while OFP != []:
         FP = []
         for item in OFP:
@@ -226,12 +225,14 @@ def Mine_SizeMore():
                 if CanPattern :
                     CanNum += 1
                     if RFSupport(CanPattern) >= minsup:
+                        # print(RFSupport(CanPattern), CanPattern)
                         FP.append(CanPattern)
+        #print(CanNum)
         if FP:
             OFP = copy.deepcopy(FP)
             OFP_num += len(FP)
             size += 1
-            print("size {0}: num:{1}  ".format(size, support_count(FP)))
+            #print("size {0}: num:{1}  ".format(size, support_count(FP)))
             # print(FP)
         else:
             break
@@ -249,66 +250,71 @@ def Join_S(pattern1, pattern2):
     return CanPattern
 
 
+def isinitem(s,p):
+    if set(p).issubset(set(s)):
+        return True
+    else:
+        return False
+
+
+def unused(i,p):
+    global itemset
+    for item in p:
+        if itemset[item][i]==1:
+            return False
+    return True
+
+def used(i,p):
+    global itemset
+    for item in p:
+        itemset[item][i]=1
+
+
 def RFSupport(pattern):
-    global sequence
-    sss=copy.deepcopy(sequence)
-    supportValue = 0
-    for s in sss:
-        position = []
-        for ks in range(0, len(pattern)):
-            position.append([])
-        i = 0
-        j = len(pattern) - 1
-        while i < len(s):
-            if set(pattern[j]).issubset(set(s[i])):
-                if j == 0:
-                    for k in pattern[0]:
-                        if k in s[i]:
-                            s[i].remove(k)
-                    position[j].append(i)
-                    j = len(pattern)-1
-                    i += 1
-                elif j > 0 and (j < len(pattern)-1):
-                    if len(position[j-1]) == len(position[j]) + 1:
-                        for k in pattern[j]:
-                            if k in s[i]:
-                                s[i].remove(k)
-                        position[j].append(i)
-                        j = len(pattern)-1
-                        i += 1
-                    else:
-                        j -= 1
-                elif j == len(pattern)-1:
-                    if len(position[j - 1]) == len(position[j]) + 1:
-                        for k in pattern[j]:
-                            if k in s[i]:
-                                s[i].remove(k)
-                        position[j].append(i)
-                        i = position[0][len(position[0]) - 1] + 1
-                    else:
-                        j -= 1
-            else:
-                if j == 0:
-                    i += 1
-                    j = len(pattern)-1
-                elif j > 0:
-                    if len(position[j - 1]) == len(position[j]) + 1:
-                        i += 1
-                    else:
-                        j -= 1
-        if i == len(s):
-            supportValue += len(position[len(pattern)-1])
-            if supportValue>=minsup:
-                return supportValue
-    return supportValue
+    global sequence, itemset
+    itemset = {}
+    tr = sequence[0]
+    pos = []
+    for i in range(len(pattern)):
+        pos.append([])
+        for item in pattern[i]:
+            itemset[str(item)] = [0] * len(tr)
+    for i in range(0, len(pattern)):
+        for j in range(0, len(tr)):
+            if isinitem(tr[j], pattern[i]):
+                pos[i].append(j)
+    qu = []
+    nU = pattern[::-1]
+    count = 0
+    for i in range(len(pattern)):
+        qu.append([])
+    for i in range(len(tr)):
+        for m in range(len(nU)):
+            if i in pos[m] and unused(i, nU[m]):
+                if m < len(nU) - 1:
+                    if len(qu[m]) < len(qu[m + 1]):
+                        qu[m].append(i)
+                        used(i, nU[m])
+                        if m == 0:
+                            count = count + 1
+                if m == len(nU) - 1:
+                    qu[m].append(i)
+                    used(i, nU[m])
+                    if m == 0:
+                        count = count + 1
+                    break
+    return count
 
 def Miner():
     Mine_SizeOne()
     Mine_SizeMore()
 
 if __name__ == '__main__':
-    f = open('F:/Pycharm/PyCharm 2023.1/time series/dataset/datauuu/SDB9')
-    minsup = 40
+    #f = open('SDB2')
+    #minsup =43
+    f = open('SDB1')
+    minsup =4500
+    
     dataRead(f)
     dataPro()
     old_time = time.time()
