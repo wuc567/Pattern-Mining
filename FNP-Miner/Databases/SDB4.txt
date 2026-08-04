@@ -1,0 +1,91 @@
+a b c d e f h j k m q r -1 a b c d e f g h i j -1
+a b c d e f g j k -1 a d e f g i -1
+a c d e f g j -1 a b c d e f g j k n -1 a d e f g i j -1 a c d e f g h i m -1
+a b c d e f g h i j l n -1 a b c d e f g -1 a b c d e f g i j n -1 a b c d e f g h i j l m n -1
+a b d e f g h j m -1 a c d e f g i -1 a b c d e f g h i j l m n o p -1 a c d e f g h i l n -1 a b c d e f g i j n -1
+a c d e f g i -1
+a b c d e f g h i j n -1 a b c d e f g i j -1 a d e f g h i o -1 a b c d e f g h j k l m n o p q -1 a c e f h j -1
+b c d e f g -1 a b c d e f g h i j m n o q -1 b c d e f -1 a c d e f -1 a b c d e f g h i j k l m n q -1 a d e f g -1 a b c d e g -1 a b c d e f g h i j k l m n -1 a b c d e f g h i j m o -1
+a c d e f g h j -1 a b c d e f g h i j m n -1 b c d e f m -1 a b c d e f g h i j l m n o p -1 a b c d e f g h i j l n -1 a c d e f i n -1 a b c d e f i -1 a d e f g i q -1
+a c d e f i -1 a b c d e f g h i j k n -1 a c d e f h i -1 a c d e f g n q -1
+a b c d e f g h i j -1 a b c d e f g h i j l n q -1
+a c d e f g i j -1 a c d e f j -1 a b c d e f j n -1
+a b c d e f g h i j -1 a b c d e f g h i p -1 a b c d e f g j -1 a b c d e f h j m -1 a b c d e f g i n o -1 a b c d e f g h -1 a b c d e f g i j -1 a b c d e f h i j -1 a c d e f h -1
+a b c d e f g h i j -1 a b c d e f g i j -1
+a b c d e f g i j p -1 a b c d e f g h i -1 a b c d e f g h i l m n q -1 a d e f h l -1 a c d e f -1 a c d e f -1 a b c d e f g i j k q -1
+a b c d e f g i j -1 a b c d e f g h i j k l m n p r -1 c d e f g h j -1 c d e f i j n -1 a b c d e f g h i j l o -1 a b c d e f g h j l n p q -1
+a b c d e f g i j n q -1 a b c d e f g h i -1 a b c d e f g j -1
+a b c d e f g i j -1 a b c d e f g h i j k l m n p q -1 a b c d e f j -1 a b c d e f g h i l m -1
+a c d e f g j -1 a b c d e f g h i -1 a b c d e f g h i j n p -1 a b c d e f i j -1 a b c d e f g h i m -1 a b c d e f g h i -1 a c d e f g h i q -1 a b c d e f g h i o -1 a c d e f g i o -1 a d e f g i -1
+a b c d e f g h i j l m n -1 a c d e f h i j -1
+a c d e f i q -1 a b c d e f g h i n o -1 a c d e f g h j -1 a c d e f g h i -1 a b d e g i j -1 a b c d e f m -1 a c d e g j -1 a d e g -1 a c d e f g h i j l m -1 a b c d e f g h i n o q -1
+a c d e f -1 a c d e f h m -1 a c d e f g h i m -1
+a b c d e f g h i j k n -1 a d e f i -1 a b c d e f g i j n -1 a c d e f h -1 a c d e f g h i j n -1 a b c d e f g n -1 a b c d e f h i j n p q -1 a b c d e f g h i l n -1 a d e f g i -1 a c d e f h j -1
+a b c d e f g i j l o q -1 a c d e f g -1 a c d e f -1 a c d e f g i -1 a b c d e f g h i l o q -1 a b c d e f g h j k m n r -1
+a b c d e f g h i l m q -1 a c d e f g h i j -1 a c d e f g i l -1
+a b c d e f g h i j k l m n p -1 a b c d e f h j m -1 c d e f g -1 a b c d e f g h i j k l m n p r -1
+a b c d e f g h i j k l m n o q -1 a b c d e f g h i j l n o -1 a c d e f g i -1 a c d e f g i j k l n -1 a c d e f h i -1 a b c d e f i j -1 a c d e f m n -1 a b c d e f g h i k l n o -1 a b c d e f g h i k -1
+a b c d e f g h j n o p q -1 a b c d e f g -1 a b c d e f g i j n -1 c d e f g i -1 a b c d e f -1 a c d e f g j -1 a c d e f -1 a b c d e f g h i j l m n -1
+a b c d e f g -1 a b c d e f g i j -1 a c d e f g i -1 a b c d e f i l m -1 a b c d e f g h i j l m n -1 a b c d e f g h i j m n p -1 a b c d e f g h i j l m n o q -1 a b c d e f h i -1 a b c d e f h j p -1 a d e f g h l m -1
+a b c d e f g h i j l n -1 a b c d e f g i j -1 a b c d e f h l n -1 a c d e f g h i l m -1 a b c d e f g h i n -1 a c d e f g h i -1 a b c d e f g j -1
+a c d e f g h j -1 a b c d e f i -1
+a c d e f g i -1 a c d e f i j -1 a c d e f o -1 a c d e f g i j n -1 a b c d e f g h i j -1 a c d e f g i -1 a b c d e f g h i j o q -1
+a b c d e f g h i j l n p -1 a b c d e f g i j -1 a b c d e f g h i k m n -1 a b c d e f h i -1 a b c d e f h k n -1 a b c d e f g h i j l n p q -1 a b c d e f g p -1
+a b c d e f j n -1 a b c d e f g j n -1
+a d e f n -1 a b c d e f g h -1 a b c d e f g h i j k n -1 a b c d e f j -1 a b c d e f g -1 c d e f h i -1 a b c d e f g i j -1 a b c d e f g h i j k m n o q -1 a b c d e f g i j k -1
+a b c d e f g h i n -1 a d e f g -1 a b c d e f g h i j l n o p q -1 a b c d e f g -1
+a c d e f g -1 a c d e f g i j k n o q -1 a c d e f h l -1 a b c d e f g h i j l n o p q -1 a b c d e f h n -1
+a c d e f g j -1 a c d e f h i m -1 a b d e f g -1
+a b c d e f g h i l o -1 a b c d e f g h i k n -1 a b c d e f g n p -1 a c d e f g h i j l -1 a b c d e f g h j n -1 a c d e f g h i j k q -1 a c d e f h i j -1 a c d e f -1 a b c d e f g -1 a b c d e f g h i j l n -1
+a b c d e f j -1 a b c d e f g h i l n p q -1 a b c d e f g h i j n o q -1 a b c d e f g h i j -1 a c d e f h j -1 a b c d e f g i j -1 a b c d e f i -1 a b c d e f g h i j n -1 a c d e f g -1
+a b d e f g j -1 a d f n -1
+a b c d e f g h i j p -1 a c d e f g i -1 a d e f -1 a b c d e f h -1 b c d e f j -1 a c d e f n -1
+a c d e f h m -1 a b d e f j -1 a b c d e f i n p -1 a b c d e f g h i j n -1 a b c d e f i j n -1 a b c d e f g h i j m n -1 a c d e f g h i l n o p q -1 a c d e f h i -1 a b c d e f g h i j n -1 a c d e f -1
+a b c d e f g h i j -1
+a b d e f h -1 a b c d e f h i k n q -1 a c d e f g -1 a b c d e f g j -1 a b c d e f g n -1 a c d e f g h l -1 a b c d e f g h j l -1 a c d e f h -1 a b c d e f g h i -1 a b c d e f j -1
+a b c d e f i l -1
+a b c d e f g i j -1 a b c d e f i m -1
+a b c d e f g h i j l m -1 a b c d e f g h i j l -1 a b c d e f g h i n p -1 a c d e f j -1 a b c d e f g h i j l n -1
+a b c d e f g h i j k l n r -1 a d e f g i -1 a b c d e f g h i -1 a d e f g i -1 a c d e f g h i j l n -1 a c d f h j -1
+a c d e f j -1 a c d e f g h j l -1 a c d e f i m -1 a b c d e f g h i j l n o -1 a c d e i j -1
+a b c d e f h i j n -1 a b c d e f g h i -1 a b c d e f g h i j -1 a c d e f g i j -1 a c d e f g h i -1 a b c d e f h i j k l m n p q -1 a d e f j -1
+a b c d e f g h i j l n p q r -1 a b c d e f g h i j n -1 a c d e f g h i j n p -1 a c d e f h i -1
+a b c d e f p -1 a b c d e f g h i j n -1 a b c d e f g h j n -1 a b c d e f g h i j k l m n o p q -1 a b c d e f g h i j n q -1 a b c d e f g h i j l m o -1 a b c d e f g h i j m -1 c d e f g n -1 a b c d e f g h i l -1 a b c d e f g h i j l p -1
+a b c d e f g h i j n -1 a b c d e f g h i j k l m n o p q -1 a b c d e f g h i j l m n -1 b c d e f g n -1
+a b c d e f g i l -1 a c d e f g i j l -1 c d e f h j n -1 a b c d e f g h i j k l n o p q -1 c d e f j p -1 a c d e f g i -1
+a b c d e f g h i n o -1 c d e f h j l -1 a b c d e f g h i j -1 a c d e f j -1
+a c d e f h -1 a b c d e f g h j l m p -1
+a b c d e f g h i j k l n -1 a c d e f -1 a c d e f g -1 a b c d e f g h i j k n q -1 a b c d e f g i j n -1 a b c d e f g h i j l m n p q -1 a c d e f g h j -1 a b c d e f g h i j k -1 a b c d e f g i j -1 a b c d e f h -1
+a b c d e f g -1 a b c d e f g h i k l m n o p q -1 a b c d e f g h i j l n -1
+a b c d e f g h i k -1 a b c d e f g h i l p q -1 a b c d e f g h i -1
+a b c d e f h i -1 a b c d e f g h i j l m n o p q -1 a b c d e f g h i j l n q -1 a c d e f h i -1 a b c d e f h i -1 a c d e f g h i j -1 a b c d e f g j -1
+a c d e f g h i n -1 a b c d e f j -1 a b d e f i -1 a b c d e f g i n -1 a b c d e f h i n -1
+a b c d e f g h i -1 a b c d e f g h i j k l m q -1 a c d e f g i j o -1 a b c d e f -1
+a c d e f i -1 a b c d e f g h i k n q r -1
+a c d e f g h i j q -1 a c d e f g h i l o -1 a b c d e f i j n -1 a b c d e f g h j n -1 a c d e f i j m -1 a b c d e f g h i j k l m o -1
+a b c d e f g h i j k o q -1 a d e f g i n -1
+a c d e f g h i j n o -1 a c d e f g j -1
+a b c d e f g i j m -1 a c d e f h -1 a b c d e f g h i l n -1 a c d e f g j -1 a b d e f h i -1
+a b c d e f g h i j k m n p -1 a c d e f g j n -1
+a b c d e f g h j -1 a b c d e f g h i l o -1 a b d e f i n -1 a b c d e f g h i o q -1 a b c d e f g i n q -1 a b c d e f g h i j m -1 a c d e f i -1 a c d e f g h i j n q -1 a b c d e f g h i j k n o p q -1 a c d e f g h k n -1
+a c d e f h -1 a c d e f i j -1 a b c d e f g h i j n p q -1 a b c d e f g i -1 a c d e f g n -1
+a b c d e f g h i j k l m n p q -1 a c d e f h i n -1
+a c d e f h i j k l m p -1 a b c d e f g h -1 a c d e f g j -1 a b c d e f g n -1 a b c d e f g h i j k l m n q -1 a d e f g i -1 a b c d e f g h i j k l o -1 a c d e f g -1
+a b c d e f g h i k m q -1 a c d e f h -1 a c d e f g j k -1 a b c d e f g h i j k n -1 a b c d e f g h i j k l o q -1 a c d e f g h n -1 a b c d e f g l -1 a b c d e f g h i j n -1
+a b c d e f g h i j k l m n p -1 a b c d e f g h i j k l m n p q -1 a b c d e f g -1 b c d e f h -1 a b c d e f j -1 a b c d e f g h i j l m -1 a b c d e f g h i j k l n o q -1 a b c d e f g h i j -1 a c d e f g h i n o -1 a c d e f -1
+a b c d e f g h i j k m n p q r -1 a b c d e f i j -1
+a c d e f h i j l q -1 a c d e h j l -1 a b c d e f j m -1 a b c d e f g h i j -1 a b c d e f g h i j k l m n p -1 a b c d e f g h i j n o -1
+a b c d e f g h i j k l m n o p q -1 a b c d e f g h i j -1 a b c d e f g i j -1 a b c d e f g h i j l q -1 a b c d e f g i j -1 a b c d e f g h i j k l m n o p q -1
+a c d e f g i j -1 a b c d e f i j n -1 a b c d e f g h i j k -1 a d e f g j -1 a b c d e f g h i j n p q -1 a c d e f g h i j n -1 a b c d e f g h i j k l m n q -1 a b c d e f g i j l n -1
+a c d e f g h j -1 a d e f g h i m -1 a c d e f i -1 a d e f g i -1 a b c d e f g h i j k n -1 a c d e f g h i l -1 a c d e f g h i j l -1
+a b c d e f g i -1 a c d e f h -1 a b c d e f h q -1 a d i -1 a c d e f i -1 a b d e f g -1 a b d e f l -1 a b c d e f g i j -1
+a b c d e f g i j k -1 a b c d e f j -1 a c d e f g i -1 a b c d e f i l -1 a c d e f g i -1 a c d e f -1
+a c d e f g i j m -1 a b c d e f g h i j l p -1 a b c d e f g h i m q -1 a b c d e f g h i j k l m n o p q -1
+a b c d e f g i j -1 a b c d e f g j -1 a b c d e f g h i j l m n q -1 a b c d e f g h i j -1 a b c d e f i j -1 a b c d e f g -1 a b c d e f h i -1 a c d e f g -1 a b c d e f m n -1 a b c d e f h i k n q -1
+a b c d e f i j -1 a b c d e f g h i j n q -1 a c d e f g i j -1 a b c d e f g h n -1 a c d e f i j n -1 a c d e f j -1
+a b c d e f g i n -1 a b c d e f h -1 a c d e f g h i j l -1
+a e f i -1 a d e f j -1 a c d e f g i j n -1 a d e f i j l -1 a c d e f g i j k m n o -1 a b c d e f g h i j n -1 a b c d e f h i -1 a c d e f g h q -1 a c d e f g i j -1
+a b c d e f g h i l m n o -1 a c d e f g h j -1 a c d e f g i j -1 a c d e f h i j -1 a b c d e f g h i m n p -1 a d e f g i j -1 a b c d e f g h l n -1 a b c d e f j -1 a c d e f g h i j m -1 a b c d e f g h i j l n o q -1
+a b c d e f g h i j m -1 a c d e f h -1 c e f i m p -1 a b c d e f g h i j l n o p -1 a c d e f j -1 a b c d e f g h i j l m n -1 a b c d e f h n -1 a b c d e f g m -1
+a b c d e f g h i j l q -1 a c d e f g k n q -1 a d e f g i -1 a b c d e f h i q -1 a b c d e f g h i j l m p q -1 a b c d e f g h i j k l n -1 a b c d e f g h j n o -1 a c d e f h j -1 a c d e f g i -1 a b c d e f g h j n o q -1
+a b c d e f g h i m p -1 a c d e f g i -1 a b c d e f g h i j -1
