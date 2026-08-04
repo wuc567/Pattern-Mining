@@ -11,7 +11,7 @@ FNP mining does not satisfy the anti-monotonicity property, and we overcome this
 
 #### Algorithms:
 
-[FNP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/tree/master/FNP-Miner/tree/main/Algorithms)
+[FNP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/tree/master/FNP-Miner/Algorithms)
 
 #### Databases:
 [Databases](https://github.com/wuc567/Pattern-Mining/tree/master/FNP-Miner/Databases)
