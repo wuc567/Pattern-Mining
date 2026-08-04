@@ -1,4 +1,4 @@
-## FNP-Miner: Fuzzy three-way nonoverlapping sequential pattern Mining
+## FNP-Miner: Fuzzy three-way nonoverlapping sequential pattern mining
 ***
 
 Youxi Wu, Yunda Qiao, Jing Liu, Yan Li, Cong Liu, Jianguo Wei, and Wenjian Wang
