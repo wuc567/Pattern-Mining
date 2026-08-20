@@ -1,7 +1,7 @@
 ## WOPP-Miner: Window-based order-preserving pattern mining
 ***
 
-Yajie Zhang, Youxi Wu, Cong Liu, Jinyan Li, Yan Li. WOPP-Miner: Window-based order-preserving pattern mining
+Yajie Zhang, Youxi Wu, Cong Liu, Jinyan Li, Yan Li.
 
 #### Abstract:
 
