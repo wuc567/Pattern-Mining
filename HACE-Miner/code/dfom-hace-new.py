@@ -1,3 +1,5 @@
+# 修订说明：以所提供 HACE_Miner.py 的支持度语义为基准适配 DFOM。
+# 保留原始 DFOM 的顺序扫描和 DFS/回溯，解除跨根节点的位置占用限制。
 import sys
 sys.setrecursionlimit(1000000)
 import time
@@ -18,8 +20,8 @@ maxgap = 2
 first = ('T', '58')  # 用于共生的一长度情节
 
 #filename="SDB1.txt"
-minpua = 120
-filename="SDB8.txt"
+minpua = 20
+filename="SDB4.txt"  # 与 HACE_Miner.py 的验证数据集保持一致
 #filename="SDB1-train.txt"
 #filename="SDB1-test.txt"
 #filename="t-509.txt"
@@ -272,6 +274,12 @@ def creat_nettree(nettree,S):
     for i in range(len(S) - ptn_len):
         if S[i] != sub_ptns[0].start:
             continue
+        # HACE 允许不同根节点的 occurrence 重用后续匹配位置。
+        # HANP 的原始 DFOM 跨根保留各层节点，用于非重叠匹配；
+        # 这里必须为每个根重新开始，否则会少计 HACE 的支持度。
+        # 同一根内部仍保留 DFOM 的逐位置搜索、层记录及深度优先回溯。
+        for layer in nettree:
+            layer.clear()
         nettree[0].append(i)
         ident = creat_subnettree(nettree,S, i, 2)
         if ident == 1:
@@ -386,7 +394,7 @@ def discover_frequent_2pattern(HU1, minpua, HU2, HAU2, prefix):
                 ti_relative = ti_time - Co_time
                 tj_relative = tj_time - Co_time
                 # 检查时间戳逻辑
-                if ti_time < tj_time and 1 <= time_2_diff <= 5 and 0 <= ti_relative <= 10 and 0 <= tj_relative <= 20:
+                if ti_time < tj_time and 1 <= time_2_diff <= 5 and 0 <= ti_relative <= 10 and 0 <= tj_relative <= 10:
                     cand = [ti, tj]  # 创建候选二元组
                     # o = support_SDB_prefix([ti], filtered_sdbstore, filter1, mingap,
                     #                    maxgap)  # 必须得调用support_SDB_prefix函数，不然没有filter会超出索引
@@ -430,7 +438,7 @@ def enumtree_BETsigma(prefix, freq_sigma,
             cur_pattern_time = int(cur_pattern_time)
             cur_pattern_time_first = int(cur_pattern_time_first)
             item_time = int(item_time)
-            if cur_pattern_time < item_time and 1 <= (item_time - cur_pattern_time) <= 5 and 1 <= (item_time - cur_pattern_time_first) <= 20:
+            if cur_pattern_time < item_time and 1 <= (item_time - cur_pattern_time) <= 5 and 1 <= (item_time - cur_pattern_time_first) <= 10:
                 cand = []
                 cand.extend(cur_pattern)
                 cand.append(item)
@@ -467,7 +475,7 @@ def enumtree_BETsigma(prefix, freq_sigma,
                     if len(cand) not in routes:
                         routes[len(cand)] = {}
                     cand_str = "-".join(f"{char}:{ts}" for char, ts in cand)  # 转换每个元组为字符串
-                    routes[len(cand)][cand_str] = hupval
+                    routes[len(cand)][cand_str] = hupval_  # 输出平均效用，与筛选条件一致
         if len(candidate) == 0:
             break
         cur_pattern = candidate[-1]
