@@ -18,5 +18,6 @@ Nonoverlapping sequential pattern mining (SPM) is a type of repetitive SPM with 
 [NWP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/NWP-Miner/NWP-Miner_code.rar)
  
 
-PDF
+### PDF:
+
 Youxi Wu, Zhu Yuan, Yan Li, Lei Guo, Philippe Fournier-Viger, Xindong Wu: NWP-Miner: Nonoverlapping weak-gap sequential pattern mining. Inf. Sci. 588: 124-141 (2022)
