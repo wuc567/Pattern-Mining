@@ -15,4 +15,5 @@ Recently, order-preserving pattern (OPP) mining has been proposed to find trend 
 
 #### PDF:
 Youxi Wu, Zhen Wang, Yan Li, Yingchun Guo, He Jiang, Xingquan Zhu, Xindong Wu: Co-occurrence Order-preserving Pattern Mining with Keypoint Alignment for Time Series. ACM Trans. Manag. Inf. Syst. 15(2): 9 (2024)
+https://github.com/wuc567/Pattern-Mining/blob/master/COP-Miner/2024%20TMIS%20COP-Miner.pdf
 
