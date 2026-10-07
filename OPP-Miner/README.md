@@ -18,3 +18,5 @@ A time series is a collection of measurements in chronological order. Discoverin
 [OPP-Miner and all competitive algorithms](https://github.com/wuc567/Pattern-Mining/blob/master/OPP-Miner/OPP-Miner_code.rar)
  
 
+#### PDF:
+Youxi Wu, Qian Hu, Yan Li, Lei Guo, Xingquan Zhu, Xindong Wu: OPP-Miner: Order-Preserving Sequential Pattern Mining for Time Series. IEEE Trans. Cybern. 53(5): 3288-3300 (2023)
