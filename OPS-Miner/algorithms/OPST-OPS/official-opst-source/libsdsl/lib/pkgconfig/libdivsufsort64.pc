@@ -1,0 +1,11 @@
+prefix=/Users/zyj/Documents/Codex/2026-08-30/qin/work/OPST-source/libsdsl
+exec_prefix=${prefix}
+libdir=/Users/zyj/Documents/Codex/2026-08-30/qin/work/OPST-source/libsdsl/lib
+includedir=/Users/zyj/Documents/Codex/2026-08-30/qin/work/OPST-source/libsdsl/include
+
+Name: libdivsufsort64
+Description: A lightweight suffix sorting library
+Version: 2.0.1-13-g0f24acd
+URL: https://github.com/y-256/libdivsufsort
+Libs: -L${libdir} -ldivsufsort64
+Cflags: -I${includedir}
